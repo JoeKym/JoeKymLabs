@@ -51,48 +51,48 @@ export default function AuthPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#07080A] text-[#F7F8FA]">
+    <div className="min-h-screen bg-slate-50 text-slate-900">
       <Navigation />
       <main className="flex items-center justify-center px-6 pt-32 pb-20">
-        <div className="w-full max-w-md bg-white/5 border border-white/10 rounded-3xl p-8 lg:p-10 backdrop-blur-md">
+        <div className="w-full max-w-md bg-white shadow-sm border border-slate-200 rounded-3xl p-8 lg:p-10 backdrop-blur-md">
           <h1 className="font-display font-bold text-3xl mb-2">{isLogin ? 'Welcome Back' : 'Join JoeKym Labs'}</h1>
-          <p className="text-[#A6ACB8] text-sm mb-8">
+          <p className="text-slate-600 text-sm mb-8">
             {isLogin ? "Sign in to manage your requests and profile." : "Create an account to start your journey with us."}
           </p>
 
           <form onSubmit={handleAuth} className="space-y-5">
             {!isLogin && (
               <div>
-                <label className="block font-mono text-[10px] tracking-widest uppercase text-[#A6ACB8] mb-2">Full Name</label>
+                <label className="block font-mono text-[10px] tracking-widest uppercase text-slate-600 mb-2">Full Name</label>
                 <input 
                   type="text" 
                   required 
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-[#F7F8FA] focus:border-[#B8B2F7] outline-none transition-colors"
+                  className="w-full bg-white shadow-sm border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:border-indigo-600 outline-none transition-colors"
                   placeholder="John Doe"
                 />
               </div>
             )}
             <div>
-              <label className="block font-mono text-[10px] tracking-widest uppercase text-[#A6ACB8] mb-2">Email Address</label>
+              <label className="block font-mono text-[10px] tracking-widest uppercase text-slate-600 mb-2">Email Address</label>
               <input 
                 type="email" 
                 required 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-[#F7F8FA] focus:border-[#B8B2F7] outline-none transition-colors"
+                className="w-full bg-white shadow-sm border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:border-indigo-600 outline-none transition-colors"
                 placeholder="you@example.com"
               />
             </div>
             <div>
-              <label className="block font-mono text-[10px] tracking-widest uppercase text-[#A6ACB8] mb-2">Password</label>
+              <label className="block font-mono text-[10px] tracking-widest uppercase text-slate-600 mb-2">Password</label>
               <input 
                 type="password" 
                 required 
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-[#F7F8FA] focus:border-[#B8B2F7] outline-none transition-colors"
+                className="w-full bg-white shadow-sm border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:border-indigo-600 outline-none transition-colors"
                 placeholder="••••••••"
               />
             </div>
@@ -102,16 +102,16 @@ export default function AuthPage() {
             <button 
               type="submit" 
               disabled={loading}
-              className="w-full py-4 bg-[#B8B2F7] text-[#07080A] font-bold rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 disabled:scale-100"
+              className="w-full py-4 bg-indigo-600 text-white font-bold rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 disabled:scale-100"
             >
               {loading ? 'Processing...' : (isLogin ? 'Sign In' : 'Create Account')}
             </button>
           </form>
 
-          <div className="mt-8 pt-8 border-t border-white/10 text-center">
+          <div className="mt-8 pt-8 border-t border-slate-200 text-center">
             <button 
               onClick={() => setIsLogin(!isLogin)}
-              className="text-[#A6ACB8] text-sm hover:text-[#B8B2F7] transition-colors"
+              className="text-slate-600 text-sm hover:text-indigo-600 transition-colors"
             >
               {isLogin ? "Don't have an account? Sign Up" : "Already have an account? Sign In"}
             </button>

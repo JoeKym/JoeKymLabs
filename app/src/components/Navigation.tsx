@@ -24,10 +24,10 @@ export default function Navigation() {
     const handleScroll = () => {
       if (navRef.current) {
         if (window.scrollY > 50) {
-          navRef.current.classList.add('bg-[#07080A]/85', 'backdrop-blur-xl', 'py-4', 'border-b', 'border-white/5');
+          navRef.current.classList.add('bg-slate-50/85', 'backdrop-blur-xl', 'py-4', 'border-b', 'border-slate-200');
           navRef.current.classList.remove('py-6');
         } else {
-          navRef.current.classList.remove('bg-[#07080A]/85', 'backdrop-blur-xl', 'py-4', 'border-b', 'border-white/5');
+          navRef.current.classList.remove('bg-slate-50/85', 'backdrop-blur-xl', 'py-4', 'border-b', 'border-slate-200');
           navRef.current.classList.add('py-6');
         }
       }
@@ -49,8 +49,8 @@ export default function Navigation() {
   return (
     <nav ref={navRef} className="fixed top-0 left-0 right-0 z-[200] px-6 lg:px-12 py-6 transition-all duration-500 ease-in-out">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link to="/" className="font-display font-bold text-2xl tracking-tight text-white hover:opacity-80 transition-opacity">
-          JoeKym Labs<span className="text-[#B8B2F7]">™</span>
+        <Link to="/" className="font-display font-bold text-2xl tracking-tight text-slate-900 hover:opacity-80 transition-opacity">
+          JoeKym Labs<span className="text-indigo-600">™</span>
         </Link>
         
         <div className="hidden md:flex items-center gap-10">
@@ -58,7 +58,7 @@ export default function Navigation() {
             <Link 
               key={link.name} 
               to={link.path} 
-              className="text-[13px] font-medium tracking-wide uppercase text-white/70 hover:text-white transition-colors duration-300"
+              className="text-[13px] font-medium tracking-wide uppercase text-slate-600 hover:text-slate-900 transition-colors duration-300"
             >
               {link.name}
             </Link>
@@ -69,14 +69,14 @@ export default function Navigation() {
           {user ? (
             <Link 
               to="/profile" 
-              className="px-6 py-3 bg-white/10 text-white text-[13px] font-bold uppercase tracking-wider rounded-xl hover:bg-white/15 transition-all border border-white/10"
+              className="px-6 py-3 bg-slate-100 text-slate-900 text-[13px] font-bold uppercase tracking-wider rounded-xl hover:bg-slate-200 transition-all border border-slate-200"
             >
               Profile
             </Link>
           ) : (
             <Link 
               to="/auth" 
-              className="px-6 py-3 border border-[#B8B2F7]/40 text-[#B8B2F7] text-[13px] font-bold uppercase tracking-wider rounded-xl hover:bg-[#B8B2F7]/5 transition-all"
+              className="px-6 py-3 border border-indigo-600/40 text-indigo-600 text-[13px] font-bold uppercase tracking-wider rounded-xl hover:bg-indigo-600/5 transition-all"
             >
               Sign In
             </Link>
@@ -84,14 +84,14 @@ export default function Navigation() {
 
           <Link 
             to="/#contact" 
-            className="hidden md:block px-6 py-3 bg-[#B8B2F7] text-[#07080A] text-[13px] font-bold uppercase tracking-wider rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-black/20"
+            className="hidden md:block px-6 py-3 bg-indigo-600 text-white text-[13px] font-bold uppercase tracking-wider rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-indigo-600/20"
           >
             Start a project
           </Link>
         </div>
         
         {/* Mobile menu icon placeholder */}
-        <button className="md:hidden text-white p-2">
+        <button className="md:hidden text-slate-900 p-2">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 8h16M4 16h16"/></svg>
         </button>
       </div>

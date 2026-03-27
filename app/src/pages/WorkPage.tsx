@@ -16,14 +16,14 @@ const projects = [
 
 export default function WorkPage() {
   return (
-    <div className="min-h-screen bg-[#07080A] text-[#F7F8FA] font-sans">
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
       <Navigation />
       
       <main className="max-w-6xl mx-auto px-6 pt-32 pb-20">
         <header className="mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700">
-          <p className="font-mono text-xs tracking-[0.2em] uppercase text-[#B8B2F7] mb-4">Archive</p>
+          <p className="font-mono text-xs tracking-[0.2em] uppercase text-indigo-600 mb-4">Archive</p>
           <h1 className="font-display font-bold text-5xl md:text-7xl mb-6">Selected Work</h1>
-          <p className="text-[#A6ACB8] text-lg max-w-2xl leading-relaxed">
+          <p className="text-slate-600 text-lg max-w-2xl leading-relaxed">
             A comprehensive list of recent deployments, prototypes, and production builds spanning frontend architecture, 3D web experiences, and full-stack applications.
           </p>
         </header>
@@ -35,24 +35,24 @@ export default function WorkPage() {
               href={project.url}
               target="_blank"
               rel="noreferrer"
-              className="group bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4"
+              className="group bg-white shadow-sm border border-slate-200 rounded-3xl p-8 hover:bg-slate-100 hover:border-slate-300 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4"
               style={{ animationDelay: `${idx * 100}ms` }}
             >
               <div className="flex justify-between items-start mb-12">
-                <div className="px-3 py-1 bg-[#B8B2F7]/10 text-[#B8B2F7] text-[10px] font-mono uppercase tracking-wider rounded-lg">
+                <div className="px-3 py-1 bg-indigo-600/10 text-indigo-600 text-[10px] font-mono uppercase tracking-wider rounded-lg">
                   {project.type}
                 </div>
-                <ExternalLink size={20} className="text-[#A6ACB8] group-hover:text-white transition-colors" />
+                <ExternalLink size={20} className="text-slate-600 group-hover:text-slate-900 transition-colors" />
               </div>
               
-              <h3 className="font-display font-bold text-2xl mb-2 group-hover:text-[#B8B2F7] transition-colors">
+              <h3 className="font-display font-bold text-2xl mb-2 group-hover:text-indigo-600 transition-colors">
                 {project.title}
               </h3>
-              <p className="text-sm text-[#A6ACB8] mb-6 font-mono">
+              <p className="text-sm text-slate-600 mb-6 font-mono">
                 {project.tech}
               </p>
               
-              <div className="flex items-center text-sm font-medium text-white/70 group-hover:text-white transition-colors">
+              <div className="flex items-center text-sm font-medium text-slate-600 group-hover:text-slate-900 transition-colors">
                 Visit Live Site <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </div>
             </a>

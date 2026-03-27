@@ -34,12 +34,12 @@ function ScrollToTop() {
 // Placeholder for future App features
 function MainApp() {
   return (
-    <div className="min-h-screen bg-[#07080A] flex flex-col items-center justify-center p-6 text-center">
-      <h1 className="font-display font-bold text-4xl mb-4 text-[#F7F8FA]">JoeKym Labs App</h1>
-      <p className="text-[#A6ACB8] max-w-md mb-8">
+    <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-6 text-center">
+      <h1 className="font-display font-bold text-4xl mb-4 text-slate-900">JoeKym Labs App</h1>
+      <p className="text-slate-600 max-w-md mb-8">
         This is the functional part of JoeKym Labs. We are currently building out new tools and interactive features.
       </p>
-      <a href="/" className="px-6 py-3 bg-[#B8B2F7] text-[#07080A] font-medium rounded-xl btn-hover">
+      <a href="/" className="px-6 py-3 bg-indigo-600 text-white font-medium rounded-xl btn-hover">
         Back to Home
       </a>
     </div>

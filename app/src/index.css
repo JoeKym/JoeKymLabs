@@ -37,7 +37,7 @@
     scroll-behavior: auto;
   }
   body {
-    @apply bg-[#07080A] text-[#F7F8FA] antialiased;
+    @apply bg-slate-50 text-slate-900 antialiased;
     font-family: 'Inter', sans-serif;
   }
 }
@@ -57,16 +57,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #07080A;
+  background: #F8FAFC;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a2d35;
+  background: #CBD5E1;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3a3d45;
+  background: #94A3B8;
 }
 
 /* Grain overlay */
@@ -82,7 +82,7 @@
 
 /* Card shadow */
 .card-shadow {
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 /* Button hover */
@@ -104,7 +104,7 @@
 
 /* Text gradient */
 .text-gradient {
-  background: linear-gradient(135deg, #F7F8FA 0%, #A6ACB8 100%);
+  background: linear-gradient(135deg, #111827 0%, #4B5563 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -112,21 +112,21 @@
 
 /* Accent color */
 .accent-lavender {
-  color: #B8B2F7;
+  color: #4F46E5;
 }
 
 .bg-accent-lavender {
-  background-color: #B8B2F7;
+  background-color: #4F46E5;
 }
 
 /* Off-white background */
 .bg-off-white {
-  background-color: #F4F6F9;
+  background-color: #F8FAFC;
 }
 
 /* Image treatment */
 .img-graded {
-  filter: saturate(0.7) contrast(1.1);
+  filter: saturate(1.1) contrast(1.05);
 }
 
 /* Navigation */
@@ -142,7 +142,7 @@
   left: 0;
   width: 0;
   height: 1px;
-  background: #B8B2F7;
+  background: #4F46E5;
   transition: width 0.3s ease;
 }
 
@@ -153,31 +153,31 @@
 /* Form styles */
 input, textarea, select {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid #E2E8F0;
   border-radius: 12px;
   padding: 12px 16px;
-  color: #F7F8FA;
+  color: #0F172A;
   transition: border-color 0.2s ease;
 }
 
 input:focus, textarea:focus, select:focus {
   outline: none;
-  border-color: #B8B2F7;
+  border-color: #4F46E5;
 }
 
 input::placeholder, textarea::placeholder {
-  color: #A6ACB8;
+  color: #94A3B8;
 }
 
 /* Light section form styles */
 .bg-off-white input,
 .bg-off-white textarea,
 .bg-off-white select {
-  border-color: rgba(0, 0, 0, 0.15);
-  color: #07080A;
+  border-color: #E2E8F0;
+  color: #0F172A;
 }
 
 .bg-off-white input::placeholder,
 .bg-off-white textarea::placeholder {
-  color: #6b7280;
+  color: #94A3B8;
 }
