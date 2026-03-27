@@ -5,6 +5,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        slate: {
+          50: "hsl(var(--background))",
+          100: "hsl(var(--card))",
+          200: "hsl(var(--border))",
+          300: "hsl(var(--muted))",
+          400: "hsl(var(--muted-foreground))",
+          500: "hsl(var(--muted-foreground))",
+          600: "hsl(var(--muted-foreground))",
+          700: "hsl(var(--foreground) / 0.8)",
+          800: "hsl(var(--foreground) / 0.9)",
+          900: "hsl(var(--foreground))",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
