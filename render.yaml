@@ -1,22 +1,13 @@
 services:
-  # 1. Main Static Website
+  # JoeKym Labs Single Page Application (SPA)
   - type: web
-    name: joekym-labs-website
-    env: static
-    buildCommand: ""
-    publishDir: website
-    # Root directory for this service
-    rootDir: .
-
-  # 2. React Application
-  - type: web
-    name: joekym-labs-app
+    name: joekym-labs
     env: static
     # Command to build the React app
     buildCommand: npm install && npm run build
     # Vite outputs to 'dist' inside the 'app' directory
     publishDir: dist
-    # Root directory for the app service
+    # Root directory for the SPA
     rootDir: app
     # SPA routing: Redirect all requests to index.html to handle client-side routing
     routes:
