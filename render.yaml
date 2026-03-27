@@ -1,6 +1,6 @@
 services:
   # JoeKym Labs Single Page Application (SPA)
-  - type: static
+  - type: static_site
     name: joekymlabs
     # Command to build the React app
     buildCommand: npm install && npm run build
