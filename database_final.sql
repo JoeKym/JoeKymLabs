@@ -8,8 +8,35 @@ create table if not exists public.profiles (
   full_name text,
   username text unique,
   avatar_url text,
-  email text unique
+  email text unique,
+  bio text,
+  phone text,
+  location text,
+  website text,
+  github text,
+  twitter text,
+  followers_count int default 0,
+  following_count int default 0,
+  reputation_points int default 0,
+  preferences jsonb default '{}'::jsonb
 );
+
+-- Safely add columns if the table already exists
+do $$
+begin
+  alter table public.profiles add column if not exists bio text;
+  alter table public.profiles add column if not exists phone text;
+  alter table public.profiles add column if not exists location text;
+  alter table public.profiles add column if not exists website text;
+  alter table public.profiles add column if not exists github text;
+  alter table public.profiles add column if not exists twitter text;
+  alter table public.profiles add column if not exists followers_count int default 0;
+  alter table public.profiles add column if not exists following_count int default 0;
+  alter table public.profiles add column if not exists reputation_points int default 0;
+  alter table public.profiles add column if not exists preferences jsonb default '{}'::jsonb;
+exception
+  when duplicate_column then null;
+end $$;
 
 alter table public.profiles enable row level security;
 
@@ -91,5 +118,51 @@ do $$
 begin
   if not exists (select 1 from pg_policies where policyname = 'Users can manage own subscription') then
     create policy "Users can manage own subscription" on public.subscriptions for all using ( auth.uid() = user_id );
+  end if;
+end $$;
+
+-- 5. User Projects Table
+create table if not exists public.user_projects (
+  id uuid default gen_random_uuid() primary key,
+  user_id uuid references public.profiles(id) on delete cascade not null,
+  title text not null,
+  description text,
+  image_url text,
+  tags text[],
+  likes_count int default 0,
+  created_at timestamp with time zone default timezone('utc'::text, now())
+);
+
+alter table public.user_projects enable row level security;
+
+do $$ 
+begin
+  if not exists (select 1 from pg_policies where policyname = 'Projects are publicly viewable') then
+    create policy "Projects are publicly viewable" on public.user_projects for select using ( true );
+  end if;
+  if not exists (select 1 from pg_policies where policyname = 'Users can manage own projects') then
+    create policy "Users can manage own projects" on public.user_projects for all using ( auth.uid() = user_id );
+  end if;
+end $$;
+
+-- 6. User Activities Table
+create table if not exists public.user_activities (
+  id uuid default gen_random_uuid() primary key,
+  user_id uuid references public.profiles(id) on delete cascade not null,
+  activity_type text not null,
+  target_name text,
+  content text,
+  created_at timestamp with time zone default timezone('utc'::text, now())
+);
+
+alter table public.user_activities enable row level security;
+
+do $$ 
+begin
+  if not exists (select 1 from pg_policies where policyname = 'Activities are publicly viewable') then
+    create policy "Activities are publicly viewable" on public.user_activities for select using ( true );
+  end if;
+  if not exists (select 1 from pg_policies where policyname = 'Users can manage own activities') then
+    create policy "Users can manage own activities" on public.user_activities for all using ( auth.uid() = user_id );
   end if;
 end $$;

@@ -14,6 +14,12 @@ interface Profile {
   email: string;
   avatar_url: string;
   created_at?: string;
+  bio?: string;
+  phone?: string;
+  location?: string;
+  website?: string;
+  github?: string;
+  twitter?: string;
 }
 
 export default function ProfilePage() {
@@ -38,7 +44,7 @@ export default function ProfilePage() {
 
       const { data, error } = await supabase
         .from('profiles')
-        .select('full_name, username, email, avatar_url')
+        .select('full_name, username, email, avatar_url, bio, phone, location, website, github, twitter')
         .eq('id', user.id)
         .single();
 
@@ -68,6 +74,12 @@ export default function ProfilePage() {
         .update({
           full_name: profile?.full_name,
           username: profile?.username,
+          bio: profile?.bio,
+          phone: profile?.phone,
+          location: profile?.location,
+          website: profile?.website,
+          github: profile?.github,
+          twitter: profile?.twitter,
         })
         .eq('id', user.id);
 
@@ -237,7 +249,35 @@ export default function ProfilePage() {
                         <Phone size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30" />
                         <input 
                           type="text" 
+                          value={profile?.phone || ''}
+                          onChange={(e) => setProfile(p => p ? { ...p, phone: e.target.value } : null)}
                           placeholder="+1 (555) 000-0000"
+                          className="w-full bg-black/20 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-[#F7F8FA] focus:border-[#B8B2F7] focus:ring-1 focus:ring-[#B8B2F7]/50 outline-none transition-all placeholder:text-white/20"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block font-mono text-[10px] tracking-widest uppercase text-[#A6ACB8] mb-2">Location</label>
+                      <input 
+                        type="text" 
+                        value={profile?.location || ''}
+                        onChange={(e) => setProfile(p => p ? { ...p, location: e.target.value } : null)}
+                        placeholder="San Francisco, CA"
+                        className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-[#F7F8FA] focus:border-[#B8B2F7] focus:ring-1 focus:ring-[#B8B2F7]/50 outline-none transition-all placeholder:text-white/20"
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-mono text-[10px] tracking-widest uppercase text-[#A6ACB8] mb-2">Website</label>
+                      <div className="relative">
+                        <Globe size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30" />
+                        <input 
+                          type="text" 
+                          value={profile?.website || ''}
+                          onChange={(e) => setProfile(p => p ? { ...p, website: e.target.value } : null)}
+                          placeholder="https://yourwebsite.com"
                           className="w-full bg-black/20 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-[#F7F8FA] focus:border-[#B8B2F7] focus:ring-1 focus:ring-[#B8B2F7]/50 outline-none transition-all placeholder:text-white/20"
                         />
                       </div>
@@ -248,6 +288,8 @@ export default function ProfilePage() {
                     <label className="block font-mono text-[10px] tracking-widest uppercase text-[#A6ACB8] mb-2">Bio / About</label>
                     <textarea 
                       rows={4}
+                      value={profile?.bio || ''}
+                      onChange={(e) => setProfile(p => p ? { ...p, bio: e.target.value } : null)}
                       placeholder="Tell us a little about yourself..."
                       className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-[#F7F8FA] focus:border-[#B8B2F7] focus:ring-1 focus:ring-[#B8B2F7]/50 outline-none transition-all resize-none placeholder:text-white/20"
                     />
@@ -386,26 +428,50 @@ export default function ProfilePage() {
                 </header>
 
                 <div className="bg-white/5 border border-white/10 rounded-3xl p-8 space-y-4">
-                  <div className="flex items-center justify-between p-4 bg-black/20 rounded-2xl border border-white/5">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-black/20 rounded-2xl border border-white/5 gap-4">
                     <div className="flex items-center gap-4">
                       <Github size={24} />
                       <div>
                         <div className="font-medium">GitHub</div>
-                        <div className="text-xs text-[#A6ACB8]">Not connected</div>
+                        <div className="text-xs text-[#A6ACB8]">Add your username</div>
                       </div>
                     </div>
-                    <button className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl text-sm transition-colors">Connect</button>
+                    <div className="relative">
+                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 text-sm">@</span>
+                      <input 
+                        type="text" 
+                        value={profile?.github || ''}
+                        onChange={(e) => {
+                          setProfile(p => p ? { ...p, github: e.target.value } : null);
+                        }}
+                        onBlur={handleUpdate}
+                        placeholder="username"
+                        className="w-full sm:w-48 bg-black/40 border border-white/10 rounded-xl pl-8 pr-4 py-2 text-sm text-[#F7F8FA] focus:border-[#B8B2F7] outline-none transition-all"
+                      />
+                    </div>
                   </div>
 
-                  <div className="flex items-center justify-between p-4 bg-black/20 rounded-2xl border border-white/5">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-black/20 rounded-2xl border border-white/5 gap-4">
                     <div className="flex items-center gap-4">
                       <Twitter size={24} className="text-sky-400" />
                       <div>
                         <div className="font-medium">Twitter / X</div>
-                        <div className="text-xs text-[#A6ACB8]">Not connected</div>
+                        <div className="text-xs text-[#A6ACB8]">Add your username</div>
                       </div>
                     </div>
-                    <button className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl text-sm transition-colors">Connect</button>
+                    <div className="relative">
+                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 text-sm">@</span>
+                      <input 
+                        type="text" 
+                        value={profile?.twitter || ''}
+                        onChange={(e) => {
+                          setProfile(p => p ? { ...p, twitter: e.target.value } : null);
+                        }}
+                        onBlur={handleUpdate}
+                        placeholder="username"
+                        className="w-full sm:w-48 bg-black/40 border border-white/10 rounded-xl pl-8 pr-4 py-2 text-sm text-[#F7F8FA] focus:border-[#B8B2F7] outline-none transition-all"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
