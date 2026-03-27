@@ -51,12 +51,12 @@ function HeroSection() {
       <div ref={contentRef} className="relative h-full flex flex-col justify-center px-6 lg:px-[6vw]">
         <div className="max-w-xl">
           <p className="hero-label font-mono text-xs tracking-[0.2em] uppercase text-[#B8B2F7] mb-4">Web Design &amp; Development Studio</p>
-          <h1 className="hero-title font-display font-bold text-5xl md:text-6xl lg:text-7xl text-[#F7F8FA] leading-[0.95] mb-6">JoeKym Labs</h1>
+          <h1 className="hero-title font-display font-bold text-5xl md:text-6xl lg:text-7xl text-[#F7F8FA] leading-[0.95] mb-6">JoeKym Labs™</h1>
           <p className="hero-body text-base md:text-lg text-white/80 leading-relaxed mb-8 max-w-md">
             We craft clean, editorial interfaces and build them with performant code — for brands that value clarity over noise.
           </p>
           <div className="flex flex-wrap gap-4">
-            <a href="#work" className="hero-cta px-6 py-3 bg-[#B8B2F7] text-[#07080A] font-medium rounded-xl btn-hover">View selected work</a>
+            <a href="/work" className="hero-cta px-6 py-3 bg-[#B8B2F7] text-[#07080A] font-medium rounded-xl btn-hover">View selected work</a>
             <a href="#contact" className="hero-cta px-6 py-3 border border-[#F7F8FA]/20 text-[#F7F8FA] font-medium rounded-xl btn-hover hover:bg-[#F7F8FA]/5">Start a project</a>
           </div>
         </div>
@@ -104,7 +104,7 @@ function WorkSection() {
         <div ref={headingRef} className="w-full lg:w-[32vw] h-full flex flex-col justify-center lg:px-[6vw]">
           <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-[#F7F8FA] mb-4">Selected Work</h2>
           <p className="text-[#A6ACB8] text-sm md:text-base leading-relaxed mb-6 max-w-xs">A few recent builds—minimal UI, strong typography, and motion that respects the content.</p>
-          <a href="#" className="text-[#B8B2F7] text-sm font-medium hover:underline">Browse archive →</a>
+          <a href="/work" className="text-[#B8B2F7] text-sm font-medium hover:underline">Browse archive →</a>
         </div>
         <div ref={cardsRef} className="hidden lg:block flex-1 relative">
           <div className="work-card work-card-a absolute left-[2vw] top-[14vh] w-[26vw] h-[34vh] rounded-[22px] overflow-hidden card-shadow">
@@ -255,11 +255,46 @@ function SplitSection({ id, microLabel, title, body, cta, ctaLink = '#', image, 
   );
 }
 
+import { supabase } from '../lib/supabaseClient';
+import { User } from '@supabase/supabase-js';
+
 // Section 12: Contact
 function ContactSection() {
+  const [user, setUser] = useState<User | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const leftColRef = useRef<HTMLDivElement>(null);
   const rightColRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+    });
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!user) return;
+    setSubmitting(true);
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      user_id: user.id,
+      name: formData.get('name'),
+      email: formData.get('email'),
+      budget: formData.get('budget'),
+      message: formData.get('message'),
+    };
+
+    const { error } = await supabase.from('project_requests').insert([data]);
+    setSubmitting(false);
+    if (!error) setSuccess(true);
+  };
+
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(leftColRef.current, { x: '-10vw', opacity: 0 }, { x: 0, opacity: 1, scrollTrigger: { trigger: sectionRef.current, start: 'top 80%', end: 'top 40%', scrub: 0.6 } });
@@ -269,7 +304,7 @@ function ContactSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="contact" className="min-h-screen bg-[#F4F6F9] z-[130]">
+    <section ref={sectionRef} id="contact" className="relative min-h-screen bg-[#F4F6F9] z-[200]">
       <div className="flex flex-col lg:flex-row">
         <div ref={leftColRef} className="w-full lg:w-[45vw] px-6 lg:px-[6vw] py-16 lg:py-[10vh]">
           <h2 className="font-display font-bold text-4xl md:text-5xl text-[#07080A] mb-4">Start a project</h2>
@@ -281,14 +316,31 @@ function ContactSection() {
           </div>
         </div>
         <div ref={rightColRef} className="w-full lg:w-[55vw] px-6 lg:px-[6vw] py-16 lg:py-[10vh]">
-          <div className="bg-white rounded-[22px] p-8 lg:p-10 card-shadow">
-            <form className="space-y-6">
-              <div><label className="block font-mono text-xs tracking-[0.08em] uppercase text-[#6b7280] mb-2">Name</label><input type="text" placeholder="Your name" className="w-full" /></div>
-              <div><label className="block font-mono text-xs tracking-[0.08em] uppercase text-[#6b7280] mb-2">Email</label><input type="email" placeholder="your@email.com" className="w-full" /></div>
-              <div><label className="block font-mono text-xs tracking-[0.08em] uppercase text-[#6b7280] mb-2">Budget</label><select className="w-full"><option>Select a range</option><option>$5k - $10k</option><option>$10k - $25k</option><option>$25k - $50k</option><option>$50k+</option></select></div>
-              <div><label className="block font-mono text-xs tracking-[0.08em] uppercase text-[#6b7280] mb-2">Message</label><textarea rows={4} placeholder="Tell us about your project..." className="w-full resize-none" /></div>
-              <button type="submit" className="w-full px-6 py-3 bg-[#B8B2F7] text-[#07080A] font-medium rounded-xl btn-hover">Send message</button>
-            </form>
+          <div className="bg-white rounded-[22px] p-8 lg:p-10 card-shadow text-[#07080A]">
+            {!user ? (
+              <div className="text-center py-12">
+                <h3 className="font-display font-semibold text-2xl mb-4">Ready to start?</h3>
+                <p className="text-[#4b5563] mb-8">Please sign in to your JoeKym Labs account to submit a project request or subscribe.</p>
+                <div className="flex flex-col gap-4">
+                  <a href="/auth" className="px-6 py-3 bg-[#B8B2F7] text-[#07080A] font-bold rounded-xl btn-hover">Sign In / Create Account</a>
+                </div>
+              </div>
+            ) : success ? (
+              <div className="text-center py-12">
+                <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full mx-auto mb-6 flex items-center justify-center text-2xl">✓</div>
+                <h3 className="font-display font-semibold text-2xl mb-2">Request Sent!</h3>
+                <p className="text-[#4b5563]">We've received your brief and will be in touch within 48 hours.</p>
+                <button onClick={() => setSuccess(false)} className="mt-8 text-sm font-medium text-[#B8B2F7] hover:underline">Send another request</button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div><label className="block font-mono text-[10px] tracking-widest uppercase text-[#6b7280] mb-2">Name</label><input type="text" name="name" required placeholder="Your name" className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-[#B8B2F7] outline-none" /></div>
+                <div><label className="block font-mono text-[10px] tracking-widest uppercase text-[#6b7280] mb-2">Email</label><input type="email" name="email" required placeholder="your@email.com" defaultValue={user.email} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-[#B8B2F7] outline-none" /></div>
+                <div><label className="block font-mono text-[10px] tracking-widest uppercase text-[#6b7280] mb-2">Budget</label><select name="budget" className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-[#B8B2F7] outline-none"><option>Select a range</option><option>$5k - $10k</option><option>$10k - $25k</option><option>$25k - $50k</option><option>$50k+</option></select></div>
+                <div><label className="block font-mono text-[10px] tracking-widest uppercase text-[#6b7280] mb-2">Message</label><textarea name="message" required rows={4} placeholder="Tell us about your project..." className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-[#B8B2F7] outline-none resize-none" /></div>
+                <button type="submit" disabled={submitting} className="w-full px-6 py-3 bg-[#B8B2F7] text-[#07080A] font-bold rounded-xl btn-hover disabled:opacity-50">{submitting ? 'Sending...' : 'Send request'}</button>
+              </form>
+            )}
           </div>
         </div>
       </div>
@@ -317,7 +369,10 @@ export default function LandingPage() {
       ScrollTrigger.create({ snap: { snapTo: (value: number) => { const inPinned = pinnedRanges.some(r => value >= r.start - 0.08 && value <= r.end + 0.08); if (!inPinned) return value; const target = pinnedRanges.reduce((closest, r) => Math.abs(r.center - value) < Math.abs(closest - value) ? r.center : closest, pinnedRanges[0]?.center ?? 0); return target; }, duration: { min: 0.15, max: 0.35 }, delay: 0, ease: 'power2.out' } });
     };
     const timer = setTimeout(setupSnap, 500);
-    return () => { clearTimeout(timer); ScrollTrigger.getAll().forEach(st => st.kill()); };
+    return () => { 
+      clearTimeout(timer); 
+      ScrollTrigger.getAll().forEach(st => st.kill()); 
+    };
   }, []);
 
   return (

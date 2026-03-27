@@ -4,6 +4,9 @@ import LandingPage from './pages/LandingPage';
 import WorkPage from './pages/WorkPage';
 import StudioPage from './pages/StudioPage';
 import NotesPage from './pages/NotesPage';
+import AuthPage from './pages/AuthPage';
+import ProfilePage from './pages/ProfilePage';
+import UserPage from './pages/UserPage';
 import './App.css';
 
 // Scroll to top on route change
@@ -45,7 +48,9 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/work" element={<WorkPage />} />
         <Route path="/studio" element={<StudioPage />} />
-        <Route path="/notes" element={<NotesPage />} />
+        <Route path="/auth" element={<AuthPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/user/:username" element={<UserPage />} />
         <Route path="/app" element={<MainApp />} />
         <Route path="*" element={<LandingPage />} />
       </Routes>

@@ -1,12 +1,26 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { supabase } from '../lib/supabaseClient';
+import { User } from '@supabase/supabase-js';
 
 export default function Navigation() {
   const navRef = useRef<HTMLElement>(null);
   const location = useLocation();
   const isHome = location.pathname === '/';
   
+  const [user, setUser] = useState<User | null>(null);
+  
   useEffect(() => {
+    // Get initial session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+    });
+
+    // Listen for changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
     const handleScroll = () => {
       if (navRef.current) {
         if (window.scrollY > 50) {
@@ -19,7 +33,10 @@ export default function Navigation() {
       }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      subscription.unsubscribe();
+    };
   }, []);
 
   const navLinks = [
@@ -48,12 +65,30 @@ export default function Navigation() {
           ))}
         </div>
 
-        <Link 
-          to="/#contact" 
-          className="hidden md:block px-6 py-3 bg-[#B8B2F7] text-[#07080A] text-[13px] font-bold uppercase tracking-wider rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-black/20"
-        >
-          Start a project
-        </Link>
+        <div className="flex items-center gap-4">
+          {user ? (
+            <Link 
+              to="/profile" 
+              className="px-6 py-3 bg-white/10 text-white text-[13px] font-bold uppercase tracking-wider rounded-xl hover:bg-white/15 transition-all border border-white/10"
+            >
+              Profile
+            </Link>
+          ) : (
+            <Link 
+              to="/auth" 
+              className="px-6 py-3 border border-[#B8B2F7]/40 text-[#B8B2F7] text-[13px] font-bold uppercase tracking-wider rounded-xl hover:bg-[#B8B2F7]/5 transition-all"
+            >
+              Sign In
+            </Link>
+          )}
+
+          <Link 
+            to="/#contact" 
+            className="hidden md:block px-6 py-3 bg-[#B8B2F7] text-[#07080A] text-[13px] font-bold uppercase tracking-wider rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-black/20"
+          >
+            Start a project
+          </Link>
+        </div>
         
         {/* Mobile menu icon placeholder */}
         <button className="md:hidden text-white p-2">
