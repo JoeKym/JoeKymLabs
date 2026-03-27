@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JoeKym Labs - Web Design & Development Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dark': '#07080A',
+            'light': '#F7F8FA',
+            'muted': '#A6ACB8',
+            'lavender': '#B8B2F7',
+            'offwhite': '#F4F6F9',
+          },
+          fontFamily: {
+            'display': ['Space Grotesk', 'sans-serif'],
+            'body': ['Inter', 'sans-serif'],
+            'mono': ['IBM Plex Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Inter', sans-serif; 
+      background: #07080A; 
+      color: #F7F8FA;
+      overflow-x: hidden;
+    }
+    .font-display { font-family: 'Space Grotesk', sans-serif; }
+    .font-mono { font-family: 'IBM Plex Mono', monospace; }
+    
+    .grain-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.04;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+    
+    .card-shadow { box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45); }
+    .img-graded { filter: saturate(0.7) contrast(1.1); }
+    
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #B8B2F7;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+    
+    .btn-hover {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-hover:hover {
+      transform: translateY(-2px) scale(1.02);
+    }
+    
+    .section-pinned {
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    @media (max-width: 768px) {
+      .section-pinned { height: auto; min-height: 100vh; }
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #07080A; }
+    ::-webkit-scrollbar-thumb { background: #2a2d35; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <!-- Grain Overlay -->
+  <div class="grain-overlay"></div>
+  
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 px-6 lg:px-12 py-5 transition-all duration-300">
+    <div class="flex items-center justify-between">
+      <a href="#" class="font-display font-bold text-xl text-light">JoeKym Labs</a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#work" class="nav-link text-sm text-muted hover:text-light transition-colors">Work</a>
+        <a href="#studio" class="nav-link text-sm text-muted hover:text-light transition-colors">Studio</a>
+        <a href="#notes" class="nav-link text-sm text-muted hover:text-light transition-colors">Notes</a>
+        <a href="#contact" class="nav-link text-sm text-muted hover:text-light transition-colors">Contact</a>
+      </div>
+      <a href="#contact" class="hidden md:block px-5 py-2.5 bg-lavender text-dark text-sm font-medium rounded-xl btn-hover">
+        Start a project
+      </a>
+    </div>
+  </nav>
+
+  <!-- Section 1: Hero -->
+  <section class="section-pinned relative z-10">
+    <div class="absolute inset-0 hero-image">
+      <img src="/images/hero_portrait.jpg" alt="Hero" class="w-full h-full object-cover object-[70%_30%] img-graded">
+      <div class="absolute inset-0 bg-gradient-to-b from-dark/60 via-dark/20 to-dark/85"></div>
+    </div>
+    
+    <div class="relative h-full flex flex-col justify-center px-6 lg:px-[6vw] hero-content">
+      <div class="max-w-xl">
+        <p class="hero-label font-mono text-xs tracking-[0.08em] uppercase text-muted mb-4">
+          Web Design &amp; Development Studio
+        </p>
+        <h1 class="hero-title font-display font-bold text-5xl md:text-6xl lg:text-7xl text-light leading-[0.95] mb-6">
+          JoeKym Labs
+        </h1>
+        <p class="hero-body text-base md:text-lg text-muted leading-relaxed mb-8 max-w-md">
+          We craft clean, editorial interfaces and build them with performant code — for brands that value clarity over noise.
+        </p>
+        <div class="flex flex-wrap gap-4 hero-ctas">
+          <a href="#work" class="px-6 py-3 bg-lavender text-dark font-medium rounded-xl btn-hover">
+            View selected work
+          </a>
+          <a href="#contact" class="px-6 py-3 border border-light/20 text-light font-medium rounded-xl btn-hover hover:bg-light/5">
+            Start a project
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="absolute bottom-8 right-6 lg:right-[6vw] flex items-center gap-3 hero-scroll">
+      <span class="text-xs text-muted">Scroll to explore</span>
+      <div class="w-8 h-px bg-muted"></div>
+    </div>
+  </section>
+
+  <!-- Section 2: Selected Work -->
+  <section id="work" class="section-pinned bg-dark z-20">
+    <div class="h-full flex flex-col lg:flex-row">
+      <div class="work-heading w-full lg:w-[32vw] h-auto lg:h-full flex flex-col justify-center px-6 lg:px-[6vw] py-12 lg:py-0">
+        <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-light mb-4">
+          Selected Work
+        </h2>
+        <p class="text-muted text-sm md:text-base leading-relaxed mb-6 max-w-xs">
+          A few recent builds—minimal UI, strong typography, and motion that respects the content.
+        </p>
+        <a href="#" class="text-lavender text-sm font-medium hover:underline">
+          Browse archive →
+        </a>
+      </div>
+      
+      <div class="flex-1 relative px-6 lg:px-0 pb-12 lg:pb-0">
+        <div class="work-card-a relative lg:absolute lg:left-[2vw] lg:top-[14vh] w-full lg:w-[26vw] h-[250px] lg:h-[34vh] rounded-[22px] overflow-hidden card-shadow mb-4 lg:mb-0">
+          <img src="/images/work_card_lumen.jpg" alt="Lumen Editorial" class="w-full h-full object-cover img-graded">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-dark/10"></div>
+          <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+            <h3 class="font-display font-semibold text-lg text-light">Lumen Editorial</h3>
+            <span class="font-mono text-xs text-muted uppercase">Website</span>
+          </div>
+        </div>
+        
+        <div class="work-card-b relative lg:absolute lg:left-[32vw] lg:top-[14vh] w-full lg:w-[26vw] h-[250px] lg:h-[34vh] rounded-[22px] overflow-hidden card-shadow mb-4 lg:mb-0">
+          <img src="/images/work_card_northwind.jpg" alt="Northwind Goods" class="w-full h-full object-cover img-graded">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-dark/10"></div>
+          <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+            <h3 class="font-display font-semibold text-lg text-light">Northwind Goods</h3>
+            <span class="font-mono text-xs text-muted uppercase">E‑commerce</span>
+          </div>
+        </div>
+        
+        <div class="work-card-c relative lg:absolute lg:left-[2vw] lg:top-[54vh] w-full lg:w-[56vw] h-[250px] lg:h-[34vh] rounded-[22px] overflow-hidden card-shadow">
+          <img src="/images/work_card_aurora.jpg" alt="Aurora Studio" class="w-full h-full object-cover img-graded">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-dark/10"></div>
+          <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+            <h3 class="font-display font-semibold text-lg text-light">Aurora Studio</h3>
+            <span class="font-mono text-xs text-muted uppercase">Brand + Web</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Capabilities -->
+  <section id="studio" class="section-pinned bg-dark z-30">
+    <div class="h-full flex flex-col lg:flex-row">
+      <div class="cap-heading w-full lg:w-[32vw] h-auto lg:h-full flex flex-col justify-center px-6 lg:px-[6vw] py-12 lg:py-0">
+        <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-light mb-4">
+          Capabilities
+        </h2>
+        <p class="text-muted text-sm md:text-base leading-relaxed max-w-xs">
+          Strategy, design, and frontend engineering—built to ship.
+        </p>
+      </div>
+      
+      <div class="flex-1 relative flex items-center justify-center px-6 lg:px-0 pb-12 lg:pb-0 min-h-[400px] lg:min-h-0">
+        <div class="cap-card absolute w-[80vw] lg:w-[34vw] h-[300px] lg:h-[56vh] rounded-[22px] overflow-hidden card-shadow" style="transform: translate(-4.4vw, -4.4vh) rotate(-6deg) scale(0.96); opacity: 0.55; z-index: 1;">
+          <img src="/images/capability_brand.jpg" alt="Brand Systems" class="w-full h-full object-cover img-graded">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/65 to-dark/15"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <h3 class="font-display font-semibold text-xl lg:text-2xl text-light mb-2">Brand Systems</h3>
+            <p class="text-muted text-sm">Type, color, and components that scale.</p>
+          </div>
+        </div>
+        
+        <div class="cap-card absolute w-[80vw] lg:w-[34vw] h-[300px] lg:h-[56vh] rounded-[22px] overflow-hidden card-shadow" style="transform: translate(-2.2vw, -2.2vh) rotate(-3deg) scale(0.98); opacity: 0.78; z-index: 2;">
+          <img src="/images/capability_frontend.jpg" alt="Frontend Build" class="w-full h-full object-cover img-graded">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/65 to-dark/15"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <h3 class="font-display font-semibold text-xl lg:text-2xl text-light mb-2">Frontend Build</h3>
+            <p class="text-muted text-sm">React, accessibility, performance, animation.</p>
+          </div>
+        </div>
+        
+        <div class="cap-card absolute w-[80vw] lg:w-[34vw] h-[300px] lg:h-[56vh] rounded-[22px] overflow-hidden card-shadow" style="transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; z-index: 3;">
+          <img src="/images/capability_design.jpg" alt="UI/UX Design" class="w-full h-full object-cover img-graded">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/65 to-dark/15"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <h3 class="font-display font-semibold text-xl lg:text-2xl text-light mb-2">UI/UX Design</h3>
+            <p class="text-muted text-sm">Interfaces that feel obvious once you use them.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Process -->
+  <section class="section-pinned bg-dark z-40">
+    <div class="h-full flex flex-col lg:flex-row">
+      <div class="proc-heading w-full lg:w-[32vw] h-auto lg:h-full flex flex-col justify-center px-6 lg:px-[6vw] py-12 lg:py-0">
+        <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-light mb-4">
+          Process
+        </h2>
+        <p class="text-muted text-sm md:text-base leading-relaxed max-w-xs">
+          A simple loop: understand, design, build, refine.
+        </p>
+      </div>
+      
+      <div class="flex-1 relative flex items-center justify-center px-6 lg:px-0 pb-12 lg:pb-0 min-h-[400px] lg:min-h-0">
+        <div class="proc-card absolute w-[80vw] lg:w-[34vw] h-[300px] lg:h-[56vh] rounded-[22px] overflow-hidden card-shadow" style="transform: translate(-4.4vw, -4.4vh) rotate(-6deg) scale(0.96); opacity: 0.55; z-index: 1;">
+          <img src="/images/process_build.jpg" alt="Build & Launch" class="w-full h-full object-cover img-graded">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/65 to-dark/15"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <h3 class="font-display font-semibold text-xl lg:text-2xl text-light mb-2">Build &amp; Launch</h3>
+            <p class="text-muted text-sm">Clean code, testing, and a smooth deployment.</p>
+          </div>
+        </div>
+        
+        <div class="proc-card absolute w-[80vw] lg:w-[34vw] h-[300px] lg:h-[56vh] rounded-[22px] overflow-hidden card-shadow" style="transform: translate(-2.2vw, -2.2vh) rotate(-3deg) scale(0.98); opacity: 0.78; z-index: 2;">
+          <img src="/images/process_design.jpg" alt="Design" class="w-full h-full object-cover img-graded">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/65 to-dark/15"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <h3 class="font-display font-semibold text-xl lg:text-2xl text-light mb-2">Design</h3>
+            <p class="text-muted text-sm">Wireframes, UI, motion, and content structure.</p>
+          </div>
+        </div>
+        
+        <div class="proc-card absolute w-[80vw] lg:w-[34vw] h-[300px] lg:h-[56vh] rounded-[22px] overflow-hidden card-shadow" style="transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; z-index: 3;">
+          <img src="/images/process_discovery.jpg" alt="Discovery" class="w-full h-full object-cover img-graded">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/65 to-dark/15"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <h3 class="font-display font-semibold text-xl lg:text-2xl text-light mb-2">Discovery</h3>
+            <p class="text-muted text-sm">Goals, users, constraints, and a clear brief.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Split Sections -->
+  <section class="section-pinned bg-dark flex flex-col lg:flex-row z-50">
+    <div class="w-full lg:w-[62vw] h-[50vh] lg:h-full">
+      <img src="/images/split_featured_camera.jpg" alt="Lumen Editorial" class="w-full h-full object-cover img-graded">
+    </div>
+    <div class="w-full lg:w-[38vw] h-auto lg:h-full bg-dark flex items-center px-6 lg:px-[6vw] py-12 lg:py-0">
+      <div>
+        <p class="font-mono text-xs tracking-[0.08em] uppercase text-lavender mb-4">Featured Project</p>
+        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-light leading-tight mb-6">
+          Lumen Editorial
+        </h2>
+        <p class="text-muted text-sm md:text-base leading-relaxed mb-8 max-w-sm">
+          A publication-first experience with typography-led layouts, fast page transitions, and a reading mode that stays out of the way.
+        </p>
+        <a href="#" class="inline-block px-6 py-3 bg-lavender text-dark font-medium rounded-xl btn-hover">
+          Read case study
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pinned bg-dark flex flex-col lg:flex-row z-[60]">
+    <div class="w-full lg:w-[38vw] h-auto lg:h-full bg-dark flex items-center px-6 lg:px-[6vw] py-12 lg:py-0 order-2 lg:order-1">
+      <div>
+        <p class="font-mono text-xs tracking-[0.08em] uppercase text-lavender mb-4">Principles</p>
+        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-light leading-tight mb-6">
+          Clarity beats decoration.
+        </h2>
+        <p class="text-muted text-sm md:text-base leading-relaxed mb-8 max-w-sm">
+          We distill until every element feels inevitable — then add back only what supports the story.
+        </p>
+        <a href="#" class="inline-block px-6 py-3 border border-light/20 text-light font-medium rounded-xl btn-hover hover:bg-light/5">
+          Explore the studio
+        </a>
+      </div>
+    </div>
+    <div class="w-full lg:w-[62vw] h-[50vh] lg:h-full order-1 lg:order-2">
+      <img src="/images/split_principles_typewriter.jpg" alt="Principles" class="w-full h-full object-cover img-graded">
+    </div>
+  </section>
+
+  <section class="section-pinned bg-dark flex flex-col lg:flex-row z-[70]">
+    <div class="w-full lg:w-[62vw] h-[50vh] lg:h-full">
+      <img src="/images/split_collab_camera_hands.jpg" alt="Collaboration" class="w-full h-full object-cover img-graded">
+    </div>
+    <div class="w-full lg:w-[38vw] h-auto lg:h-full bg-dark flex items-center px-6 lg:px-[6vw] py-12 lg:py-0">
+      <div>
+        <p class="font-mono text-xs tracking-[0.08em] uppercase text-lavender mb-4">Collaboration</p>
+        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-light leading-tight mb-6">
+          Built like a true partnership.
+        </h2>
+        <p class="text-muted text-sm md:text-base leading-relaxed mb-8 max-w-sm">
+          Close communication, fast feedback loops, and decisions that don't require a committee.
+        </p>
+        <a href="#" class="inline-block px-6 py-3 bg-lavender text-dark font-medium rounded-xl btn-hover">
+          See how we work
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pinned bg-dark flex flex-col lg:flex-row z-[80]">
+    <div class="w-full lg:w-[38vw] h-auto lg:h-full bg-dark flex items-center px-6 lg:px-[6vw] py-12 lg:py-0 order-2 lg:order-1">
+      <div>
+        <p class="font-mono text-xs tracking-[0.08em] uppercase text-lavender mb-4">Impact</p>
+        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-light leading-tight mb-6">
+          Performance is a design feature.
+        </h2>
+        <p class="text-muted text-sm md:text-base leading-relaxed mb-8 max-w-sm">
+          Lightweight assets, accessible markup, and motion that stays smooth on real devices.
+        </p>
+        <a href="#" class="inline-block px-6 py-3 border border-light/20 text-light font-medium rounded-xl btn-hover hover:bg-light/5">
+          View performance notes
+        </a>
+      </div>
+    </div>
+    <div class="w-full lg:w-[62vw] h-[50vh] lg:h-full order-1 lg:order-2">
+      <img src="/images/split_impact_camera_top.jpg" alt="Impact" class="w-full h-full object-cover img-graded">
+    </div>
+  </section>
+
+  <section class="section-pinned bg-dark flex flex-col lg:flex-row z-[90]">
+    <div class="w-full lg:w-[62vw] h-[50vh] lg:h-full">
+      <img src="/images/split_craft_camera_side.jpg" alt="Craft" class="w-full h-full object-cover img-graded">
+    </div>
+    <div class="w-full lg:w-[38vw] h-auto lg:h-full bg-dark flex items-center px-6 lg:px-[6vw] py-12 lg:py-0">
+      <div>
+        <p class="font-mono text-xs tracking-[0.08em] uppercase text-lavender mb-4">Craft</p>
+        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-light leading-tight mb-6">
+          Details are the experience.
+        </h2>
+        <p class="text-muted text-sm md:text-base leading-relaxed mb-8 max-w-sm">
+          Spacing, type hierarchy, and micro-interactions that make the product feel finished.
+        </p>
+        <a href="#work" class="inline-block px-6 py-3 bg-lavender text-dark font-medium rounded-xl btn-hover">
+          Explore recent work
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="notes" class="section-pinned bg-dark flex flex-col lg:flex-row z-[100]">
+    <div class="w-full lg:w-[38vw] h-auto lg:h-full bg-dark flex items-center px-6 lg:px-[6vw] py-12 lg:py-0 order-2 lg:order-1">
+      <div>
+        <p class="font-mono text-xs tracking-[0.08em] uppercase text-lavender mb-4">Insights</p>
+        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-light leading-tight mb-6">
+          Notes on design & code.
+        </h2>
+        <p class="text-muted text-sm md:text-base leading-relaxed mb-8 max-w-sm">
+          Short, practical ideas about typography, layout, accessibility, and shipping better work.
+        </p>
+        <a href="#" class="inline-block px-6 py-3 border border-light/20 text-light font-medium rounded-xl btn-hover hover:bg-light/5">
+          Read the latest
+        </a>
+      </div>
+    </div>
+    <div class="w-full lg:w-[62vw] h-[50vh] lg:h-full order-1 lg:order-2">
+      <img src="/images/split_insights_camera_table.jpg" alt="Insights" class="w-full h-full object-cover img-graded">
+    </div>
+  </section>
+
+  <section class="section-pinned bg-dark flex flex-col lg:flex-row z-[110]">
+    <div class="w-full lg:w-[62vw] h-[50vh] lg:h-full">
+      <img src="/images/split_community_camera_bw.jpg" alt="Community" class="w-full h-full object-cover img-graded">
+    </div>
+    <div class="w-full lg:w-[38vw] h-auto lg:h-full bg-dark flex items-center px-6 lg:px-[6vw] py-12 lg:py-0">
+      <div>
+        <p class="font-mono text-xs tracking-[0.08em] uppercase text-lavender mb-4">Community</p>
+        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-light leading-tight mb-6">
+          Let's build something precise.
+        </h2>
+        <p class="text-muted text-sm md:text-base leading-relaxed mb-8 max-w-sm">
+          We take on select projects. If your brand values clarity and craft, we're the right partner.
+        </p>
+        <a href="#contact" class="inline-block px-6 py-3 bg-lavender text-dark font-medium rounded-xl btn-hover">
+          Start a project
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 12: Contact -->
+  <section id="contact" class="min-h-screen bg-offwhite z-[130]">
+    <div class="flex flex-col lg:flex-row">
+      <div class="contact-left w-full lg:w-[45vw] px-6 lg:px-[6vw] py-16 lg:py-[10vh]">
+        <h2 class="font-display font-bold text-4xl md:text-5xl text-dark mb-4">
+          Start a project
+        </h2>
+        <p class="text-gray-600 text-base leading-relaxed mb-10 max-w-md">
+          Tell us what you're building. We'll reply within two business days.
+        </p>
+        
+        <div class="space-y-6">
+          <div>
+            <p class="font-mono text-xs tracking-[0.08em] uppercase text-gray-500 mb-1">Email</p>
+            <a href="mailto:hello@joekymlabs.com" class="text-dark font-medium hover:text-lavender transition-colors">
+              hello@joekymlabs.com
+            </a>
+          </div>
+          <div>
+            <p class="font-mono text-xs tracking-[0.08em] uppercase text-gray-500 mb-1">Location</p>
+            <p class="text-dark font-medium">Remote / UTC±2</p>
+          </div>
+          <div>
+            <p class="font-mono text-xs tracking-[0.08em] uppercase text-gray-500 mb-1">Availability</p>
+            <p class="text-dark font-medium">Currently accepting new work</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-right w-full lg:w-[55vw] px-6 lg:px-[6vw] py-16 lg:py-[10vh]">
+        <div class="bg-white rounded-[22px] p-8 lg:p-10 card-shadow">
+          <form class="space-y-6" onsubmit="event.preventDefault(); alert('Message sent!');">
+            <div>
+              <label class="block font-mono text-xs tracking-[0.08em] uppercase text-gray-500 mb-2">Name</label>
+              <input type="text" placeholder="Your name" class="w-full bg-transparent border border-gray-200 rounded-xl px-4 py-3 text-dark focus:outline-none focus:border-lavender transition-colors">
+            </div>
+            <div>
+              <label class="block font-mono text-xs tracking-[0.08em] uppercase text-gray-500 mb-2">Email</label>
+              <input type="email" placeholder="your@email.com" class="w-full bg-transparent border border-gray-200 rounded-xl px-4 py-3 text-dark focus:outline-none focus:border-lavender transition-colors">
+            </div>
+            <div>
+              <label class="block font-mono text-xs tracking-[0.08em] uppercase text-gray-500 mb-2">Budget</label>
+              <select class="w-full bg-transparent border border-gray-200 rounded-xl px-4 py-3 text-dark focus:outline-none focus:border-lavender transition-colors">
+                <option>Select a range</option>
+                <option>$5k - $10k</option>
+                <option>$10k - $25k</option>
+                <option>$25k - $50k</option>
+                <option>$50k+</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-mono text-xs tracking-[0.08em] uppercase text-gray-500 mb-2">Message</label>
+              <textarea rows="4" placeholder="Tell me about your project..." class="w-full bg-transparent border border-gray-200 rounded-xl px-4 py-3 text-dark focus:outline-none focus:border-lavender transition-colors resize-none"></textarea>
+            </div>
+            <button type="submit" class="w-full px-6 py-3 bg-lavender text-dark font-medium rounded-xl btn-hover">
+              Send message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="px-6 lg:px-[6vw] py-8 border-t border-gray-200">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="flex items-center gap-6">
+          <a href="#work" class="text-sm text-gray-500 hover:text-dark">Work</a>
+          <a href="#studio" class="text-sm text-gray-500 hover:text-dark">Studio</a>
+          <a href="#notes" class="text-sm text-gray-500 hover:text-dark">Notes</a>
+          <a href="#" class="text-sm text-gray-500 hover:text-dark">Privacy</a>
+        </div>
+        <p class="text-sm text-gray-400">© JoeKym Labs™. All rights reserved.</p>
+      </div>
+    </footer>
+  </section>
+
+  <script>
+    // Register GSAP plugins
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Navigation scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        navbar.classList.add('bg-dark/90', 'backdrop-blur-md');
+      } else {
+        navbar.classList.remove('bg-dark/90', 'backdrop-blur-md');
+      }
+    }, { passive: true });
+    
+    // Hero animations
+    gsap.from('.hero-image', {
+      opacity: 0,
+      scale: 1.06,
+      duration: 1,
+      ease: 'power2.out'
+    });
+    
+    gsap.from('.hero-label', {
+      y: 12,
+      opacity: 0,
+      duration: 0.5,
+      delay: 0.3
+    });
+    
+    gsap.from('.hero-title', {
+      y: 28,
+      opacity: 0,
+      duration: 0.7,
+      delay: 0.4
+    });
+    
+    gsap.from('.hero-body', {
+      y: 18,
+      opacity: 0,
+      duration: 0.6,
+      delay: 0.5
+    });
+    
+    gsap.from('.hero-ctas', {
+      y: 14,
+      opacity: 0,
+      duration: 0.55,
+      delay: 0.6
+    });
+    
+    gsap.from('.hero-scroll', {
+      opacity: 0,
+      duration: 0.4,
+      delay: 1
+    });
+    
+    // Work section animations
+    gsap.from('.work-heading', {
+      scrollTrigger: {
+        trigger: '#work',
+        start: 'top 80%',
+        end: 'top 30%',
+        scrub: 1
+      },
+      x: -100,
+      opacity: 0
+    });
+    
+    gsap.from('.work-card-a', {
+      scrollTrigger: {
+        trigger: '#work',
+        start: 'top 70%',
+        end: 'top 20%',
+        scrub: 1
+      },
+      x: 100,
+      y: -50,
+      rotation: 6,
+      opacity: 0
+    });
+    
+    gsap.from('.work-card-b', {
+      scrollTrigger: {
+        trigger: '#work',
+        start: 'top 65%',
+        end: 'top 15%',
+        scrub: 1
+      },
+      x: 100,
+      y: -30,
+      rotation: -4,
+      opacity: 0
+    });
+    
+    gsap.from('.work-card-c', {
+      scrollTrigger: {
+        trigger: '#work',
+        start: 'top 60%',
+        end: 'top 10%',
+        scrub: 1
+      },
+      x: 100,
+      y: 80,
+      rotation: 3,
+      opacity: 0
+    });
+    
+    // Capabilities section
+    gsap.from('.cap-heading', {
+      scrollTrigger: {
+        trigger: '#studio',
+        start: 'top 80%',
+        end: 'top 30%',
+        scrub: 1
+      },
+      x: -100,
+      opacity: 0
+    });
+    
+    gsap.from('.cap-card', {
+      scrollTrigger: {
+        trigger: '#studio',
+        start: 'top 70%',
+        end: 'top 20%',
+        scrub: 1
+      },
+      x: 100,
+      y: 50,
+      rotation: 10,
+      opacity: 0,
+      stagger: 0.1
+    });
+    
+    // Process section
+    gsap.from('.proc-heading', {
+      scrollTrigger: {
+        trigger: '.proc-heading',
+        start: 'top 80%',
+        end: 'top 30%',
+        scrub: 1
+      },
+      x: -100,
+      opacity: 0
+    });
+    
+    gsap.from('.proc-card', {
+      scrollTrigger: {
+        trigger: '.proc-card',
+        start: 'top 70%',
+        end: 'top 20%',
+        scrub: 1
+      },
+      x: 100,
+      y: 50,
+      rotation: 10,
+      opacity: 0,
+      stagger: 0.1
+    });
+    
+    // Contact section
+    gsap.from('.contact-left', {
+      scrollTrigger: {
+        trigger: '#contact',
+        start: 'top 80%',
+        end: 'top 40%',
+        scrub: 1
+      },
+      x: -50,
+      opacity: 0
+    });
+    
+    gsap.from('.contact-right', {
+      scrollTrigger: {
+        trigger: '#contact',
+        start: 'top 80%',
+        end: 'top 40%',
+        scrub: 1
+      },
+      x: 50,
+      y: 30,
+      opacity: 0
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
