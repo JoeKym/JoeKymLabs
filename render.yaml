@@ -1,7 +1,5 @@
-services:
-  # JoeKym Labs Single Page Application (SPA)
-  - type: static_site
-    name: joekymlabs
+static_sites:
+  - name: joekymlabs
     # Command to build the React app
     buildCommand: npm install && npm run build
     # Vite outputs to 'dist' inside the 'app' directory
