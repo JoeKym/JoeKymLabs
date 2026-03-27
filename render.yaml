@@ -1,7 +1,7 @@
 services:
   # 1. Main Static Website
   - type: web
-    name: joekym-website
+    name: joekym-labs-website
     env: static
     buildCommand: ""
     publishDir: website
@@ -10,7 +10,7 @@ services:
 
   # 2. React Application
   - type: web
-    name: joekym-app
+    name: joekym-labs-app
     env: static
     # Command to build the React app
     buildCommand: npm install && npm run build
