@@ -36,6 +36,9 @@ export default function AuthPage() {
         if (signUpError) throw signUpError;
         if (data.session) {
           navigate('/profile');
+        } else if (data.user) {
+          setIsLogin(true);
+          setError('Account created! You can now sign in.');
         } else {
           setError('Check your email for the confirmation link!');
         }
