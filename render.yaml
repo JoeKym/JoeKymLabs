@@ -1,0 +1,25 @@
+services:
+  # 1. Main Static Website
+  - type: web
+    name: joekym-website
+    env: static
+    buildCommand: ""
+    publishDir: website
+    # Root directory for this service
+    rootDir: .
+
+  # 2. React Application
+  - type: web
+    name: joekym-app
+    env: static
+    # Command to build the React app
+    buildCommand: npm install && npm run build
+    # Vite outputs to 'dist' inside the 'app' directory
+    publishDir: dist
+    # Root directory for the app service
+    rootDir: app
+    # SPA routing: Redirect all requests to index.html to handle client-side routing
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
