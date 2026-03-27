@@ -1,47 +1,9 @@
 import { useEffect, useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Navigation from '../components/Navigation';
 
 gsap.registerPlugin(ScrollTrigger);
-
-// Navigation Component
-function Navigation() {
-  const navRef = useRef<HTMLElement>(null);
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      if (navRef.current) {
-        if (window.scrollY > 100) {
-          navRef.current.classList.add('bg-[#07080A]/90', 'backdrop-blur-md');
-        } else {
-          navRef.current.classList.remove('bg-[#07080A]/90', 'backdrop-blur-md');
-        }
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  return (
-    <nav ref={navRef} className="fixed top-0 left-0 right-0 z-50 px-6 lg:px-12 py-5 transition-all duration-300">
-      <div className="flex items-center justify-between">
-        <a href="/" className="font-display font-bold text-xl text-[#F7F8FA]">JoeKym Labs</a>
-        <div className="hidden md:flex items-center gap-8">
-          <a href="#work" className="nav-link text-sm text-[#A6ACB8] hover:text-[#F7F8FA]">Work</a>
-          <a href="#studio" className="nav-link text-sm text-[#A6ACB8] hover:text-[#F7F8FA]">Studio</a>
-          <a href="#notes" className="nav-link text-sm text-[#A6ACB8] hover:text-[#F7F8FA]">Notes</a>
-          <a href="#contact" className="nav-link text-sm text-[#A6ACB8] hover:text-[#F7F8FA]">Contact</a>
-        </div>
-        <a 
-          href="#contact" 
-          className="hidden md:block px-5 py-2.5 bg-[#B8B2F7] text-[#07080A] text-sm font-medium rounded-xl btn-hover"
-        >
-          Start a project
-        </a>
-      </div>
-    </nav>
-  );
-}
 
 // Section 1: Hero
 function HeroSection() {
@@ -84,13 +46,13 @@ function HeroSection() {
     <section ref={sectionRef} className="relative h-screen w-full overflow-hidden z-10">
       <div ref={imageRef} className="absolute inset-0">
         <img src="/images/hero_portrait.jpg" alt="Hero" className="w-full h-full object-cover object-[70%_30%] img-graded" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#07080A]/30 via-transparent to-[#07080A]/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#07080A]/40 via-[#07080A]/10 to-[#07080A]/85" />
       </div>
       <div ref={contentRef} className="relative h-full flex flex-col justify-center px-6 lg:px-[6vw]">
         <div className="max-w-xl">
-          <p className="hero-label font-mono text-xs tracking-[0.08em] uppercase text-[#A6ACB8] mb-4">Web Design &amp; Development Studio</p>
+          <p className="hero-label font-mono text-xs tracking-[0.2em] uppercase text-[#B8B2F7] mb-4">Web Design &amp; Development Studio</p>
           <h1 className="hero-title font-display font-bold text-5xl md:text-6xl lg:text-7xl text-[#F7F8FA] leading-[0.95] mb-6">JoeKym Labs</h1>
-          <p className="hero-body text-base md:text-lg text-[#A6ACB8] leading-relaxed mb-8 max-w-md">
+          <p className="hero-body text-base md:text-lg text-white/80 leading-relaxed mb-8 max-w-md">
             We craft clean, editorial interfaces and build them with performant code — for brands that value clarity over noise.
           </p>
           <div className="flex flex-wrap gap-4">

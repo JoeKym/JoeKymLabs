@@ -1,6 +1,26 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import LandingPage from './pages/LandingPage';
+import WorkPage from './pages/WorkPage';
+import StudioPage from './pages/StudioPage';
+import NotesPage from './pages/NotesPage';
 import './App.css';
+
+// Scroll to top on route change
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (hash) {
+      const element = document.getElementById(hash.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+  return null;
+}
 
 // Placeholder for future App features
 function MainApp() {
@@ -20,14 +40,13 @@ function MainApp() {
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
-        {/* Marketing/Landing Page */}
         <Route path="/" element={<LandingPage />} />
-        
-        {/* Interactive App Backend/Dashboard Placeholder */}
+        <Route path="/work" element={<WorkPage />} />
+        <Route path="/studio" element={<StudioPage />} />
+        <Route path="/notes" element={<NotesPage />} />
         <Route path="/app" element={<MainApp />} />
-        
-        {/* 404 Fallback */}
         <Route path="*" element={<LandingPage />} />
       </Routes>
     </Router>
