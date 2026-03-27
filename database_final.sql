@@ -22,6 +22,9 @@ begin
   if not exists (select 1 from pg_policies where policyname = 'Users can update own profile') then
     create policy "Users can update own profile" on public.profiles for update using ( auth.uid() = id );
   end if;
+  if not exists (select 1 from pg_policies where policyname = 'Users can insert own profile') then
+    create policy "Users can insert own profile" on public.profiles for insert with check ( auth.uid() = id );
+  end if;
 end $$;
 
 -- 2. Trigger for profile auto-creation

@@ -21,10 +21,16 @@ export default function UserPage() {
 
   const fetchPublicProfile = async () => {
     try {
+      const raw = typeof username === 'string' ? username : '';
+      const handle = decodeURIComponent(raw).toLowerCase().replace(/[^a-z0-9_]/g, '');
+      if (!handle) {
+        throw new Error('invalid-username');
+      }
+
       const { data, error } = await supabase
         .from('profiles')
         .select('full_name, username, avatar_url')
-        .eq('username', username)
+        .ilike('username', handle)
         .single();
 
       if (error) throw error;

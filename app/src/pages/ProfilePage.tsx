@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
 import Navigation from '../components/Navigation';
 
@@ -131,16 +132,14 @@ export default function ProfilePage() {
               <h3 className="font-display font-semibold text-lg mb-4">Sharing</h3>
               <p className="text-[#A6ACB8] text-sm mb-4">Your public profile is available at:</p>
               <code className="block bg-[#07080A] p-3 rounded-lg text-xs break-all text-[#B8B2F7]">
-                /user/{profile?.username}
+                {window.location.origin}/user/{profile?.username}
               </code>
-              <a 
-                href={`/user/${profile?.username}`}
+              <Link 
+                to={`/user/${profile?.username}`}
                 className="mt-4 inline-block text-sm text-[#F7F8FA] hover:text-[#B8B2F7] transition-colors"
-                target="_blank"
-                rel="noreferrer"
               >
                 View Public Profile →
-              </a>
+              </Link>
             </div>
 
             <button 
