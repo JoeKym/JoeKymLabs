@@ -23,7 +23,7 @@ export default function AuthPage() {
         if (loginError) throw loginError;
         navigate('/profile');
       } else {
-        const { error: signUpError } = await supabase.auth.signUp({
+        const { data, error: signUpError } = await supabase.auth.signUp({
           email,
           password,
           options: {
@@ -34,7 +34,11 @@ export default function AuthPage() {
           },
         });
         if (signUpError) throw signUpError;
-        setError('Check your email for the confirmation link!');
+        if (data.session) {
+          navigate('/profile');
+        } else {
+          setError('Check your email for the confirmation link!');
+        }
       }
     } catch (err: any) {
       setError(err.message);
