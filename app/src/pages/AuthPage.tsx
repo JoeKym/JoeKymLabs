@@ -30,6 +30,7 @@ export default function AuthPage() {
             data: {
               full_name: fullName,
             },
+            emailRedirectTo: `${window.location.origin}/auth`,
           },
         });
         if (signUpError) throw signUpError;

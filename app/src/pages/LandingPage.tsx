@@ -1,4 +1,5 @@
 import { useEffect, useRef, useLayoutEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { supabase } from '../lib/supabaseClient';
@@ -322,7 +323,7 @@ function ContactSection() {
                 <h3 className="font-display font-semibold text-2xl mb-4">Ready to start?</h3>
                 <p className="text-[#4b5563] mb-8">Please sign in to your JoeKym Labs account to submit a project request or subscribe.</p>
                 <div className="flex flex-col gap-4">
-                  <a href="/auth" className="px-6 py-3 bg-[#B8B2F7] text-[#07080A] font-bold rounded-xl btn-hover">Sign In / Create Account</a>
+                  <Link to="/auth" className="px-6 py-3 bg-[#B8B2F7] text-[#07080A] font-bold rounded-xl btn-hover text-center">Sign In / Create Account</Link>
                 </div>
               </div>
             ) : success ? (
