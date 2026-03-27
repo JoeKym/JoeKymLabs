@@ -1,6 +1,8 @@
-import { useEffect, useRef, useLayoutEffect } from 'react';
+import { useEffect, useRef, useLayoutEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { supabase } from '../lib/supabaseClient';
+import { User } from '@supabase/supabase-js';
 import Navigation from '../components/Navigation';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -255,8 +257,6 @@ function SplitSection({ id, microLabel, title, body, cta, ctaLink = '#', image, 
   );
 }
 
-import { supabase } from '../lib/supabaseClient';
-import { User } from '@supabase/supabase-js';
 
 // Section 12: Contact
 function ContactSection() {
