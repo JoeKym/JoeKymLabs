@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import { HelmetProvider } from 'react-helmet-async';
 import LandingPage from './pages/LandingPage';
 import WorkPage from './pages/WorkPage';
 import StudioPage from './pages/StudioPage';
@@ -7,6 +8,11 @@ import NotesPage from './pages/NotesPage';
 import AuthPage from './pages/AuthPage';
 import ProfilePage from './pages/ProfilePage';
 import UserPage from './pages/UserPage';
+import ServicesPage from './pages/ServicesPage';
+import CareersPage from './pages/CareersPage';
+import PricingPage from './pages/PricingPage';
+import ContactPage from './pages/ContactPage';
+import LegalPage from './pages/LegalPage';
 import './App.css';
 
 // Scroll to top on route change
@@ -42,19 +48,27 @@ function MainApp() {
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/work" element={<WorkPage />} />
-        <Route path="/studio" element={<StudioPage />} />
-        <Route path="/auth" element={<AuthPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/user/:username" element={<UserPage />} />
-        <Route path="/app" element={<MainApp />} />
-        <Route path="*" element={<LandingPage />} />
-      </Routes>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/work" element={<WorkPage />} />
+          <Route path="/studio" element={<StudioPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/careers" element={<CareersPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/legal" element={<LegalPage />} />
+          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/user/:username" element={<UserPage />} />
+          <Route path="/notes" element={<NotesPage />} />
+          <Route path="/app" element={<MainApp />} />
+          <Route path="*" element={<LandingPage />} />
+        </Routes>
+      </Router>
+    </HelmetProvider>
   );
 }
 

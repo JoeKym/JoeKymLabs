@@ -38,6 +38,101 @@ exception
   when duplicate_column then null;
 end $$;
 
+-- 7. Services Table
+create table if not exists public.services (
+  id uuid default gen_random_uuid() primary key,
+  title text not null,
+  pain_points text[] not null,
+  methodology text not null,
+  deliverables text[] not null,
+  benefits text not null,
+  price_range text,
+  created_at timestamp with time zone default timezone('utc'::text, now())
+);
+
+alter table public.services enable row level security;
+do $$ begin
+  if not exists (select 1 from pg_policies where policyname = 'Services are publicly viewable') then
+    create policy "Services are publicly viewable" on public.services for select using ( true );
+  end if;
+end $$;
+
+-- 8. Jobs Table (Careers)
+create table if not exists public.jobs (
+  id uuid default gen_random_uuid() primary key,
+  title text not null,
+  department text not null,
+  location text not null,
+  type text not null,
+  salary_band text not null,
+  description text not null,
+  requirements text[] not null,
+  status text default 'active',
+  created_at timestamp with time zone default timezone('utc'::text, now())
+);
+
+alter table public.jobs enable row level security;
+do $$ begin
+  if not exists (select 1 from pg_policies where policyname = 'Jobs are publicly viewable') then
+    create policy "Jobs are publicly viewable" on public.jobs for select using ( true );
+  end if;
+end $$;
+
+-- 9. Pricing Tiers Table
+create table if not exists public.pricing_tiers (
+  id uuid default gen_random_uuid() primary key,
+  name text not null,
+  price text not null,
+  price_value numeric not null,
+  interval text not null,
+  description text not null,
+  features text[] not null,
+  is_popular boolean default false,
+  created_at timestamp with time zone default timezone('utc'::text, now())
+);
+
+alter table public.pricing_tiers enable row level security;
+do $$ begin
+  if not exists (select 1 from pg_policies where policyname = 'Pricing tiers are publicly viewable') then
+    create policy "Pricing tiers are publicly viewable" on public.pricing_tiers for select using ( true );
+  end if;
+end $$;
+
+-- 10. Blog Posts Table (Notes)
+create table if not exists public.blog_posts (
+  id uuid default gen_random_uuid() primary key,
+  title text not null,
+  category text not null,
+  content text,
+  author_id uuid references public.profiles(id),
+  created_at timestamp with time zone default timezone('utc'::text, now())
+);
+
+alter table public.blog_posts enable row level security;
+do $$ begin
+  if not exists (select 1 from pg_policies where policyname = 'Blog posts are publicly viewable') then
+    create policy "Blog posts are publicly viewable" on public.blog_posts for select using ( true );
+  end if;
+end $$;
+
+-- 11. CRM Leads Table (Contact Form)
+create table if not exists public.crm_leads (
+  id uuid default gen_random_uuid() primary key,
+  name text not null,
+  email text not null,
+  budget text,
+  message text not null,
+  status text default 'new',
+  created_at timestamp with time zone default timezone('utc'::text, now())
+);
+
+alter table public.crm_leads enable row level security;
+do $$ begin
+  if not exists (select 1 from pg_policies where policyname = 'Anyone can insert leads') then
+    create policy "Anyone can insert leads" on public.crm_leads for insert with check ( true );
+  end if;
+end $$;
+
 alter table public.profiles enable row level security;
 
 -- Safe Policy Creation
