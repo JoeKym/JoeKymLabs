@@ -1,23 +1,34 @@
-# JoeKym Labs Monorepo
+# JoeKym Labs™
 
-Welcome to the official JoeKym Labs project repository. This is a monorepo containing our main website, application, and upcoming projects.
+Official repository for JoeKym Labs™ — a professional web design and development studio. This project is a high-performance **Single Page Application (SPA)** built with React, Vite, and GSAP.
 
 ## Structure
 
-- **`/website`**: The main corporate static website (JoeKym Labs™). Built with HTML, Tailwind CSS, and GSAP.
-- **`/app`**: Our core web application. Built with React, TypeScript, Vite, and Tailwind CSS.
-- **`/new_app`**: Placeholder for a new upcoming application project.
+- **`/app`**: The core application and marketing site.
+  - `src/pages/LandingPage.tsx`: The main corporate marketing presence.
+  - `src/App.tsx`: Modern routing logic for the SPA.
+- **`render.yaml`**: Configuration for automated hosting on Render.com.
 
 ## Development
 
-### Main Website
-To view the website, open `website/index.html` in your browser.
+To run the project locally:
 
-### Application
-To run the app locally:
-1. `cd app`
-2. `npm install`
-3. `npm run dev`
+1.  Navigate to the app directory:
+    ```bash
+    cd app
+    ```
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+3.  Start the development server:
+    ```bash
+    npm run dev
+    ```
+
+## Hosting
+
+This project is configured for **Render.com**. It uses the `render.yaml` Blueprint to automatically deploy as a single service with SPA routing (rewriting all requests to `index.html`).
 
 ---
 © JoeKym Labs™. All rights reserved.
