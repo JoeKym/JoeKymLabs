@@ -6,7 +6,7 @@ services:
     # Command to build the React app
     buildCommand: npm install && npm run build
     # Vite outputs to 'dist' inside the 'app' directory
-    staticPublishDir: dist
+    publishDir: dist
     # Root directory for the SPA
     rootDir: app
     # SPA routing: Redirect all requests to index.html to handle client-side routing
