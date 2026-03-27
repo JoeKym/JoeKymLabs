@@ -133,13 +133,13 @@ function HeroSection() {
       <div ref={contentRef} className="relative h-full flex flex-col justify-center px-6 lg:px-[6vw]">
         <div className="max-w-xl">
           <p className="hero-label font-mono text-xs tracking-[0.08em] uppercase text-[#A6ACB8] mb-4">
-            Web Designer & Developer
+            Web Design &amp; Development Studio
           </p>
           <h1 className="hero-title font-display font-bold text-5xl md:text-6xl lg:text-7xl text-[#F7F8FA] leading-[0.95] mb-6">
             JoeKym Labs
           </h1>
           <p className="hero-body text-base md:text-lg text-[#A6ACB8] leading-relaxed mb-8 max-w-md">
-            I design clean, editorial interfaces and build them with performant code. Mostly for brands that want clarity over noise.
+            We craft clean, editorial interfaces and build them with performant code — for brands that value clarity over noise.
           </p>
           <div className="flex flex-wrap gap-4">
             <a 
@@ -554,7 +554,7 @@ function SplitSection({
           {title}
         </h2>
         <p className="text-[#A6ACB8] text-sm md:text-base leading-relaxed mb-8 max-w-sm">
-          {body}
+          We distill until every element feels inevitable — then we add back only what supports the story.
         </p>
         <a 
           href={ctaLink} 
@@ -631,7 +631,7 @@ function ContactSection() {
             Start a project
           </h2>
           <p className="text-[#4b5563] text-base leading-relaxed mb-10 max-w-md">
-            Tell me what you're building. I'll reply within two business days.
+            Tell us what you're building. We'll reply within two business days.
           </p>
           
           <div className="space-y-6">
@@ -698,7 +698,7 @@ function ContactSection() {
             <a href="#notes" className="text-sm text-[#6b7280] hover:text-[#07080A]">Notes</a>
             <a href="#" className="text-sm text-[#6b7280] hover:text-[#07080A]">Privacy</a>
           </div>
-          <p className="text-sm text-[#9ca3af]">© JoeKym Labs. All rights reserved.</p>
+          <p className="text-sm text-[#9ca3af]">© JoeKym Labs™. All rights reserved.</p>
         </div>
       </footer>
     </section>
@@ -777,7 +777,7 @@ function App() {
         <SplitSection 
           microLabel="Principles"
           title="Clarity beats decoration."
-          body="I remove until it feels inevitable. Then I add back only what supports the story."
+          body="We distill until every element feels inevitable. Then we add back only what supports the story."
           cta="Explore the studio"
           image="/images/split_principles_typewriter.jpg"
           imagePosition="right"
@@ -785,9 +785,9 @@ function App() {
         />
         <SplitSection 
           microLabel="Collaboration"
-          title="Built like a team of two."
+          title="Built like a true partnership."
           body="Close communication, fast feedback loops, and decisions that don't require a committee."
-          cta="See how I work"
+          cta="See how we work"
           image="/images/split_collab_camera_hands.jpg"
           imagePosition="left"
           zIndex={70}
