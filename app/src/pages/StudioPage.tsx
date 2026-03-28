@@ -35,7 +35,7 @@ export default function StudioPage() {
         </section>
 
         <div className="relative aspect-video rounded-[32px] overflow-hidden bg-slate-100">
-          <img src="/images/split_principles_typewriter.jpg" alt="Studio" className="w-full h-full object-cover opacity-30" />
+<img src="/images/wedev-hero.jpg" alt="Studio principles" className="w-full h-full object-cover opacity-30" />
           <div className="absolute inset-0 flex items-center justify-center">
             <p className="font-display font-bold text-3xl md:text-4xl text-slate-900 text-center px-10">Minimalism isn't the absence of things. <br/> It's the presence of what matters.</p>
           </div>
