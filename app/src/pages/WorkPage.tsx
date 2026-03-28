@@ -170,8 +170,7 @@ export default function WorkPage() {
         </div>
       </main>
 
-      
-className="px-6 lg:px-12 py-24 border-t border-border text-center relative z-50 bg-card"
+      <footer className="px-6 lg:px-12 py-24 border-t border-border text-center relative z-50 bg-card">
         <div className="max-w-4xl mx-auto">
           <p className="font-mono text-muted-foreground text-sm mb-12">© 2026 JoeKym Labs™ | Building scalable digital experiences</p>
           <nav className="flex flex-wrap justify-center gap-6 mb-12">
