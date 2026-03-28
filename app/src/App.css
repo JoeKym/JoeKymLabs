@@ -1,34 +1,30 @@
-@/* App-specific styles */
+/* App-specific styles for JoeKym Labs theme */
 
-/* Ensure smooth scrolling behavior */
+/* Smooth scroll & overflow */
 html {
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
 }
 
-/* Prevent horizontal overflow */
 body {
   overflow-x: hidden;
 }
 
-/* Ensure pinned sections stack correctly */
+/* Pinned sections optimization */
 .section-pinned {
   will-change: transform;
 }
 
-/* Card hover effects */
-.work-card,
-.cap-card,
-.proc-card {
-  transition: transform 0.3s ease;
+/* Card hovers with theme glow */
+.work-card, .cap-card, .proc-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.work-card:hover,
-.cap-card:hover,
-.proc-card:hover {
-  transform: scale(1.02) !important;
+.work-card:hover, .cap-card:hover, .proc-card:hover {
+  transform: scale(1.02);
+  box-shadow: theme('boxShadow.green-glow');
 }
 
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 1024px) {
   .section-pinned {
     height: auto;
@@ -47,7 +43,7 @@ body {
   }
 }
 
-/* Mobile optimizations */
+/* Mobile */
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2.5rem !important;
@@ -64,7 +60,7 @@ body {
   }
 }
 
-/* Reduced motion preference */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -74,3 +70,4 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
