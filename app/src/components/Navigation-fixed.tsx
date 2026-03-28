@@ -41,9 +41,9 @@ export default function Navigation() {
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
     { name: 'Work', path: '/work' },
-{ name: 'Studio', path: '/studio' },
+    { name: 'Studio', path: '/studio' },
     { name: 'Careers', path: '/careers' },
-{ name: 'Pricing', path: '/pricing' },
+    { name: 'Pricing', path: '/pricing' },
     { name: 'Support', path: '/support' },
     { name: 'Contact', path: '/contact' },
   ];
@@ -57,14 +57,14 @@ export default function Navigation() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
-{navLinks.map((link) => {
+          {navLinks.map((link) => {
             const iconSrc = `/nav/${link.name.toLowerCase()}.svg`;
             const hasIcon = link.name !== 'Support';
             return (
               <Link 
                 key={link.name} 
                 to={link.path} 
-tracking-wide text-muted-foreground hover:text-primary transition-all duration-300 nav-link relative group"
+                className="flex items-center gap-2 text-sm font-medium tracking-wide text-muted-foreground hover:text-primary transition-all duration-300 nav-link relative group"
               >
                 {hasIcon && <img src={iconSrc} alt="" className="w-4 h-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity" />}
                 {link.name}
@@ -73,16 +73,16 @@ tracking-wide text-muted-foreground hover:text-primary transition-all duration-3
             );
           })}
           <div className="ml-4 flex items-center gap-3">
-{user ? (
+            {user ? (
               <Link to="/profile" className="p-2 bg-muted rounded-button btn-hover border border-border flex-shrink-0 hover:bg-accent transition-colors">
                 <img src="/nav/profile.svg" alt="Profile" className="w-5 h-5" />
               </Link>
             ) : (
-text-xs font-bold tracking-wider rounded-button hover:bg-primary/5"
+              <Link to="/auth" className="px-4 py-2 border border-primary/30 text-primary text-xs font-bold tracking-wider rounded-button hover:bg-primary/5">
                 Sign In
               </Link>
             )}
-px-6 py-2 bg-primary text-primary-foreground text-xs font-bold tracking-wider rounded-button shadow-green-glow hover:shadow-green-glow btn-hover"
+            <Link to="/contact" className="px-6 py-2 bg-primary text-primary-foreground text-xs font-bold tracking-wider rounded-button shadow-green-glow hover:shadow-green-glow btn-hover">
               Start Project
             </Link>
             <Button
@@ -113,7 +113,7 @@ px-6 py-2 bg-primary text-primary-foreground text-xs font-bold tracking-wider ro
       {/* Mobile Menu */}
       <div className={`md:hidden overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="bg-background/95 backdrop-blur-md border-t border-border px-6 py-8 space-y-4">
-{navLinks.map((link) => {
+          {navLinks.map((link) => {
             const iconSrc = `/nav/${link.name.toLowerCase()}.svg`;
             const hasIcon = link.name !== 'Support';
             return (
@@ -129,7 +129,7 @@ px-6 py-2 bg-primary text-primary-foreground text-xs font-bold tracking-wider ro
             );
           })}
           <div className="pt-4 border-t border-border space-y-2">
-{user ? (
+            {user ? (
               <Link to="/profile" className="flex items-center gap-3 px-4 py-3 bg-muted font-bold rounded-button btn-hover">
                 <img src="/nav/profile.svg" alt="Profile" className="w-5 h-5 flex-shrink-0" />
                 Profile

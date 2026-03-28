@@ -18,7 +18,7 @@ function HeroSection() {
       </div>
       <div className="relative h-full flex flex-col justify-center px-6 lg:px-[6vw] animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 fill-mode-both">
         <div className="max-w-xl">
-          <p className="font-mono text-xs tracking-[0.2em] uppercase text-primary mb-4">Award-Winning Web Development Studio</p>
+className="font-mono text-xs tracking-[0.2em] text-primary mb-4">Award-winning web development studio
           <h1 className="font-headings font-bold text-5xl md:text-6xl lg:text-7xl text-foreground leading-[0.95] mb-6">JoeKym Labs™</h1>
           <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-md">
             Building scalable, high-performance web applications with React, Next.js, Tailwind CSS, and modern best practices. From startups to enterprises, we deliver pixel-perfect digital experiences.
@@ -54,7 +54,7 @@ function WorkSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent/0" />
             <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-1">
               <h3 className="font-headings font-semibold text-lg text-foreground">E-Commerce Platform</h3>
-              <span className="font-mono text-xs text-muted-foreground uppercase">Next.js • Tailwind</span>
+className="font-mono text-xs text-muted-foreground">Next.js • Tailwind</span>
             </div>
           </div>
           <div className="group relative w-full aspect-[4/3] rounded-card overflow-hidden card-shadow animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
