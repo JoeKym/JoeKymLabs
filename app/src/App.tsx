@@ -13,6 +13,7 @@ import CareersPage from './pages/CareersPage';
 import PricingPage from './pages/PricingPage';
 import ContactPage from './pages/ContactPage';
 import LegalPage from './pages/LegalPage';
+import PhilosophyPage from './pages/PhilosophyPage';
 import SupportPage from './pages/SupportPage';
 import './App.css';
 
