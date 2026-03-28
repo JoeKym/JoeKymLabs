@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
+import { ThemeProvider } from './components/theme-provider';
 import LandingPage from './pages/LandingPage';
 import WorkPage from './pages/WorkPage';
 import StudioPage from './pages/StudioPage';
@@ -50,9 +51,11 @@ function MainApp() {
 
 function App() {
   return (
-    <HelmetProvider>
-      <Router>
-        <ScrollToTop />
+    <ThemeProvider defaultTheme="system" enableSystem>
+      <HelmetProvider>
+        <Router>
+          <ScrollToTop />
+
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/work" element={<WorkPage />} />
@@ -73,6 +76,7 @@ function App() {
         </Routes>
       </Router>
     </HelmetProvider>
+    </ThemeProvider>
   );
 }
 

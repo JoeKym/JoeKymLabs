@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
+import { useTheme } from "next-themes"
+import { Button } from "../ui/button"
+import { Moon, Sun } from "lucide-react"
 import type { User } from '@supabase/supabase-js';
 
 export default function Navigation() {
@@ -8,6 +11,7 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState<User | null>(null);
   const location = useLocation();
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => setUser(session?.user ?? null));
@@ -82,6 +86,16 @@ export default function Navigation() {
             <Link to="/contact" className="px-6 py-2 bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider rounded-button shadow-green-glow hover:shadow-green-glow btn-hover">
               Start Project
             </Link>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="w-9 h-9 size-9"
+            >
+              <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+              <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+              <span className="sr-only">Toggle theme</span>
+            </Button>
           </div>
         </div>
 
