@@ -53,20 +53,25 @@ export default function Navigation() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              to={link.path} 
-              className="text-sm font-medium tracking-wide uppercase text-muted-foreground hover:text-primary transition-all duration-300 nav-link relative group"
-            >
-              {link.name}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300"></span>
-            </Link>
-          ))}
+{navLinks.map((link) => {
+            const iconSrc = `/nav/${link.name.toLowerCase()}.svg`;
+            const hasIcon = link.name !== 'Support';
+            return (
+              <Link 
+                key={link.name} 
+                to={link.path} 
+                className="flex items-center gap-2 text-sm font-medium tracking-wide uppercase text-muted-foreground hover:text-primary transition-all duration-300 nav-link relative group"
+              >
+                {hasIcon && <img src={iconSrc} alt="" className="w-4 h-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity" />}
+                {link.name}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300 -translate-x-1/2"></span>
+              </Link>
+            );
+          })}
           <div className="ml-4 flex items-center gap-3">
-            {user ? (
-              <Link to="/profile" className="px-4 py-2 bg-muted text-foreground text-xs font-bold uppercase tracking-wider rounded-button btn-hover border border-border">
-                Profile
+{user ? (
+              <Link to="/profile" className="p-2 bg-muted rounded-button btn-hover border border-border flex-shrink-0 hover:bg-accent transition-colors">
+                <img src="/nav/profile.svg" alt="Profile" className="w-5 h-5" />
               </Link>
             ) : (
               <Link to="/auth" className="px-4 py-2 border border-primary/30 text-primary text-xs font-bold uppercase tracking-wider rounded-button hover:bg-primary/5">
@@ -94,19 +99,25 @@ export default function Navigation() {
       {/* Mobile Menu */}
       <div className={`md:hidden overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="bg-background/95 backdrop-blur-md border-t border-border px-6 py-8 space-y-4">
-          {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              to={link.path} 
-              className="block text-lg font-medium text-muted-foreground hover:text-primary transition-colors py-2 nav-link"
-              onClick={() => setIsOpen(false)}
-            >
-              {link.name}
-            </Link>
-          ))}
+{navLinks.map((link) => {
+            const iconSrc = `/nav/${link.name.toLowerCase()}.svg`;
+            const hasIcon = link.name !== 'Support';
+            return (
+              <Link 
+                key={link.name} 
+                to={link.path} 
+                className="flex items-center gap-3 text-lg font-medium text-muted-foreground hover:text-primary transition-colors py-2 nav-link"
+                onClick={() => setIsOpen(false)}
+              >
+                {hasIcon && <img src={iconSrc} alt="" className="w-5 h-5 flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />}
+                {link.name}
+              </Link>
+            );
+          })}
           <div className="pt-4 border-t border-border space-y-2">
-            {user ? (
-              <Link to="/profile" className="block px-4 py-3 bg-muted text-foreground font-bold rounded-button btn-hover">
+{user ? (
+              <Link to="/profile" className="flex items-center gap-3 px-4 py-3 bg-muted font-bold rounded-button btn-hover">
+                <img src="/nav/profile.svg" alt="Profile" className="w-5 h-5 flex-shrink-0" />
                 Profile
               </Link>
             ) : (
