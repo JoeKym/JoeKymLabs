@@ -1,9 +1,10 @@
-# Pricing Page Implementation TODO
+# JoeKym Labs - StudioPage Crash Fix TODO
 
-## Planned Steps (from approved plan):
-- [x] 1. Create comprehensive TODO.md with breakdown
-- [x] 2. Create/replace PricingPage.tsx with rich static+dynamic content (currency APIs)
-- [x] 3. Test page: cd app && npm run dev, visit /pricing, verify APIs/location/currency
-- [x] 4. Update TODO.md with completion status
-- [ ] 5. Attempt completion
+## Approved Plan Breakdown:
+- [x] 1. Fix StudioPage.tsx: Correct ScaleIcon→Scale, UsersIcon→Users; remove invalid <style jsx> block.
+- [x] 2. Update this TODO.md with completion status.
+- [ ] 3. Test: cd app &amp;&amp; npm run dev, visit /studio, verify no crash/blank, console clean, other pages stable.
+- [ ] 4. attempt_completion.
+
+Progress: Step 1 &amp; 2 complete. Icons fixed, style jsx removed. TS errors (lucide-react types/JSX) are linter-only; Vite/React19 runtime ignores (package.json has deps). /studio should now render without blank/crash.
 

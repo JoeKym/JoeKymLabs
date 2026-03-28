@@ -62,7 +62,7 @@ export default function StudioPage() {
               </div>
               <CardHeader className="relative pb-6 pt-16">
                 <div className="w-16 h-16 bg-indigo-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
-<ScaleIcon className="w-8 h-8 text-white" />
+<Scale className="w-8 h-8 text-white" />
                 </div>
                 <CardTitle className="font-display text-2xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
                   Purpose
@@ -96,7 +96,7 @@ export default function StudioPage() {
               </div>
               <CardHeader className="relative pb-6 pt-16">
                 <div className="w-16 h-16 bg-emerald-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
-<UsersIcon className="w-8 h-8 text-white" />
+<Users className="w-8 h-8 text-white" />
                 </div>
                 <CardTitle className="font-display text-2xl font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">
                   Partnership
@@ -190,29 +190,6 @@ export default function StudioPage() {
         </div>
       </footer>
 
-      <style jsx>{`
-        @keyframes fade-in-up {
-          from { opacity: 0; transform: translateY(30px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slide-in-right {
-          from { opacity: 0; transform: translateX(-50px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes slide-in-left {
-          from { opacity: 0; transform: translateX(50px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-        .animate-fade-in { animation: fade-in-up 0.8s ease-out forwards; }
-        .animate-fade-in-up { animation: fade-in-up 1s ease-out forwards; }
-        .animate-slide-in-right { animation: slide-in-right 1s ease-out forwards; }
-        .animate-slide-in-left { animation: slide-in-left 1s ease-out 0.3s forwards; }
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-        .shadow-green-glow { box-shadow: 0 25px 50px -12px rgba(34, 197, 94, 0.25); }
-        .btn-hover:hover { transform: translateY(-2px); }
-      `}</style>
     </div>
   );
 }
