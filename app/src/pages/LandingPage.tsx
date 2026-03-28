@@ -214,7 +214,7 @@ export default function LandingPage() {
       />
       <ContactSection />
 
-      <footer className="px-6 lg:px-12 py-10 border-t border-slate-200 text-center lowercase relative z-50 bg-slate-50">
+      <footer className="px-6 lg:px-12 py-10 border-t border-slate-200 text-center uppercase relative z-50 bg-slate-50">
         <p className="text-sm text-slate-600">© JoeKym Labs™ — {new Date().getFullYear()}</p>
       </footer>
     </div>
