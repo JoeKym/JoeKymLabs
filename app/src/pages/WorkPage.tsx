@@ -1,28 +1,118 @@
-import React, { Link } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
-import { ExternalLink, Github, ArrowRight } from 'lucide-react';
+import { ExternalLink, ArrowRight } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 const projects = [
-  { title: "JoeKym Portfolio", url: "https://joekymportfolio.onrender.com", type: "Portfolio", tech: "React, GSAP, Render" },
-  { title: "Renegade Immortal", url: "https://renegadeimmortal.onrender.com", type: "Web App", tech: "React, Lovable, Render" },
-  { title: "Task Tuned", url: "https://tasktuned.onrender.com", type: "Productivity", tech: "TypeScript, Vite" },
-  { title: "Satoshi BTC Tracker", url: "https://satoshibtctracker.onrender.com", type: "Crypto/Finance", tech: "API Integration, React" },
-  { title: "Math Arsenal", url: "https://matharsenal.onrender.com", type: "Education", tech: "React" },
-  { title: "3D Bee Website", url: "https://threedbeewebsite.onrender.com", type: "3D / WebGL", tech: "Three.js, React Three Fiber" },
-  { title: "For You My Love", url: "https://foryoumylove.onrender.com", type: "Personal", tech: "Frontend" },
-  { title: "TechFolio", url: "https://techfolio.lovable.app", type: "Portfolio", tech: "Lovable" },
-  { title: "Lifeform 3D", url: "https://lifeform3js.oneapp.dev/", type: "3D Experience", tech: "Three.js, OneApp" }
+  {
+    title: "JoeKym Labs Main",
+    url: "https://joekymlabs.onrender.com",
+    category: "Render Hosted",
+    description: "Primary portfolio and services showcase for JoeKym Labs, featuring interactive demos, case studies, and contact forms. Live production site with optimized performance.",
+    tech: "React, Tailwind, Vite, Render"
+  },
+  {
+    title: "JoeKym Portfolio",
+    url: "https://joekymportfolio.onrender.com",
+    category: "Render Hosted",
+    description: "Personal portfolio highlighting frontend expertise with smooth animations, responsive design, and GSAP-powered interactions.",
+    tech: "React, GSAP, Tailwind"
+  },
+  {
+    title: "Renegade Immortal",
+    url: "https://renegadeimmortal.onrender.com",
+    category: "Render Hosted",
+    description: "Immersive web application inspired by cultivation novels, with dynamic UI and storytelling elements.",
+    tech: "React, Custom UI, Render"
+  },
+  {
+    title: "Task Tuned",
+    url: "https://tasktuned.onrender.com",
+    category: "Render Hosted",
+    description: "Productivity platform for task management and workflow optimization, built for seamless user experience.",
+    tech: "TypeScript, Vite, React"
+  },
+  {
+    title: "Satoshi BTC Tracker",
+    url: "https://satoshibtctracker.onrender.com",
+    category: "Render Hosted",
+    description: "Real-time Bitcoin price tracker with historical charts and Satoshi Nakamoto-themed design.",
+    tech: "React, Web APIs, Charts"
+  },
+  {
+    title: "Math Arsenal",
+    url: "https://matharsenal.onrender.com",
+    category: "Render Hosted",
+    description: "Educational toolset for mathematics learning, featuring calculators, solvers, and interactive problems.",
+    tech: "React, Math.js"
+  },
+  {
+    title: "3D Bee Website",
+    url: "https://threedbeewebsite.onrender.com",
+    category: "Render Hosted",
+    description: "3D animated website with bee-themed interactions using WebGL and particle systems.",
+    tech: "Three.js, React Three Fiber"
+  },
+  {
+    title: "For You My Love",
+    url: "https://foryoumylove.onrender.com",
+    category: "Render Hosted",
+    description: "Personal heartfelt landing page with romantic design and smooth transitions.",
+    tech: "HTML/CSS/JS, Vanilla"
+  },
+  {
+    title: "TechFolio",
+    url: "https://techfolio.lovable.app",
+    category: "Lovable Built",
+    description: "Tech-focused portfolio generated with Lovable AI, showcasing modern developer tools.",
+    tech: "Lovable, React"
+  },
+  {
+    title: "Renegade Immortal (Lovable)",
+    url: "https://renegadeimmortal.lovable.app",
+    category: "Lovable Built",
+    description: "AI-assisted build of Renegade Immortal app, demonstrating rapid prototyping capabilities.",
+    tech: "Lovable, React"
+  },
+  {
+    title: "JoeKym Labs (Lovable)",
+    url: "https://joekymlabs.lovable.app",
+    category: "Lovable Built",
+    description: "Lovable-powered version of JoeKym Labs site, highlighting AI code generation.",
+    tech: "Lovable, Tailwind"
+  },
+  {
+    title: "Lifeform 3JS",
+    url: "https://lifeform3js.oneapp.dev/",
+    category: "OneProgramming",
+    description: "Interactive 3D lifeform simulation using Three.js, hosted on OneApp platform.",
+    tech: "Three.js, GLSL Shaders"
+  },
+  {
+    title: "Kimi Project 1",
+    url: "https://76rdosdggihko.ok.kimi.link",
+    category: "Kimi",
+    description: "Experimental project hosted on Kimi platform, focusing on innovative web features.",
+    tech: "Next.js, Kimi Hosting"
+  },
+  {
+    title: "Kimi Project 2",
+    url: "https://a6o3guvca753o.ok.kimi.link",
+    category: "Kimi",
+    description: "Second Kimi-hosted site with advanced routing and performance optimizations.",
+    tech: "React, Vercel-like"
+  }
 ];
 
 export default function WorkPage() {
-  const projects = [
-  { title: "JoeKym Portfolio", url: "https://joekymportfolio.onrender.com", type: "Portfolio", tech: "React, GSAP, Render" },
-  { title: "Renegade Immortal", url: "https://renegadeimmortal.onrender.com", type: "Web App", tech: "React, Lovable, Render" },
-  { title: "Task Tuned", url: "https://tasktuned.onrender.com", type: "Productivity", tech: "TypeScript, Vite" },
-  { title: "Satoshi BTC Tracker", url: "https://satoshibtctracker.onrender.com", type: "Crypto/Finance", tech: "API Integration, React" },
-  { title: "Math Arsenal", url: "https://matharsenal.onrender.com", type: "Education", tech: "React" },
-  ];
+  const [activeTab, setActiveTab] = React.useState("all");
+
+  const filteredProjects = projects.filter(p => activeTab === "all" || p.category === activeTab);
+
   return (
+
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
       <Navigation />
       
@@ -35,37 +125,51 @@ export default function WorkPage() {
           </p>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, idx) => (
-            <a 
-              key={idx} 
-              href={project.url}
-              target="_blank"
-              rel="noreferrer"
-              className="group bg-white shadow-sm border border-slate-200 rounded-3xl p-8 hover:bg-slate-100 hover:border-slate-300 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4"
-              style={{ animationDelay: `${idx * 100}ms` }}
-            >
-              <div className="flex justify-between items-start mb-12">
-                <div className="px-3 py-1 bg-indigo-600/10 text-indigo-600 text-[10px] font-mono uppercase tracking-wider rounded-lg">
-                  {project.type}
-                </div>
-                <ExternalLink size={20} className="text-slate-600 group-hover:text-slate-900 transition-colors" />
+        <div className="space-y-12">
+          <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value)} className="[&>div]:data-[state=active]:bg-background">
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 h-14">
+              <TabsTrigger value="all" className="data-[state=active]:shadow-md data-[state=active]:bg-accent data-[state=active]:text-foreground">All ({projects.length})</TabsTrigger>
+              <TabsTrigger value="Render Hosted" className="data-[state=active]:shadow-md data-[state=active]:bg-accent data-[state=active]:text-foreground">Render Hosted</TabsTrigger>
+              <TabsTrigger value="Lovable Built" className="data-[state=active]:shadow-md data-[state=active]:bg-accent data-[state=active]:text-foreground">Lovable</TabsTrigger>
+              <TabsTrigger value="OneProgramming" className="data-[state=active]:shadow-md data-[state=active]:bg-accent data-[state=active]:text-foreground">OneApp</TabsTrigger>
+              <TabsTrigger value="Kimi" className="data-[state=active]:shadow-md data-[state=active]:bg-accent data-[state=active]:text-foreground">Kimi</TabsTrigger>
+            </TabsList>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-8">
+              {filteredProjects.map((project, idx) => (
+                <Card key={project.url} className="group border-border/50 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-500 overflow-hidden h-fit hover:border-primary/50 bg-card">
+                  <a href={project.url} target="_blank" rel="noreferrer" className="block p-6 h-full">
+                    <div className="flex justify-between items-start mb-6">
+                      <div className="px-3 py-1.5 bg-gradient-to-r from-primary to-primary/70 text-primary-foreground text-xs font-bold uppercase tracking-wider rounded-full shadow-md">
+                        {project.category}
+                      </div>
+                      <ExternalLink size={18} className="text-muted-foreground group-hover:text-primary transition-all opacity-70 group-hover:opacity-100 ml-auto" />
+                    </div>
+                    <h3 className="font-display font-bold text-xl md:text-2xl mb-3 leading-tight group-hover:text-primary transition-colors line-clamp-2">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-3">
+                      {project.description}
+                    </p>
+                    <p className="text-xs bg-muted/50 px-2.5 py-1 rounded-full inline-block font-mono mb-6">
+                      {project.tech}
+                    </p>
+                    <div className="flex items-center justify-between pt-2 border-t border-border/50">
+                      <span className="text-xs text-muted-foreground font-medium">Live Demo</span>
+                      <ArrowRight size={16} className="text-primary group-hover:translate-x-1.5 transition-transform" />
+                    </div>
+                  </a>
+                </Card>
+              ))}
+            </div>
+            {filteredProjects.length === 0 && (
+              <div className="col-span-full text-center py-20">
+                <p className="text-muted-foreground text-lg">No projects in this category yet.</p>
               </div>
-              
-              <h3 className="font-display font-bold text-2xl mb-2 group-hover:text-indigo-600 transition-colors">
-                {project.title}
-              </h3>
-              <p className="text-sm text-slate-600 mb-6 font-mono">
-                {project.tech}
-              </p>
-              
-              <div className="flex items-center text-sm font-medium text-slate-600 group-hover:text-slate-900 transition-colors">
-                Visit Live Site <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </a>
-          ))}
+            )}
+          </Tabs>
         </div>
       </main>
+
       
       <footer className="px-6 lg:px-12 py-24 border-t border-border text-center uppercase relative z-50 bg-card">
         <div className="max-w-4xl mx-auto">
