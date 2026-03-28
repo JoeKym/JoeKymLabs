@@ -42,15 +42,17 @@ export default function Navigation() {
   const navLinks = [
     { name: 'Work', path: '/work' },
     { name: 'Studio', path: '/studio' },
-    { name: 'Notes', path: '/notes' },
-    { name: 'Contact', path: '/#contact' },
+    { name: 'Services', path: '/services' },
+    { name: 'Pricing', path: '/pricing' },
+    { name: 'Careers', path: '/careers' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   return (
     <nav ref={navRef} className="fixed top-0 left-0 right-0 z-[200] px-6 lg:px-12 py-6 transition-all duration-500 ease-in-out">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link to="/" className="font-display font-bold text-2xl tracking-tight text-slate-900 hover:opacity-80 transition-opacity">
-          JoeKym Labs<span className="text-indigo-600">™</span>
+          JoeKym Labs<span className="text-primary">™</span>
         </Link>
         
         <div className="hidden md:flex items-center gap-10">
@@ -76,15 +78,15 @@ export default function Navigation() {
           ) : (
             <Link 
               to="/auth" 
-              className="px-6 py-3 border border-indigo-600/40 text-indigo-600 text-[13px] font-bold uppercase tracking-wider rounded-xl hover:bg-indigo-600/5 transition-all"
+              className="px-6 py-3 border border-primary/40 text-primary text-[13px] font-bold uppercase tracking-wider rounded-xl hover:bg-primary/5 transition-all"
             >
               Sign In
             </Link>
           )}
 
           <Link 
-            to="/#contact" 
-            className="hidden md:block px-6 py-3 bg-indigo-600 text-white text-[13px] font-bold uppercase tracking-wider rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-indigo-600/20"
+            to="/contact" 
+            className="hidden md:block px-6 py-3 bg-primary text-primary-foreground text-[13px] font-bold uppercase tracking-wider rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-primary/20"
           >
             Start a project
           </Link>
