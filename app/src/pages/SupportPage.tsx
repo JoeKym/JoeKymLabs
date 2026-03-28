@@ -263,8 +263,6 @@ export default function SupportPage() {
       </footer>
     </div>
   );
-}
-</thinking>
 
-<xai:function_call name="edit_file">
-<parameter name="path">c:/Users/user/Downloads/JoeKym Labs/app/src/pages/SupportPage.tsx
+}
+
