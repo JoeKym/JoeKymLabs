@@ -9,7 +9,8 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden z-10 flex flex-col justify-center">
       <div className="absolute inset-0">
-        <img src="/images/hero_portrait.jpg" alt="JoeKym Labs Hero" className="w-full h-full object-cover object-[70%_30%] img-graded animate-in zoom-in duration-1000 ease-out" />
+        <img src="/images/web-design-header.jpg" alt="JoeKym Labs Hero" className="w-full h-full object-cover object-[70%_30%] img-graded animate-in zoom-in duration-1000 ease-out" />
+
         <div className="absolute inset-0 bg-gradient-to-b from-card/40 via-card/10 to-card/85" />
       </div>
       <div className="relative h-full flex flex-col justify-center px-6 lg:px-[6vw] animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 fill-mode-both">
@@ -45,7 +46,8 @@ function WorkSection() {
         </div>
         <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="group relative w-full aspect-[4/3] rounded-card overflow-hidden card-shadow animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-100">
-            <img src="/images/work_card_lumen.jpg" alt="Lumen Editorial" className="w-full h-full object-cover img-graded group-hover:scale-105 transition-transform duration-700" />
+            <img src="/images/web-development.jpg" alt="Lumen Editorial" className="w-full h-full object-cover img-graded group-hover:scale-105 transition-transform duration-700" />
+
             <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent/0" />
             <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
               <h3 className="font-headings font-semibold text-lg text-foreground">Lumen Editorial</h3>
@@ -53,7 +55,8 @@ function WorkSection() {
             </div>
           </div>
           <div className="group relative w-full aspect-[4/3] rounded-card overflow-hidden card-shadow animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-            <img src="/images/work_card_northwind.jpg" alt="Northwind Goods" className="w-full h-full object-cover img-graded group-hover:scale-105 transition-transform duration-700" />
+            <img src="/images/frontend.jpg" alt="Northwind Goods" className="w-full h-full object-cover img-graded group-hover:scale-105 transition-transform duration-700" />
+
             <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent/0" />
             <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
               <h3 className="font-headings font-semibold text-lg text-foreground">Northwind Goods</h3>
@@ -69,9 +72,12 @@ function WorkSection() {
 // Capabilities Section
 function CapabilitiesSection() {
   const capabilities = [
-    { title: 'UI/UX Design', desc: 'Interfaces that feel obvious once you use them.', img: '/images/capability_design.jpg' },
-    { title: 'Frontend Build', desc: 'React, accessibility, performance, animation.', img: '/images/capability_frontend.jpg' },
-    { title: 'Brand Systems', desc: 'Type, color, and components that scale.', img: '/images/capability_brand.jpg' },
+{ title: 'UI/UX Design', desc: 'Interfaces that feel obvious once you use them.', img: '/images/webdesign.jpg' },
+
+{ title: 'Frontend Build', desc: 'React, accessibility, performance, animation.', img: '/images/frontend-dev.jpg' },
+
+{ title: 'Brand Systems', desc: 'Type, color, and components that scale.', img: '/images/fullstack.png' },
+
   ];
 
   return (
@@ -101,9 +107,12 @@ function CapabilitiesSection() {
 // Process Section
 function ProcessSection() {
   const processes = [
-    { title: 'Discovery', desc: 'Goals, users, constraints, and a clear brief.', img: '/images/process_discovery.jpg' },
-    { title: 'Design', desc: 'Wireframes, UI, motion, and content structure.', img: '/images/process_design.jpg' },
-    { title: 'Build & Launch', desc: 'Clean code, testing, and a calm ship.', img: '/images/process_build.jpg' },
+{ title: 'Discovery', desc: 'Goals, users, constraints, and a clear brief.', img: '/images/database.png.webp' },
+
+{ title: 'Design', desc: 'Wireframes, UI, motion, and content structure.', img: '/images/cloud-computing.png' },
+
+{ title: 'Build & Launch', desc: 'Clean code, testing, and a calm ship.', img: '/images/backend.jpg' },
+
   ];
 
   return (
