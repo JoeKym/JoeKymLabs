@@ -1,82 +1,131 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
-import { supabase } from '../lib/supabaseClient';
 
 interface Service {
-  id: string;
   title: string;
-  pain_points: string[];
-  methodology: string;
-  deliverables: string[];
-  benefits: string;
-  price_range: string;
+  desc: string;
+  items: string[];
+  img: string;
 }
 
+const services: Service[] = [
+  {
+    title: 'UI/UX Design',
+    desc: 'Interfaces that feel obvious once you use them.',
+    items: [
+      'Wireframes & prototypes',
+      'Editorial layouts',
+      'Accessibility-first design'
+    ],
+    img: '/images/webdesign.jpg'
+  },
+  {
+    title: 'Frontend Engineering',
+    desc: 'React, accessibility, performance, animation.',
+    items: [
+      'Modern frameworks (React, Vite, Tailwind)',
+      'Performance optimization',
+      'Interactive experiences'
+    ],
+    img: '/images/frontend.jpg'
+  },
+  {
+    title: 'Backend & APIs',
+    desc: 'Scalable systems for real-world use.',
+    items: [
+      'Node.js & Supabase',
+      'PostgreSQL & cloud integration',
+      'Secure authentication flows'
+    ],
+    img: '/images/backend.jpg'
+  },
+  {
+    title: 'Brand Systems',
+    desc: 'Type, color, and components that scale.',
+    items: [
+      'Design systems',
+      'Component libraries',
+      'Consistent branding'
+    ],
+    img: '/images/fullstack.png'
+  },
+  {
+    title: 'Consulting & Strategy',
+    desc: 'Growth hacking, deployment sequencing, technical audits.',
+    items: [
+      'Launch planning',
+      'Tech stack audits',
+      'Startup scaling'
+    ],
+    img: '/images/cloud-computing.png'
+  }
+];
+
 export default function ServicesPage() {
-  const [services, setServices] = useState<Service[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchServices() {
-      const { data } = await supabase.from('services').select('*').order('created_at', { ascending: true });
-      if (data) setServices(data);
-      setLoading(false);
-    }
-    fetchServices();
-  }, []);
-
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
       <Navigation />
       <main className="max-w-6xl mx-auto px-6 pt-32 pb-20">
-        <header className="mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700">
-          <p className="font-mono text-xs tracking-[0.2em] uppercase text-indigo-600 mb-4">Offerings</p>
-          <h1 className="font-display font-bold text-5xl md:text-7xl mb-6">Our Services</h1>
-          <p className="text-slate-600 text-lg max-w-2xl leading-relaxed">
-            We build digital experiences that drive measurable outcomes. Stop wrestling with bloated tech stacks and let us deliver clarity and performance.
+        <header className="mb-20 animate-in fade-in slide-in-from-bottom-8 duration-700 text-center md:text-left">
+          <h1 className="font-display font-bold text-5xl md:text-7xl mb-6 leading-tight">
+            Our Services
+          </h1>
+          <p className="text-slate-600 text-xl max-w-3xl mx-auto md:mx-0 leading-relaxed">
+            We build digital experiences that drive measurable outcomes.{' '}
+            <br className="hidden md:block" />
+            Clarity, performance, and scalability at every stage.
           </p>
         </header>
 
-        {loading ? (
-          <div className="text-slate-600 font-mono text-sm animate-pulse">Loading services from database...</div>
-        ) : services.length > 0 ? (
-          <div className="space-y-12">
-            {services.map((service, idx) => (
-              <div key={service.id} className="bg-white shadow-sm border border-slate-200 rounded-3xl p-8 lg:p-12 animate-in fade-in slide-in-from-bottom-4" style={{ animationDelay: `${idx * 150}ms` }}>
-                <h2 className="text-3xl font-display font-bold mb-4">{service.title}</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-                  <div>
-                    <h3 className="text-sm font-mono text-indigo-600 uppercase tracking-wider mb-4">Pain Points Solved</h3>
-                    <ul className="list-disc list-inside text-slate-600 space-y-2 mb-8 ml-4">
-                      {service.pain_points.map((pt, i) => <li key={i}>{pt}</li>)}
-                    </ul>
-                    <h3 className="text-sm font-mono text-indigo-600 uppercase tracking-wider mb-4">Methodology</h3>
-                    <p className="text-slate-600 leading-relaxed">{service.methodology}</p>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-mono text-indigo-600 uppercase tracking-wider mb-4">Deliverables</h3>
-                    <ul className="space-y-3 mb-8">
-                      {service.deliverables.map((del, i) => (
-                        <li key={i} className="flex items-center gap-3 text-slate-900 bg-slate-50 border border-slate-200 p-3 rounded-xl border border-slate-200">
-                          <div className="w-2 h-2 rounded-full bg-indigo-600" /> {del}
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="p-6 bg-indigo-600/10 rounded-2xl border border-indigo-600/20">
-                      <h3 className="text-sm font-bold text-indigo-600 uppercase tracking-wider mb-2">Quantified Benefit</h3>
-                      <p className="text-lg font-medium">{service.benefits}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
+          {services.map((service, idx) => (
+            <div
+              key={service.title}
+              className="group bg-white/80 backdrop-blur-sm shadow-xl border border-slate-200/50 rounded-3xl p-8 lg:p-12 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 animate-in fade-in slide-in-from-bottom-4"
+              style={{ animationDelay: `${idx * 200}ms` }}
+            >
+              <img 
+                src={service.img}
+                alt={service.title}
+                className="w-full h-64 md:h-72 object-cover rounded-3xl mb-8 group-hover:scale-105 transition-transform duration-500 shadow-2xl"
+              />
+              <h2 className="text-3xl lg:text-4xl font-display font-bold mb-6 group-hover:text-indigo-600 transition-colors">{service.title}</h2>
+              <p className="text-slate-600 text-lg mb-8 leading-relaxed">{service.desc}</p>
+              <ul className="space-y-4">
+                {service.items.map((item, i) => (
+                  <li key={i} className="flex items-start gap-4 p-4 bg-gradient-to-r from-indigo-50 to-slate-50 rounded-2xl border border-indigo-100/50 group-hover:border-indigo-200 transition-all hover:bg-indigo-100">
+                    <div className="w-3 h-3 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mt-2 flex-shrink-0 shadow-md" />
+                    <span className="font-medium text-slate-900 leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center space-y-8 animate-in fade-in zoom-in duration-1000">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center max-w-2xl mx-auto">
+            <Link
+              to="/contact"
+              className="group px-10 py-6 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold text-xl rounded-3xl shadow-2xl hover:shadow-3xl hover:scale-105 hover:from-indigo-700 hover:to-purple-700 transition-all duration-500 flex-1 text-center"
+            >
+              Start a Project
+              <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
+            </Link>
+            <Link
+              to="/work"
+              className="px-10 py-6 border-2 border-slate-300 text-slate-900 font-bold text-xl rounded-3xl hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all duration-500 flex-1 text-center"
+            >
+              View Selected Work
+            </Link>
           </div>
-        ) : (
-          <div className="text-center p-12 border border-dashed border-slate-200 rounded-3xl text-slate-600">
-            <p>No services found in the database. Add entries to the 'services' table.</p>
-          </div>
-        )}
+          <footer className="text-slate-500 text-lg pt-16 border-t border-slate-200 max-w-md mx-auto text-center">
+            JoeKym Labs — Building the future, today.
+          </footer>
+        </div>
       </main>
     </div>
   );
 }
+

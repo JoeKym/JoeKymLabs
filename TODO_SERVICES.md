@@ -1,0 +1,1 @@
+- [x] Replace content in app/src/pages/ServicesPage.tsx with static layout using provided services info + matching images from public/images (TS warnings project-wide, code functional)
