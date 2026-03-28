@@ -63,9 +63,8 @@ export default function Navigation() {
             return (
               <Link 
                 key={link.name} 
-                to={link.path} 
-tracking-wide text-muted-foreground hover:text-primary transition-all duration-300 nav-link relative group"
-              >
+to={link.path} className="tracking-wide text-muted-foreground hover:text-primary transition-all duration-300 nav-link relative group">
+              
                 {hasIcon && <img src={iconSrc} alt="" className="w-4 h-4 flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity" />}
                 {link.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300 -translate-x-1/2"></span>
@@ -77,14 +76,15 @@ tracking-wide text-muted-foreground hover:text-primary transition-all duration-3
               <Link to="/profile" className="p-2 bg-muted rounded-button btn-hover border border-border flex-shrink-0 hover:bg-accent transition-colors">
                 <img src="/nav/profile.svg" alt="Profile" className="w-5 h-5" />
               </Link>
-            ) : (
-text-xs font-bold tracking-wider rounded-button hover:bg-primary/5"
+) : (
+              <Link to="/auth" className="text-xs font-bold tracking-wider rounded-button hover:bg-primary/5">
                 Sign In
               </Link>
-            )}
-px-6 py-2 bg-primary text-primary-foreground text-xs font-bold tracking-wider rounded-button shadow-green-glow hover:shadow-green-glow btn-hover"
+)}
+            <Link to="/contact" className="px-6 py-2 bg-primary text-primary-foreground text-xs font-bold tracking-wider rounded-button shadow-green-glow hover:shadow-green-glow btn-hover">
               Start Project
             </Link>
+
             <Button
               variant="ghost"
               size="icon"
