@@ -1,13 +1,12 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { ThemeProvider } from 'next-themes'
 import './index.css'
 import App from './App.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <div className="min-h-screen bg-background text-foreground dark:bg-slate-900 dark:text-slate-100">
       <App />
-    </ThemeProvider>
+    </div>
   </StrictMode>,
 )
