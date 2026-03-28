@@ -42,7 +42,6 @@ export default function Navigation() {
     { name: 'Services', path: '/services' },
     { name: 'Work', path: '/work' },
 { name: 'Studio', path: '/studio' },
-    { name: 'Philosophy', path: '/philosophy' },
     { name: 'Careers', path: '/careers' },
 { name: 'Pricing', path: '/pricing' },
     { name: 'Support', path: '/support' },

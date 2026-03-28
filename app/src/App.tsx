@@ -14,7 +14,6 @@ import CareersPage from './pages/CareersPage';
 import PricingPage from './pages/PricingPage';
 import ContactPage from './pages/ContactPage';
 import LegalPage from './pages/LegalPage';
-import PhilosophyPage from './pages/PhilosophyPage';
 import SupportPage from './pages/SupportPage';
 import './App.css';
 
@@ -65,7 +64,6 @@ function App() {
           <Route path="/pricing" element={<PricingPage />} />
 <Route path="/contact" element={<ContactPage />} />
           <Route path="/support" element={<SupportPage />} />
-          <Route path="/philosophy" element={<PhilosophyPage />} />
           <Route path="/legal" element={<LegalPage />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/profile" element={<ProfilePage />} />

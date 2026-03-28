@@ -107,7 +107,7 @@ export default function UserPage() {
   const totalLikes = projects.reduce((acc, p) => acc + (p.likes_count || 0), 0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-slate-50 text-slate-900 font-sans pb-20">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 text-slate-900 font-sans pb-20">
       <Navigation />
       
       {/* Cover Photo Area */}
