@@ -232,6 +232,7 @@ export default function LandingPage() {
         imagePosition="right" 
         zIndex={50} 
       />
+className="px-6 lg:px-12 py-24 border-t border-border text-center relative z-50 bg-card"
       <ContactSection />
       <footer className="px-6 lg:px-12 py-24 border-t border-border text-center uppercase relative z-50 bg-card">
         <div className="max-w-4xl mx-auto">
@@ -247,10 +248,13 @@ export default function LandingPage() {
           </nav>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-12 text-muted-foreground">
             <div className="text-center sm:text-left">
-              <p className="font-mono text-xs uppercase mb-1">📍 Nairobi, Kenya</p>
-              <p className="font-mono text-xs">✉ mail.jkyme@gmail.com</p>
-            </div>
+              <div className="flex items-center gap-2">
+                <img src="/nav/location.svg" alt="Location" className="w-5 h-5 flex-shrink-0" /> Nairobi, Kenya
+              </div>
             <div className="flex gap-4 text-lg">
+                <img src="/nav/gmail.svg" alt="Email" className="w-5 h-5 flex-shrink-0" /> mail.jkyme@gmail.com
+              </div>
+            </div>
               <a href="https://linkedin.com/in/joekym07" aria-label="LinkedIn" className="hover:text-primary transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="w-6 h-6 flex-shrink-0"><path fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zm73.4 304V248.6h-63.6V336H64V224h66.4V231h1.6c9.2-17.3 31.9-35.6 65.5-35.6 70 0 83.1 46.2 83.1 106.6V336h-66.5zM256 336V224h63.7v112h66.5V224h63.7v112h66.5V224h63.6V336z"/></svg>
               </a>

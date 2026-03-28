@@ -141,7 +141,7 @@ export default function ContactPage() {
         </div>
       </main>
 
-      <footer className="px-6 lg:px-12 py-24 border-t border-border text-center uppercase relative z-50 bg-card">
+className="px-6 lg:px-12 py-24 border-t border-border text-center relative z-50 bg-card"
         <div className="max-w-4xl mx-auto">
           <p className="font-mono text-muted-foreground text-sm mb-12">© 2026 JoeKym Labs™ | Building scalable digital experiences</p>
           <div className="flex justify-center gap-4 text-lg mb-12">

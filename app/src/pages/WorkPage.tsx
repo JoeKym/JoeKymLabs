@@ -171,7 +171,7 @@ export default function WorkPage() {
       </main>
 
       
-      <footer className="px-6 lg:px-12 py-24 border-t border-border text-center uppercase relative z-50 bg-card">
+className="px-6 lg:px-12 py-24 border-t border-border text-center relative z-50 bg-card"
         <div className="max-w-4xl mx-auto">
           <p className="font-mono text-muted-foreground text-sm mb-12">© 2026 JoeKym Labs™ | Building scalable digital experiences</p>
           <nav className="flex flex-wrap justify-center gap-6 mb-12">
@@ -185,8 +185,12 @@ export default function WorkPage() {
           </nav>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-12 text-muted-foreground">
             <div className="text-center sm:text-left">
-              <p className="font-mono text-xs uppercase mb-1">📍 Nairobi, Kenya</p>
-              <p className="font-mono text-xs">✉ mail.jkyme@gmail.com</p>
+              <div className="flex items-center gap-2">
+                <img src="/nav/location.svg" alt="Location" className="w-5 h-5 flex-shrink-0" /> Nairobi, Kenya
+              </div>
+              <div className="flex items-center gap-2">
+                <img src="/nav/gmail.svg" alt="Email" className="w-5 h-5 flex-shrink-0" /> mail.jkyme@gmail.com
+              </div>
             </div>
             <div className="flex gap-4 text-lg">
               <a href="https://linkedin.com/in/joekym07" aria-label="LinkedIn icon" className="hover:text-primary transition-colors">
