@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { useEffect } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './components/theme-provider';
+import Layout from './components/Layout';
 import LandingPage from './pages/LandingPage';
 import WorkPage from './pages/WorkPage';
 import StudioPage from './pages/StudioPage';
@@ -54,27 +55,25 @@ function App() {
       <HelmetProvider>
         <Router>
           <ScrollToTop />
-
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/work" element={<WorkPage />} />
-          <Route path="/studio" element={<StudioPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/careers" element={<CareersPage />} />
-          <Route path="/pricing" element={<PricingPage />} />
-<Route path="/contact" element={<ContactPage />} />
-          <Route path="/support" element={<SupportPage />} />
-          <Route path="/legal" element={<LegalPage />} />
-          <Route path="/auth" element={<AuthPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/user/:username" element={<UserPage />} />
-<Route path="/notes" element={<NotesPage />} />
-          <Route path="/app" element={<MainApp />} />
-          <Route path="/blank" element={<div>Blank successful build - no console errors</div>} />
-          <Route path="*" element={<LandingPage />} />
-
-        </Routes>
-      </Router>
+          <Routes>
+            <Route path="/" element={<Layout><LandingPage /></Layout>} />
+            <Route path="/work" element={<Layout><WorkPage /></Layout>} />
+            <Route path="/studio" element={<Layout><StudioPage /></Layout>} />
+            <Route path="/services" element={<Layout><ServicesPage /></Layout>} />
+            <Route path="/careers" element={<Layout><CareersPage /></Layout>} />
+            <Route path="/pricing" element={<Layout><PricingPage /></Layout>} />
+            <Route path="/contact" element={<Layout><ContactPage /></Layout>} />
+            <Route path="/support" element={<Layout><SupportPage /></Layout>} />
+            <Route path="/legal" element={<Layout><LegalPage /></Layout>} />
+            <Route path="/auth" element={<Layout><AuthPage /></Layout>} />
+            <Route path="/profile" element={<Layout><ProfilePage /></Layout>} />
+            <Route path="/user/:username" element={<Layout><UserPage /></Layout>} />
+            <Route path="/notes" element={<Layout><NotesPage /></Layout>} />
+            <Route path="/app" element={<Layout><MainApp /></Layout>} />
+            <Route path="/blank" element={<Layout><div>Blank successful build - no console errors</div></Layout>} />
+            <Route path="*" element={<Layout><LandingPage /></Layout>} />
+          </Routes>
+        </Router>
     </HelmetProvider>
     </ThemeProvider>
   );
