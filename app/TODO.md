@@ -1,16 +1,9 @@
-# Landing Page Update TODO
+# Fix Vite Build Failure Plan Progress
 
-## Plan Steps:
-- [x] Create TODO.md
-- [ ] Read/confirm current LandingPage.tsx (done via tools)
-- [x] Edit HeroSection: Update image to wedev-hero.jpg, modern web dev headline/sub ✅
-- [x] Edit WorkSection: Real projects (E-Commerce, SaaS), tech badges ✅
-- [x] Edit CapabilitiesSection: Web-dev tailored titles/descs/images ✅
-- [x] Edit ProcessSection: Web-specific steps/images (no backend/cloud) ✅
-- [x] Edit SplitSections: Web-focused copy/images ✅
-- [ ] Enhance Contact: Web pitches
-- [ ] Add stats/testimonials for richness
-- [ ] Polish Footer
-- [ ] Test & complete: `cd app && npm run dev`, verify
-
-Current: Starting edits...
+- [x] Step 1: Understand error (malformed JSX in LandingPage.tsx from AI tool tags)
+- [ ] Step 2: Remove invalid <xai:function_call> tool artifacts 
+- [ ] Step 3: Complete missing JSX sections (CapabilitiesSection, ProcessSection, SplitSection, ContactSection, footer)
+- [ ] Step 4: Verify with `npm run build`
+- [ ] Step 5: Optional: `npm audit fix` vulnerabilities
+- [ ] Step 6: Test dev server `npm run dev`
+- [ ] Step 7: Deploy to Render
