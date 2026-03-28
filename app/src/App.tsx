@@ -13,6 +13,7 @@ import CareersPage from './pages/CareersPage';
 import PricingPage from './pages/PricingPage';
 import ContactPage from './pages/ContactPage';
 import LegalPage from './pages/LegalPage';
+import SupportPage from './pages/SupportPage';
 import './App.css';
 
 // Scroll to top on route change
@@ -58,7 +59,8 @@ function App() {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/pricing" element={<PricingPage />} />
-          <Route path="/contact" element={<ContactPage />} />
+<Route path="/contact" element={<ContactPage />} />
+          <Route path="/support" element={<SupportPage />} />
           <Route path="/legal" element={<LegalPage />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/profile" element={<ProfilePage />} />

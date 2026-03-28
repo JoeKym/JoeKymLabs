@@ -39,7 +39,8 @@ export default function Navigation() {
     { name: 'Work', path: '/work' },
     { name: 'Studio', path: '/studio' },
     { name: 'Careers', path: '/careers' },
-    { name: 'Pricing', path: '/pricing' },
+{ name: 'Pricing', path: '/pricing' },
+    { name: 'Support', path: '/support' },
     { name: 'Contact', path: '/contact' },
   ];
 
