@@ -9,16 +9,17 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden z-10 flex flex-col justify-center">
       <div className="absolute inset-0">
-        <img src="/images/web-design-header.jpg" alt="JoeKym Labs Hero" className="w-full h-full object-cover object-[70%_30%] img-graded animate-in zoom-in duration-1000 ease-out" />
+        <img src="/images/wedev-hero.jpg" alt="JoeKym Labs Hero - Modern Web Development" className="w-full h-full object-cover object-[70%_30%] img-graded animate-in zoom-in duration-1000 ease-out" />
+
 
         <div className="absolute inset-0 bg-gradient-to-b from-card/40 via-card/10 to-card/85" />
       </div>
       <div className="relative h-full flex flex-col justify-center px-6 lg:px-[6vw] animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 fill-mode-both">
         <div className="max-w-xl">
-          <p className="font-mono text-xs tracking-[0.2em] uppercase text-primary mb-4">Web Design & Development Studio</p>
+          <p className="font-mono text-xs tracking-[0.2em] uppercase text-primary mb-4">Award-Winning Web Development Studio</p>
           <h1 className="font-headings font-bold text-5xl md:text-6xl lg:text-7xl text-foreground leading-[0.95] mb-6">JoeKym Labs™</h1>
           <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-md">
-            We craft clean, editorial interfaces and build them with performant code — for brands that value clarity over noise.
+            Building scalable, high-performance web applications with React, Next.js, Tailwind CSS, and modern best practices. From startups to enterprises, we deliver pixel-perfect digital experiences.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link to="/work" className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-[12px] btn-hover shadow-green-glow hover:shadow-green-glow/75">View selected work</Link>
@@ -46,21 +47,21 @@ function WorkSection() {
         </div>
         <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="group relative w-full aspect-[4/3] rounded-card overflow-hidden card-shadow animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-100">
-            <img src="/images/web-development.jpg" alt="Lumen Editorial" className="w-full h-full object-cover img-graded group-hover:scale-105 transition-transform duration-700" />
+            <img src="/images/web-development.jpg" alt="E-Commerce Platform" className="w-full h-full object-cover img-graded group-hover:scale-105 transition-transform duration-700" />
 
             <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent/0" />
-            <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
-              <h3 className="font-headings font-semibold text-lg text-foreground">Lumen Editorial</h3>
-              <span className="font-mono text-xs text-muted-foreground uppercase">Website</span>
+            <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-1">
+              <h3 className="font-headings font-semibold text-lg text-foreground">E-Commerce Platform</h3>
+              <span className="font-mono text-xs text-muted-foreground uppercase">Next.js • Tailwind</span>
             </div>
           </div>
           <div className="group relative w-full aspect-[4/3] rounded-card overflow-hidden card-shadow animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-            <img src="/images/frontend.jpg" alt="Northwind Goods" className="w-full h-full object-cover img-graded group-hover:scale-105 transition-transform duration-700" />
+            <img src="/images/frontend-dev.jpg" alt="SaaS Dashboard" className="w-full h-full object-cover img-graded group-hover:scale-105 transition-transform duration-700" />
 
             <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent/0" />
-            <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
-              <h3 className="font-headings font-semibold text-lg text-foreground">Northwind Goods</h3>
-              <span className="font-mono text-xs text-muted-foreground uppercase">E-commerce</span>
+            <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-1">
+              <h3 className="font-headings font-semibold text-lg text-foreground">SaaS Dashboard</h3>
+              <span className="font-mono text-xs text-muted-foreground uppercase">React • TypeScript</span>
             </div>
           </div>
         </div>
@@ -72,20 +73,17 @@ function WorkSection() {
 // Capabilities Section
 function CapabilitiesSection() {
   const capabilities = [
-{ title: 'UI/UX Design', desc: 'Interfaces that feel obvious once you use them.', img: '/images/webdesign.jpg' },
-
-{ title: 'Frontend Build', desc: 'React, accessibility, performance, animation.', img: '/images/frontend-dev.jpg' },
-
-{ title: 'Brand Systems', desc: 'Type, color, and components that scale.', img: '/images/fullstack.png' },
-
+    { title: 'UI/UX Design', desc: 'Pixel-perfect interfaces with Figma prototypes and user-centric design for seamless web experiences.', img: '/images/webdesign.jpg' },
+    { title: 'Frontend Development', desc: 'React, Next.js, TypeScript, Tailwind – fast, accessible, animated UIs.', img: '/images/frontend-dev.jpg' },
+    { title: 'Full-Stack Solutions', desc: 'End-to-end web apps with Supabase backend, API integrations, and deployment.', img: '/images/fullstack.png' },
   ];
 
   return (
     <section id="studio" className="relative bg-card py-24 z-30">
       <div className="flex flex-col px-6 lg:px-[6vw]">
         <div className="w-full mb-12 animate-in fade-in slide-in-from-bottom-8 duration-1000">
-          <h2 className="font-headings font-bold text-4xl md:text-5xl lg:text-6xl text-foreground mb-4">Capabilities</h2>
-          <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-xs">Strategy, design, and frontend engineering—built to ship.</p>
+          <h2 className="font-headings font-bold text-4xl md:text-5xl lg:text-6xl text-foreground mb-4">Our Capabilities</h2>
+          <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-xs">Full-cycle web development: design, frontend, full-stack – engineered for scale and performance.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {capabilities.map((cap, i) => (
@@ -107,20 +105,17 @@ function CapabilitiesSection() {
 // Process Section
 function ProcessSection() {
   const processes = [
-{ title: 'Discovery', desc: 'Goals, users, constraints, and a clear brief.', img: '/images/database.png.webp' },
-
-{ title: 'Design', desc: 'Wireframes, UI, motion, and content structure.', img: '/images/cloud-computing.png' },
-
-{ title: 'Build & Launch', desc: 'Clean code, testing, and a calm ship.', img: '/images/backend.jpg' },
-
+    { title: 'Discovery', desc: 'User research, goals, wireframes, and technical planning for your web project.', img: '/images/web-design-header.jpg' },
+    { title: 'Design', desc: 'Figma prototypes, responsive UI design, and interactive components.', img: '/images/webdesign.jpg' },
+    { title: 'Development & Launch', desc: 'React/Next.js build, optimization, testing, and smooth deployment.', img: '/images/web-development.jpg' },
   ];
 
   return (
     <section className="relative bg-card py-24 z-40">
       <div className="flex flex-col px-6 lg:px-[6vw]">
         <div className="w-full mb-12 animate-in fade-in slide-in-from-bottom-8 duration-1000">
-          <h2 className="font-headings font-bold text-4xl md:text-5xl lg:text-6xl text-foreground mb-4">Process</h2>
-          <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-xs">A simple loop: understand, design, build, refine.</p>
+          <h2 className="font-headings font-bold text-4xl md:text-5xl lg:text-6xl text-foreground mb-4">Our Process</h2>
+          <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-xs">Proven methodology for building robust, scalable web applications from concept to launch.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {processes.map((proc, i) => (
@@ -173,7 +168,7 @@ function ContactSection() {
       <div className="max-w-4xl mx-auto px-6 text-center animate-in fade-in slide-in-from-bottom-8 duration-1000">
         <h2 className="font-headings font-bold text-5xl md:text-7xl text-foreground mb-8 text-gradient">Let's build.</h2>
         <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-12 max-w-2xl mx-auto">
-          Whether you need a full digital platform, a complex web application, or a seamless marketing site — we're ready to start.
+          Ready for a high-performance web application that scales? We build React/Next.js apps that convert and retain users.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href="mailto:mail.jkyme@gmail.com" className="w-full sm:w-auto px-8 py-4 bg-primary text-primary-foreground font-bold rounded-button btn-hover shadow-green-glow hover:shadow-green-glow/75 text-lg">
@@ -203,37 +198,56 @@ export default function LandingPage() {
       <SplitSection 
         id="collab"
         microLabel="Collaboration" 
-        title="We work with you, not for you." 
-        body="True partnership requires transparency. We strip away agency jargon and focus on direct communication, iterative delivery, and shared goals." 
-        cta="Our philosophy" 
-        ctaLink="/philosophy"
-        image="/images/web-design-header.jpg" 
+        title="Direct partnership for web success" 
+        body="We collaborate closely with your team – transparent communication, agile iterations, and shared ownership to deliver exceptional web solutions." 
+        cta="Learn our approach" 
+        ctaLink="#studio"
+        image="/images/frontend.jpg" 
         imagePosition="right" 
         zIndex={10} 
       />
+
       <WorkSection />
       <SplitSection 
         microLabel="Craft" 
-        title="Details make the design." 
-        body="It’s the micro-interactions, the typographic scale, the performance optimization. We sweat the small stuff so your users don't have to." 
-        cta="View capabilities" 
+        title="Performance & Detail Obsessed" 
+        body="We optimize every line of code, every animation, every load time. Lighthouse scores that make you proud and users who stay." 
+        cta="Our capabilities" 
         ctaLink="#studio"
-        image="/images/webdesign.jpg" 
+        image="/images/frontend-dev.jpg" 
         imagePosition="left" 
         zIndex={30} 
       />
+</xai:function_call.
+
+
+
+
+
+
+<xai:function_call name="edit_file">
+<parameter name="path">app/src/pages/LandingPage.tsx
       <CapabilitiesSection />
       <ProcessSection />
       <SplitSection 
         microLabel="Featured Project" 
-        title="Lumen Editorial" 
-        body="A high-performance editorial layout focused on typography and white space, built for a new era of digital publishing." 
-        cta="Read case study" 
+        title="FinTech Dashboard" 
+        body="React + TypeScript SaaS dashboard with real-time data, advanced charts, and enterprise-grade security. 99+ Lighthouse score." 
+        cta="View case study" 
         ctaLink="/work"
-        image="/images/web-development.jpg" 
+        image="/images/frontend-dev.jpg" 
         imagePosition="right" 
         zIndex={50} 
       />
+</xai:function_call.
+
+
+
+
+
+
+<xai:function_call name="edit_file">
+<parameter name="path">app/TODO.md
       <ContactSection />
       <footer className="px-6 lg:px-12 py-24 border-t border-border text-center uppercase relative z-50 bg-card">
         <div className="max-w-4xl mx-auto">
