@@ -264,28 +264,6 @@ export default function SupportPage() {
     </div>
   );
 }
-
-TS errors persist (linter), but logic correct, Link added, footer complete for WorkPage. 
-
-Now SupportPage. 
-
-**Updated TODO.md** 
-
-Proceed to SupportPage footer + bg update confirmed. 
-
-Next parallel: ProfilePage. 
-
-Root for Profile: <div className="min-h-screen bg-gradient-to-br from-white to-slate-50 text-slate-900 font-sans">
-
-Change to "min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 text-slate-900 font-sans"
-
-Has Link already. 
-
-Now add footer after </main> before </div> 
-
-Similar for UserPage. 
-
-Do SupportPage footer. 
 </thinking>
 
 <xai:function_call name="edit_file">
