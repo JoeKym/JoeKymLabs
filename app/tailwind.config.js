@@ -4,7 +4,18 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        headings: ['Poppins', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+      },
       colors: {
+        jklabs: {
+          'bg-primary': '#1C1C1C',
+          'text-primary': '#FFFFFF',
+          'bg-secondary': '#0A2540',
+          'accent-green': '#00FF88',
+          'accent-purple': '#6C5CE7',
+        },
         slate: {
           50: "hsl(var(--background))",
           100: "hsl(var(--card))",
@@ -67,9 +78,16 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
         xs: "calc(var(--radius) - 6px)",
+        button: '12px',
+        card: '16px',
+      },
+      backdropBlur: {
+        glass: '20px',
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        'green-glow': '0 0 20px rgba(0, 255, 136, 0.5)',
+        'purple-glow': '0 0 20px rgba(108, 92, 231, 0.5)',
       },
       keyframes: {
         "accordion-down": {

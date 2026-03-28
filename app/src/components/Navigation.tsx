@@ -5,97 +5,119 @@ import { User } from '@supabase/supabase-js';
 
 export default function Navigation() {
   const navRef = useRef<HTMLElement>(null);
-  const location = useLocation();
-  const isHome = location.pathname === '/';
-  
+  const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState<User | null>(null);
-  
+  const location = useLocation();
+
   useEffect(() => {
-    // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-    });
+    supabase.auth.getSession().then(({ data: { session } }) => setUser(session?.user ?? null));
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => setUser(session?.user ?? null));
+    return () => subscription.unsubscribe();
+  }, []);
 
-    // Listen for changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-    });
-
+  useEffect(() => {
     const handleScroll = () => {
       if (navRef.current) {
         if (window.scrollY > 50) {
-          navRef.current.classList.add('bg-slate-50/85', 'backdrop-blur-xl', 'py-4', 'border-b', 'border-slate-200');
+          navRef.current.classList.add('glass', 'py-3', 'border-b', 'border-border', 'shadow-lg');
           navRef.current.classList.remove('py-6');
         } else {
-          navRef.current.classList.remove('bg-slate-50/85', 'backdrop-blur-xl', 'py-4', 'border-b', 'border-slate-200');
+          navRef.current.classList.remove('glass', 'py-3', 'border-b', 'border-border', 'shadow-lg');
           navRef.current.classList.add('py-6');
         }
       }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      subscription.unsubscribe();
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'Services', path: '/services' },
     { name: 'Work', path: '/work' },
     { name: 'Studio', path: '/studio' },
-    { name: 'Services', path: '/services' },
-    { name: 'Pricing', path: '/pricing' },
     { name: 'Careers', path: '/careers' },
+    { name: 'Pricing', path: '/pricing' },
     { name: 'Contact', path: '/contact' },
   ];
 
   return (
     <nav ref={navRef} className="fixed top-0 left-0 right-0 z-[200] px-6 lg:px-12 py-6 transition-all duration-500 ease-in-out">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link to="/" className="font-display font-bold text-2xl tracking-tight text-slate-900 hover:opacity-80 transition-opacity">
+        <Link to="/" className="font-headings font-bold text-2xl tracking-tight text-foreground hover:text-primary transition-colors nav-link">
           JoeKym Labs<span className="text-primary">™</span>
         </Link>
-        
-        <div className="hidden md:flex items-center gap-10">
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link 
               key={link.name} 
               to={link.path} 
-              className="text-[13px] font-medium tracking-wide uppercase text-slate-600 hover:text-slate-900 transition-colors duration-300"
+              className="text-sm font-medium tracking-wide uppercase text-muted-foreground hover:text-primary transition-all duration-300 nav-link relative group"
+            >
+              {link.name}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300"></span>
+            </Link>
+          ))}
+          <div className="ml-4 flex items-center gap-3">
+            {user ? (
+              <Link to="/profile" className="px-4 py-2 bg-muted text-foreground text-xs font-bold uppercase tracking-wider rounded-button btn-hover border border-border">
+                Profile
+              </Link>
+            ) : (
+              <Link to="/auth" className="px-4 py-2 border border-primary/30 text-primary text-xs font-bold uppercase tracking-wider rounded-button hover:bg-primary/5">
+                Sign In
+              </Link>
+            )}
+            <Link to="/contact" className="px-6 py-2 bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider rounded-button shadow-green-glow hover:shadow-green-glow btn-hover">
+              Start Project
+            </Link>
+          </div>
+        </div>
+
+        {/* Mobile menu button */}
+        <button 
+          className="md:hidden text-foreground p-2 hover:text-primary transition-colors"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div className={`md:hidden overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+        <div className="bg-background/95 backdrop-blur-md border-t border-border px-6 py-8 space-y-4">
+          {navLinks.map((link) => (
+            <Link 
+              key={link.name} 
+              to={link.path} 
+              className="block text-lg font-medium text-muted-foreground hover:text-primary transition-colors py-2 nav-link"
+              onClick={() => setIsOpen(false)}
             >
               {link.name}
             </Link>
           ))}
-        </div>
-
-        <div className="flex items-center gap-4">
-          {user ? (
-            <Link 
-              to="/profile" 
-              className="px-6 py-3 bg-slate-100 text-slate-900 text-[13px] font-bold uppercase tracking-wider rounded-xl hover:bg-slate-200 transition-all border border-slate-200"
-            >
-              Profile
+          <div className="pt-4 border-t border-border space-y-2">
+            {user ? (
+              <Link to="/profile" className="block px-4 py-3 bg-muted text-foreground font-bold rounded-button btn-hover">
+                Profile
+              </Link>
+            ) : (
+              <Link to="/auth" className="block px-4 py-3 border border-primary/30 text-primary font-bold rounded-button hover:bg-primary/5">
+                Sign In
+              </Link>
+            )}
+            <Link to="/contact" className="block w-full px-4 py-3 bg-primary text-primary-foreground font-bold rounded-button shadow-green-glow text-center btn-hover">
+              Start Project
             </Link>
-          ) : (
-            <Link 
-              to="/auth" 
-              className="px-6 py-3 border border-primary/40 text-primary text-[13px] font-bold uppercase tracking-wider rounded-xl hover:bg-primary/5 transition-all"
-            >
-              Sign In
-            </Link>
-          )}
-
-          <Link 
-            to="/contact" 
-            className="hidden md:block px-6 py-3 bg-primary text-primary-foreground text-[13px] font-bold uppercase tracking-wider rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-primary/20"
-          >
-            Start a project
-          </Link>
+          </div>
         </div>
-        
-        {/* Mobile menu icon placeholder */}
-        <button className="md:hidden text-slate-900 p-2">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 8h16M4 16h16"/></svg>
-        </button>
       </div>
     </nav>
   );
