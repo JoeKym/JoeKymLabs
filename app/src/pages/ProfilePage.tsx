@@ -119,7 +119,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
+    <div className="min-h-screen bg-gradient-to-br from-white to-slate-50 text-slate-900 font-sans">
       <Navigation />
       
       <main className="max-w-6xl mx-auto px-6 pt-32 pb-20">

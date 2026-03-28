@@ -61,6 +61,7 @@ function App() {
           <Route path="/pricing" element={<PricingPage />} />
 <Route path="/contact" element={<ContactPage />} />
           <Route path="/support" element={<SupportPage />} />
+          <Route path="/philosophy" element={<PhilosophyPage />} />
           <Route path="/legal" element={<LegalPage />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/profile" element={<ProfilePage />} />

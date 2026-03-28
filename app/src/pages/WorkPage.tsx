@@ -15,8 +15,15 @@ const projects = [
 ];
 
 export default function WorkPage() {
+  const projects = [
+  { title: "JoeKym Portfolio", url: "https://joekymportfolio.onrender.com", type: "Portfolio", tech: "React, GSAP, Render" },
+  { title: "Renegade Immortal", url: "https://renegadeimmortal.onrender.com", type: "Web App", tech: "React, Lovable, Render" },
+  { title: "Task Tuned", url: "https://tasktuned.onrender.com", type: "Productivity", tech: "TypeScript, Vite" },
+  { title: "Satoshi BTC Tracker", url: "https://satoshibtctracker.onrender.com", type: "Crypto/Finance", tech: "API Integration, React" },
+  { title: "Math Arsenal", url: "https://matharsenal.onrender.com", type: "Education", tech: "React" },
+  ];
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
+    <div className="min-h-screen bg-white border-t border-slate-200 text-slate-900 font-sans">
       <Navigation />
       
       <main className="max-w-6xl mx-auto px-6 pt-32 pb-20">

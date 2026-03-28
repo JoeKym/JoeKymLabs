@@ -62,7 +62,7 @@ export default function SupportPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
+    <div className="min-h-screen bg-white text-slate-900 font-sans">
       <Navigation />
       <main className="max-w-6xl mx-auto px-6 pt-32 pb-20">
         <header className="text-center mb-16 animate-in fade-in slide-in-from-top-8 duration-1000">
