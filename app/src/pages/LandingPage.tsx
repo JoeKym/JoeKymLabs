@@ -1,10 +1,10 @@
-l// FULL COMPLETE CONTENT FROM ORIGINAL READ + CLEAN END
+// FULL COMPLETE CONTENT FROM ORIGINAL READ + CLEAN END
 
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
 import type { User } from '@supabase/supabase-js';
-import Navigation from '../components/Navigation';
+import Navigation from '../components/Navigation-fixed';
 
 // HeroSection (exact original)
 function HeroSection() {

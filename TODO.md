@@ -1,18 +1,11 @@
-n# Fix Render Build Failure - Vite/TSX Error
+# Fix Build → Blank Website No Errors
 
-## Steps:
-- [x] Step 1: Edit app/src/pages/LandingPage.tsx to remove invalid JSX comment at line 257 and add full social media SVG icons (GitHub, Twitter/X, Behance, Dribbble). ✅
-- [x] Step 2: Test local build: `cd app && npm run build` (local PATH issue; Render Linux OK)
-- [x] Step 3: Run `cd app && npm audit fix` for vulnerabilities (non-blocking)
-- [x] Step 4: Verify clean audit: `cd app && npm audit`
-- [ ] Step 5: Push changes to trigger Render redeploy (user action)
+## Approved Plan Steps
 
-✅ Build error fixed!
-## Steps:
-- [x] Step 1: Edit app/src/pages/LandingPage.tsx to remove invalid JSX comment at line 257 and add full social media SVG icons (GitHub, Twitter/X, Behance, Dribbble). ✅
-- [ ] Step 2: Test local build: `cd app && npm run build`
-- [ ] Step 3: Run `cd app && npm audit fix` for vulnerabilities
-- [ ] Step 4: Verify clean audit: `cd app && npm audit`
-- [ ] Step 5: Push changes to trigger Render redeploy (user action)
-
-Current: Starting Step 1
+1. ✅ Create TODO.md
+2. ✅ Edit LandingPage.tsx: Switched to Navigation-fixed
+3. ✅ Edit TODO_FIX_BUILD.md: Progress updated
+4. ✅ Edit App.tsx: Added /blank route
+5. [ ] Run build & preview
+6. [ ] Verify /blank clean
+7. [ ] Complete

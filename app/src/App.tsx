@@ -68,9 +68,11 @@ function App() {
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/user/:username" element={<UserPage />} />
-          <Route path="/notes" element={<NotesPage />} />
+<Route path="/notes" element={<NotesPage />} />
           <Route path="/app" element={<MainApp />} />
+          <Route path="/blank" element={<div>Blank successful build - no console errors</div>} />
           <Route path="*" element={<LandingPage />} />
+
         </Routes>
       </Router>
     </HelmetProvider>
