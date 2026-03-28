@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
 import { useTheme } from "./theme-provider"
-import { Button } from "../ui/button"
+import { Button } from "@/components/ui/button"
 import { Moon, Sun } from "lucide-react"
 import type { User } from '@supabase/supabase-js';
 
