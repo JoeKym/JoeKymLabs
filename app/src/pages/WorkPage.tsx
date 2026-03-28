@@ -8,7 +8,7 @@ const projects = [
   { title: "Task Tuned", url: "https://tasktuned.onrender.com", type: "Productivity", tech: "TypeScript, Vite" },
   { title: "Satoshi BTC Tracker", url: "https://satoshibtctracker.onrender.com", type: "Crypto/Finance", tech: "API Integration, React" },
   { title: "Math Arsenal", url: "https://matharsenal.onrender.com", type: "Education", tech: "React" },
-  { title: "3D Bee Website", url: "https://threedbeewebsie.onrender.com", type: "3D / WebGL", tech: "Three.js, React Three Fiber" },
+  { title: "3D Bee Website", url: "https://threedbeewebsite.onrender.com", type: "3D / WebGL", tech: "Three.js, React Three Fiber" },
   { title: "For You My Love", url: "https://foryoumylove.onrender.com", type: "Personal", tech: "Frontend" },
   { title: "TechFolio", url: "https://techfolio.lovable.app", type: "Portfolio", tech: "Lovable" },
   { title: "Lifeform 3D", url: "https://lifeform3js.oneapp.dev/", type: "3D Experience", tech: "Three.js, OneApp" }
