@@ -206,7 +206,8 @@ export default function LandingPage() {
         title="We work with you, not for you." 
         body="True partnership requires transparency. We strip away agency jargon and focus on direct communication, iterative delivery, and shared goals." 
         cta="Our philosophy" 
-        image="/images/split_collab_camera_hands.jpg" 
+        ctaLink="/philosophy"
+        image="/images/web-design-header.jpg" 
         imagePosition="right" 
         zIndex={10} 
       />
@@ -217,7 +218,7 @@ export default function LandingPage() {
         body="It’s the micro-interactions, the typographic scale, the performance optimization. We sweat the small stuff so your users don't have to." 
         cta="View capabilities" 
         ctaLink="#studio"
-        image="/images/split_craft_camera_side.jpg" 
+        image="/images/webdesign.jpg" 
         imagePosition="left" 
         zIndex={30} 
       />
@@ -229,7 +230,7 @@ export default function LandingPage() {
         body="A high-performance editorial layout focused on typography and white space, built for a new era of digital publishing." 
         cta="Read case study" 
         ctaLink="/work"
-        image="/images/split_featured_camera.jpg" 
+        image="/images/web-development.jpg" 
         imagePosition="right" 
         zIndex={50} 
       />
