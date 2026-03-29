@@ -160,7 +160,7 @@ export default function PricingPage() {
         </div>
 
         {/* Tiers */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-24">
           {tiers.map((tier, index) => (
             <Card
               key={tier.name}
@@ -183,7 +183,7 @@ export default function PricingPage() {
                   {tier.description}
                 </CardDescription>
                 <div className="mt-6 p-4 bg-gradient-to-r from-slate-50 to-slate-100 rounded-2xl">
-                  <div className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent whitespace-normal break-words leading-tight">
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent break-words">
                     {formatPrice(tier.kesPrice, tier.usdPrice)}
                   </div>
                 </div>
