@@ -39,7 +39,7 @@ export default function PhilosophyPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground pt-32 px-6 pb-20">
-      <main className="max-w-6xl mx-auto px-6 pt-32 pb-20">
+      <main className="max-w-6xl mx-auto pb-20">
         <header className="text-center mb-24 animate-in fade-in slide-in-from-top-8 duration-1000">
           <h1 className="font-display font-bold text-5xl md:text-7xl mb-6 bg-gradient-to-r from-indigo-600 via-slate-900 to-slate-900 bg-clip-text text-transparent">
             Our Philosophy

@@ -54,7 +54,7 @@ export default function StudioPage() {
             Principles
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="group relative overflow-hidden bg-gradient-to-br from-indigo-50 to-purple-50 border-0 shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-700 cursor-pointer h-[400px]">
+            <Card className="group relative overflow-hidden bg-gradient-to-br from-indigo-50 to-purple-50 border-0 shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-700 cursor-pointer h-auto md:h-[400px]">
               <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity">
                 <img src="/images/web-development.jpg" alt="" className="w-full h-full object-cover" />
               </div>
@@ -71,7 +71,7 @@ export default function StudioPage() {
               </CardContent>
             </Card>
 
-            <Card className="group relative overflow-hidden bg-gradient-to-br from-purple-50 to-blue-50 border-0 shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-700 cursor-pointer h-[400px]">
+            <Card className="group relative overflow-hidden bg-gradient-to-br from-purple-50 to-blue-50 border-0 shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-700 cursor-pointer h-auto md:h-[400px]">
               <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity">
                 <img src="/images/webdesign.jpg" alt="" className="w-full h-full object-cover" />
               </div>
@@ -88,7 +88,7 @@ export default function StudioPage() {
               </CardContent>
             </Card>
 
-            <Card className="group relative overflow-hidden bg-gradient-to-br from-emerald-50 to-teal-50 border-0 shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-700 cursor-pointer h-[400px]">
+            <Card className="group relative overflow-hidden bg-gradient-to-br from-emerald-50 to-teal-50 border-0 shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-700 cursor-pointer h-auto md:h-[400px]">
               <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity">
                 <img src="/images/fullstack.png" alt="" className="w-full h-full object-cover" />
               </div>
@@ -105,7 +105,7 @@ export default function StudioPage() {
               </CardContent>
             </Card>
 
-            <Card className="group relative overflow-hidden bg-gradient-to-br from-amber-50 to-orange-50 border-0 shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-700 cursor-pointer h-[400px]">
+            <Card className="group relative overflow-hidden bg-gradient-to-br from-amber-50 to-orange-50 border-0 shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-700 cursor-pointer h-auto md:h-[400px]">
               <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity">
                 <img src="/images/cloud-computing.png" alt="" className="w-full h-full object-cover" />
               </div>

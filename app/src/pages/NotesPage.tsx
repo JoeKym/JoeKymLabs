@@ -23,7 +23,7 @@ export default function NotesPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground pt-32 px-6 pb-20">
-      <div className="pt-32 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
+      <div className="pb-20 lg:px-12 max-w-7xl mx-auto">
         <header className="mb-20 max-w-2xl animate-in fade-in slide-in-from-bottom-8 duration-700">
           <p className="font-mono text-xs tracking-[0.2em] uppercase text-indigo-600 mb-4">Insights</p>
           <h1 className="font-display font-bold text-5xl md:text-7xl mb-6">Notes.</h1>

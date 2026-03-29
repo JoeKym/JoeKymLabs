@@ -61,7 +61,7 @@ export default function SupportPage() {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background text-foreground">
       <main className="max-w-6xl mx-auto px-6 pt-24 pb-16">
         <header className="text-center mb-16 animate-in fade-in slide-in-from-top-8 duration-1000">
           <h1 className="font-display font-bold text-5xl md:text-7xl mb-6 bg-gradient-to-r from-indigo-600 to-primary bg-clip-text text-transparent">

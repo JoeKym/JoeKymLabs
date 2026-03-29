@@ -131,7 +131,7 @@ export default function PricingPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground pt-32 px-6 pb-20">
-      <main className="max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-24">
+      <main className="max-w-7xl mx-auto lg:px-8 pb-24">
         {/* Hero */}
         <div className="text-center mb-24 animate-in fade-in slide-in-from-top-10 duration-1000">
           <h1 className="font-headings font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent text-5xl md:text-7xl mb-6">

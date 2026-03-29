@@ -194,8 +194,7 @@ export default function ProfilePage() {
         {profile?.avatar_url && <meta property="og:image" content={profile.avatar_url} />}
       </Helmet>
       <div className="min-h-screen bg-background text-foreground pt-32 px-6 pb-20">
-      
-      <main className="max-w-6xl mx-auto px-6 pt-32 pb-20">
+      <main className="max-w-6xl mx-auto pb-20">
         <div className="flex flex-col md:flex-row gap-8 lg:gap-12">
           
           {/* Sidebar */}

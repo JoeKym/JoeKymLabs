@@ -74,7 +74,8 @@ export default function ServicesPage() {
         <meta property="og:url" content="https://joekymlabs.com/services" />
         <meta name="twitter:card" content="summary" />
       </Helmet>
-      <main className="max-w-6xl mx-auto px-6 pt-32 pb-20 bg-background min-h-[70vh] text-foreground font-sans">
+      <div className="min-h-screen bg-background text-foreground">
+      <main className="max-w-6xl mx-auto px-6 pt-32 pb-20 font-sans">
         <header className="mb-20 animate-in fade-in slide-in-from-bottom-8 duration-700 text-center md:text-left">
           <h1 className="font-display font-bold text-5xl md:text-7xl mb-6 leading-tight">
             Our Services
@@ -130,7 +131,9 @@ export default function ServicesPage() {
         </div>
       </div>
     </main>
+    </div>
     </>
   );
 }
+
 
