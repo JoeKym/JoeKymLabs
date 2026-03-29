@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { Home, ArrowLeft, Search, AlertCircle } from 'lucide-react';
+import { ArrowLeft, Search, AlertCircle } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 
@@ -45,28 +45,28 @@ export default function NotFoundPage() {
                 to="/"
                 className="flex flex-col items-center gap-2 p-4 rounded-xl bg-muted hover:bg-primary hover:text-primary-foreground transition-all group"
               >
-                <Home className="w-6 h-6" />
+                <img src="/nav/home.svg" alt="Home" className="w-6 h-6 group-hover:invert transition-all" />
                 <span className="text-sm font-medium">Home</span>
               </Link>
               <Link
                 to="/services"
                 className="flex flex-col items-center gap-2 p-4 rounded-xl bg-muted hover:bg-primary hover:text-primary-foreground transition-all group"
               >
-                <span className="w-6 h-6 flex items-center justify-center text-lg">⚡</span>
+                <img src="/nav/services.svg" alt="Services" className="w-6 h-6 group-hover:invert transition-all" />
                 <span className="text-sm font-medium">Services</span>
               </Link>
               <Link
                 to="/work"
                 className="flex flex-col items-center gap-2 p-4 rounded-xl bg-muted hover:bg-primary hover:text-primary-foreground transition-all group"
               >
-                <span className="w-6 h-6 flex items-center justify-center text-lg">💼</span>
+                <img src="/nav/work.svg" alt="Work" className="w-6 h-6 group-hover:invert transition-all" />
                 <span className="text-sm font-medium">Work</span>
               </Link>
               <Link
                 to="/contact"
                 className="flex flex-col items-center gap-2 p-4 rounded-xl bg-muted hover:bg-primary hover:text-primary-foreground transition-all group"
               >
-                <span className="w-6 h-6 flex items-center justify-center text-lg">📧</span>
+                <img src="/nav/contact.svg" alt="Contact" className="w-6 h-6 group-hover:invert transition-all" />
                 <span className="text-sm font-medium">Contact</span>
               </Link>
             </div>
