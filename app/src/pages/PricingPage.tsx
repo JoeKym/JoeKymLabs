@@ -183,7 +183,7 @@ export default function PricingPage() {
                   {tier.description}
                 </CardDescription>
                 <div className="mt-6 p-4 bg-gradient-to-r from-slate-50 to-slate-100 rounded-2xl">
-                  <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
+                  <div className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent whitespace-normal break-words leading-tight">
                     {formatPrice(tier.kesPrice, tier.usdPrice)}
                   </div>
                 </div>
@@ -204,7 +204,7 @@ export default function PricingPage() {
                     'w-full font-bold uppercase tracking-wider text-sm rounded-2xl shadow-primary-glow transition-all group-hover:scale-[1.02]',
                     tier.popular
                       ? 'bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary'
-                      : 'border-2 border-slate-200 bg-white text-slate-900 hover:border-primary hover:bg-primary/5'
+                      : 'border-2 border-slate-200 bg-muted text-slate-900 hover:border-primary hover:bg-primary/5'
                   )}
                 >
                   <Link to={tier.cta === 'Request Quote' ? '/contact' : '/contact'}>

@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
 import { useTheme } from "./theme-provider"
 import { Button } from "@/components/ui/button"
-import { Moon, Sun } from "lucide-react"
+import { Moon, Sun, X } from "lucide-react"
 import type { User } from '@supabase/supabase-js';
 
 export default function Navigation() {
@@ -36,6 +36,46 @@ export default function Navigation() {
   }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  // Close menu on Escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsOpen(false);
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape);
+    }
+
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isOpen]);
+
+  // Close menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -102,16 +142,20 @@ export default function Navigation() {
         <button 
           className="md:hidden text-foreground p-2 hover:text-primary transition-colors"
           onClick={toggleMenu}
-          aria-label="Toggle menu"
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+          {isOpen ? (
+            <X className="w-6 h-6" />
+          ) : (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
         </button>
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div className={`md:hidden transition-all duration-300 ${isOpen ? 'max-h-[calc(100vh-80px)] opacity-100 overflow-y-auto' : 'max-h-0 opacity-0 overflow-hidden'}`}>
         <div className="bg-background/95 backdrop-blur-md border-t border-border px-6 py-8 space-y-4">
           {navLinks.map((link) => {
             const iconSrc = `/nav/${link.name.toLowerCase()}.svg`;
@@ -121,7 +165,7 @@ export default function Navigation() {
                 key={link.name} 
                 to={link.path} 
                 className="flex items-center gap-3 text-lg font-medium text-muted-foreground hover:text-primary transition-colors py-2 nav-link"
-                onClick={() => setIsOpen(false)}
+                onClick={closeMenu}
               >
                 {hasIcon && <img src={iconSrc} alt="" className="w-5 h-5 flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity" />}
                 {link.name}
