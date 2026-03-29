@@ -114,7 +114,7 @@ export default function CareersPage() {
           </p>
           <Link 
             to="#positions"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-bold rounded-[12px] shadow-green-glow hover:shadow-green-glow/75 btn-hover text-lg"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-bold rounded-[12px] shadow-primary-glow hover:shadow-primary-glow btn-hover text-lg"
           >
             View Open Positions <ArrowRight className="w-5 h-5" />
           </Link>
@@ -215,7 +215,7 @@ export default function CareersPage() {
                       </div>
                       <Link 
                         to="/contact" 
-                        className="flex-1 sm:flex-none px-8 py-4 bg-primary text-primary-foreground font-bold rounded-2xl text-center shadow-green-glow hover:shadow-green-glow/75 btn-hover"
+                        className="flex-1 sm:flex-none px-8 py-4 bg-primary text-primary-foreground font-bold rounded-2xl text-center shadow-primary-glow hover:shadow-primary-glow btn-hover"
                       >
                         Apply Now
                       </Link>
@@ -287,7 +287,7 @@ export default function CareersPage() {
               { step: '3', title: 'Offer & Onboard', desc: 'Reference checks, offer, paperwork. Start within 2 weeks.' }
             ].map((proc, i) => (
               <div key={proc.title} className="group text-center p-12 rounded-3xl bg-background border border-border hover:shadow-xl transition-all animate-in fade-in slide-in-from-bottom-4" style={{animationDelay: `${i*150}ms`}}>
-                <div className="w-20 h-20 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-3xl flex items-center justify-center mx-auto mb-8 font-bold text-2xl shadow-green-glow group-hover:scale-110 transition-all">
+                <div className="w-20 h-20 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-3xl flex items-center justify-center mx-auto mb-8 font-bold text-2xl shadow-primary-glow group-hover:scale-110 transition-all">
                   {proc.step}
                 </div>
                 <h3 className="font-headings font-bold text-2xl mb-6">{proc.title}</h3>
@@ -308,7 +308,7 @@ export default function CareersPage() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link 
               to="/contact" 
-              className="w-full sm:w-auto px-10 py-6 bg-primary text-primary-foreground font-bold text-xl rounded-[16px] shadow-green-glow hover:shadow-green-glow/75 btn-hover"
+              className="w-full sm:w-auto px-10 py-6 bg-primary text-primary-foreground font-bold text-xl rounded-[16px] shadow-primary-glow hover:shadow-primary-glow btn-hover"
             >
               Start Application
             </Link>

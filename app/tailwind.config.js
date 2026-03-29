@@ -10,11 +10,11 @@ module.exports = {
       },
       colors: {
         jklabs: {
-          'bg-primary': '#1C1C1C',
-          'text-primary': '#FFFFFF',
-          'bg-secondary': '#0A2540',
-          'accent-green': '#00FF88',
-          'accent-purple': '#6C5CE7',
+          'bg-primary': '#0F172A',
+          'text-primary': '#F8FAFC',
+          'bg-secondary': '#1E293B',
+          'accent-blue': '#3B82F6',
+          'accent-purple': '#7C3AED',
         },
         slate: {
           50: "hsl(var(--background))",
@@ -86,8 +86,8 @@ module.exports = {
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-        'green-glow': '0 0 20px rgba(0, 255, 136, 0.5)',
-        'purple-glow': '0 0 20px rgba(108, 92, 231, 0.5)',
+        'primary-glow': '0 0 20px rgba(59, 130, 246, 0.3)',
+        'accent-glow': '0 0 20px rgba(124, 58, 237, 0.3)',
       },
       keyframes: {
         "accordion-down": {

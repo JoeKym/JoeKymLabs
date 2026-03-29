@@ -151,7 +151,7 @@ export default function StudioPage() {
               <Button 
                 asChild 
                 size="lg" 
-                className="group bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 shadow-2xl hover:shadow-green-glow px-8 py-8 text-lg font-bold rounded-2xl h-auto min-h-[60px] transform hover:scale-105 transition-all duration-300"
+                className="group bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 shadow-2xl hover:shadow-primary-glow px-8 py-8 text-lg font-bold rounded-2xl h-auto min-h-[60px] transform hover:scale-105 transition-all duration-300"
               >
                 <a href="/contact">
                   Start a Project

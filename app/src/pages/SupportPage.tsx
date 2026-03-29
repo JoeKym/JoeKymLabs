@@ -123,7 +123,7 @@ export default function SupportPage() {
                 <a href="https://wa.me/254117412271" className="block w-full p-4 bg-green-600/5 border border-green-600/20 rounded-2xl text-green-800 font-medium hover:bg-green-600/10 transition-all flex items-center gap-2">
                   📱 +254 117412271 (WhatsApp)
                 </a>
-                <Link to="/contact" className="w-full block text-center px-6 py-3 bg-primary text-primary-foreground font-bold rounded-2xl shadow-green-glow hover:shadow-green-glow/75 btn-hover">
+                <Link to="/contact" className="w-full block text-center px-6 py-3 bg-primary text-primary-foreground font-bold rounded-2xl shadow-primary-glow hover:shadow-primary-glow/75 btn-hover">
                   Submit Support Ticket →
                 </Link>
               </CardContent>

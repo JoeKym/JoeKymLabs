@@ -45,7 +45,7 @@ export default function SocialFooter() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={link.name}
-              className="group p-3 rounded-xl bg-muted hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-md hover:shadow-green-glow hover:scale-110 flex-shrink-0"
+              className="group p-3 rounded-xl bg-muted hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-md hover:shadow-primary-glow hover:scale-110 flex-shrink-0"
             >
               <img
                 src={link.icon}

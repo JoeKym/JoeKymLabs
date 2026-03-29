@@ -23,7 +23,7 @@ function HeroSection() {
             Building scalable, high-performance web applications with React, Next.js, Tailwind CSS, and modern best practices. From startups to enterprises, we deliver pixel-perfect digital experiences.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link to="/work" className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-[12px] btn-hover shadow-green-glow hover:shadow-green-glow/75">View selected work</Link>
+            <Link to="/work" className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-[12px] btn-hover shadow-primary-glow hover:shadow-primary-glow/75">View selected work</Link>
             <a href="#contact" className="px-6 py-3 border border-border text-foreground font-medium rounded-[12px] btn-hover hover:bg-muted transition-all">Start a project</a>
           </div>
         </div>
@@ -146,7 +146,7 @@ function SplitSection({ id, microLabel, title, body, cta, ctaLink = '#', image, 
           <p className="font-mono text-xs tracking-[0.08em] uppercase text-primary mb-4">{microLabel}</p>
           <h2 className="font-headings font-bold text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight mb-6">{title}</h2>
           <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-8 max-w-md">{body}</p>
-          <a href={ctaLink} className={`inline-block px-6 py-3 font-medium rounded-button transition-all btn-hover ${isPrimaryCTA ? 'bg-primary text-primary-foreground shadow-green-glow hover:shadow-green-glow/75' : 'border border-border text-foreground hover:bg-muted'}`}>{cta}</a>
+          <a href={ctaLink} className={`inline-block px-6 py-3 font-medium rounded-button transition-all btn-hover ${isPrimaryCTA ? 'bg-primary text-primary-foreground shadow-primary-glow hover:shadow-primary-glow/75' : 'border border-border text-foreground hover:bg-muted'}`}>{cta}</a>
         </div>
       </div>
       {imagePosition === 'right' && <div className="w-full lg:w-[50vw] h-[40vh] lg:h-auto"><img src={image} alt={title} className="w-full h-full object-cover img-graded" /></div>}
@@ -172,7 +172,7 @@ function ContactSection() {
           Ready for a high-performance web application that scales? We build React/Next.js apps that convert and retain users.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="mailto:mail.jkyme@gmail.com" className="w-full sm:w-auto px-8 py-4 bg-primary text-primary-foreground font-bold rounded-button btn-hover shadow-green-glow hover:shadow-green-glow/75 text-lg">
+          <a href="mailto:mail.jkyme@gmail.com" className="w-full sm:w-auto px-8 py-4 bg-primary text-primary-foreground font-bold rounded-button btn-hover shadow-primary-glow hover:shadow-primary-glow/75 text-lg">
             Start a project
           </a>
           {!user && (

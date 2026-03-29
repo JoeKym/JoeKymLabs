@@ -81,7 +81,7 @@ to={link.path} className="tracking-wide text-muted-foreground hover:text-primary
                 Sign In
               </Link>
 )}
-            <Link to="/contact" className="px-6 py-2 bg-primary text-primary-foreground text-xs font-bold tracking-wider rounded-button shadow-green-glow hover:shadow-green-glow btn-hover">
+            <Link to="/contact" className="px-6 py-2 bg-primary text-primary-foreground text-xs font-bold tracking-wider rounded-button shadow-primary-glow hover:shadow-primary-glow btn-hover">
               Start Project
             </Link>
 
@@ -139,7 +139,7 @@ to={link.path} className="tracking-wide text-muted-foreground hover:text-primary
                 Sign In
               </Link>
             )}
-            <Link to="/contact" className="block w-full px-4 py-3 bg-primary text-primary-foreground font-bold rounded-button shadow-green-glow text-center btn-hover">
+            <Link to="/contact" className="block w-full px-4 py-3 bg-primary text-primary-foreground font-bold rounded-button shadow-primary-glow text-center btn-hover">
               Start Project
             </Link>
           </div>

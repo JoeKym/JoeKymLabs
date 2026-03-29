@@ -203,7 +203,7 @@ export default function PricingPage() {
                   asChild
                   size="lg"
                   className={cn(
-                    'w-full font-bold uppercase tracking-wider text-sm rounded-2xl shadow-lg hover:shadow-green-glow transition-all group-hover:scale-[1.02]',
+                    'w-full font-bold uppercase tracking-wider text-sm rounded-2xl shadow-primary-glow transition-all group-hover:scale-[1.02]',
                     tier.popular
                       ? 'bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary'
                       : 'border-2 border-slate-200 bg-white text-slate-900 hover:border-primary hover:bg-primary/5'
@@ -248,7 +248,7 @@ export default function PricingPage() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-            <Button asChild size="lg" className="text-lg font-bold h-16 rounded-2xl shadow-green-glow hover:shadow-green-glow/75 bg-gradient-to-r from-primary to-accent">
+            <Button asChild size="lg" className="text-lg font-bold h-16 rounded-2xl shadow-primary-glow hover:shadow-primary-glow/75 bg-gradient-to-r from-primary to-accent">
               <Link to="/contact">Start a Project</Link>
             </Button>
             <Button variant="outline" asChild size="lg" className="text-lg font-bold h-16 rounded-2xl border-2 border-slate-200 hover:bg-primary/5">
