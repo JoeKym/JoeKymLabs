@@ -12,7 +12,10 @@ export default function StudioPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/10 via-purple-900/5 to-pink-900/10" />
           <img 
             src="/images/web-design-header.jpg" 
-            alt="JoeKym Labs™ Studio" 
+            alt="JoeKym Labs™ Studio"
+            loading="eager"
+            width="1920"
+            height="1080"
             className="w-full h-[60vh] lg:h-[70vh] object-cover opacity-70 hover:opacity-100 transition-opacity duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
@@ -56,7 +59,7 @@ export default function StudioPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <Card className="group relative overflow-hidden bg-gradient-to-br from-indigo-50 to-purple-50 border-0 shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-700 cursor-pointer h-auto md:h-[400px]">
               <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity">
-                <img src="/images/web-development.jpg" alt="" className="w-full h-full object-cover" />
+                <img src="/images/web-development.jpg" alt="" loading="lazy" width="400" height="400" className="w-full h-full object-cover" />
               </div>
               <CardHeader className="relative pb-6 pt-16">
                 <div className="w-16 h-16 bg-indigo-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
@@ -73,7 +76,7 @@ export default function StudioPage() {
 
             <Card className="group relative overflow-hidden bg-gradient-to-br from-purple-50 to-blue-50 border-0 shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-700 cursor-pointer h-auto md:h-[400px]">
               <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity">
-                <img src="/images/webdesign.jpg" alt="" className="w-full h-full object-cover" />
+                <img src="/images/webdesign.jpg" alt="" loading="lazy" width="400" height="400" className="w-full h-full object-cover" />
               </div>
               <CardHeader className="relative pb-6 pt-16">
                 <div className="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
@@ -90,7 +93,7 @@ export default function StudioPage() {
 
             <Card className="group relative overflow-hidden bg-gradient-to-br from-emerald-50 to-teal-50 border-0 shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-700 cursor-pointer h-auto md:h-[400px]">
               <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity">
-                <img src="/images/fullstack.png" alt="" className="w-full h-full object-cover" />
+                <img src="/images/fullstack.png" alt="" loading="lazy" width="400" height="400" className="w-full h-full object-cover" />
               </div>
               <CardHeader className="relative pb-6 pt-16">
                 <div className="w-16 h-16 bg-emerald-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
@@ -107,7 +110,7 @@ export default function StudioPage() {
 
             <Card className="group relative overflow-hidden bg-gradient-to-br from-amber-50 to-orange-50 border-0 shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-700 cursor-pointer h-auto md:h-[400px]">
               <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity">
-                <img src="/images/cloud-computing.png" alt="" className="w-full h-full object-cover" />
+                <img src="/images/cloud-computing.png" alt="" loading="lazy" width="400" height="400" className="w-full h-full object-cover" />
               </div>
               <CardHeader className="relative pb-6 pt-16">
                 <div className="w-16 h-16 bg-amber-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">

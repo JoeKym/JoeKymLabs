@@ -207,6 +207,9 @@ export default function ProfilePage() {
                   <img 
                     src={profile.avatar_url} 
                     alt={profile.full_name || profile.username}
+                    loading="lazy"
+                    width="80"
+                    height="80"
                     className="w-full h-full rounded-full object-cover"
                   />
                 ) : (

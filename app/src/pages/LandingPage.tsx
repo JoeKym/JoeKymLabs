@@ -22,7 +22,7 @@ function HeroSection() {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       <div className="absolute inset-0">
-        <img src="/images/wedev-hero.jpg" alt="JoeKym Labs™ Hero - Modern Web Development" className="w-full h-full object-cover object-[70%_30%] img-graded animate-in zoom-in duration-1000 ease-out" />
+        <img src="/images/wedev-hero.jpg" alt="JoeKym Labs™ Hero - Modern Web Development" loading="eager" width="1920" height="1080" className="w-full h-full object-cover object-[70%_30%] img-graded animate-in zoom-in duration-1000 ease-out" />
 
 
         <div className="absolute inset-0 bg-gradient-to-b from-card/40 via-card/10 to-card/85" />
@@ -60,7 +60,7 @@ function WorkSection() {
         </div>
         <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="group relative w-full aspect-[4/3] rounded-card overflow-hidden card-shadow animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-100">
-            <img src="/images/web-development.jpg" alt="E-Commerce Platform" className="w-full h-full object-cover img-graded group-hover:scale-105 transition-transform duration-700" />
+            <img src="/images/web-development.jpg" alt="E-Commerce Platform" loading="lazy" width="800" height="600" className="w-full h-full object-cover img-graded group-hover:scale-105 transition-transform duration-700" />
 
             <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent/0" />
             <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-1">
@@ -69,7 +69,7 @@ function WorkSection() {
             </div>
           </div>
           <div className="group relative w-full aspect-[4/3] rounded-card overflow-hidden card-shadow animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-            <img src="/images/frontend-dev.jpg" alt="SaaS Dashboard" className="w-full h-full object-cover img-graded group-hover:scale-105 transition-transform duration-700" />
+            <img src="/images/frontend-dev.jpg" alt="SaaS Dashboard" loading="lazy" width="800" height="600" className="w-full h-full object-cover img-graded group-hover:scale-105 transition-transform duration-700" />
 
             <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent/0" />
             <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-1">
@@ -101,7 +101,7 @@ function CapabilitiesSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {capabilities.map((cap, i) => (
             <div key={cap.title} className="group relative w-full aspect-[3/4] rounded-card overflow-hidden card-shadow animate-in fade-in slide-in-from-bottom-8 duration-1000" style={{ animationDelay: `${i * 150}ms` }}>
-              <img src={cap.img} alt={cap.title} className="w-full h-full object-cover img-graded group-hover:scale-105 transition-transform duration-700" />
+              <img src={cap.img} alt={cap.title} loading="lazy" width="600" height="800" className="w-full h-full object-cover img-graded group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent/0" />
               <div className="absolute bottom-6 left-6 right-6">
                 <h3 className="font-headings font-semibold text-2xl text-foreground mb-2">{cap.title}</h3>
@@ -133,7 +133,7 @@ function ProcessSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {processes.map((proc, i) => (
             <div key={proc.title} className="group relative w-full aspect-[3/4] rounded-card overflow-hidden card-shadow animate-in fade-in slide-in-from-bottom-8 duration-1000" style={{ animationDelay: `${i * 150}ms` }}>
-              <img src={proc.img} alt={proc.title} className="w-full h-full object-cover img-graded group-hover:scale-105 transition-transform duration-700" />
+              <img src={proc.img} alt={proc.title} loading="lazy" width="600" height="800" className="w-full h-full object-cover img-graded group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent/0" />
               <div className="absolute bottom-6 left-6 right-6">
                 <h3 className="font-headings font-semibold text-2xl text-foreground mb-2">{proc.title}</h3>
@@ -152,7 +152,7 @@ function SplitSection({ id, microLabel, title, body, cta, ctaLink = '#', image, 
   const isPrimaryCTA = ['FEATURED PROJECT', 'COLLABORATION', 'CRAFT', 'COMMUNITY'].includes(microLabel.toUpperCase());
   return (
     <section id={id} className="relative bg-card flex flex-col lg:flex-row py-12 lg:py-0 min-h-[70vh]" style={{ zIndex }}>
-      {imagePosition === 'left' && <div className="w-full lg:w-[50vw] h-[40vh] lg:h-auto"><img src={image} alt={title} className="w-full h-full object-cover img-graded" /></div>}
+      {imagePosition === 'left' && <div className="w-full lg:w-[50vw] h-[40vh] lg:h-auto"><img src={image} alt={title} loading="lazy" width="800" height="600" className="w-full h-full object-cover img-graded" /></div>}
       <div className="w-full lg:w-[50vw] bg-card flex flex-col justify-center px-6 lg:px-24 py-16 lg:py-24">
         <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000">
           <p className="font-mono text-xs tracking-[0.08em] uppercase text-primary mb-4">{microLabel}</p>
@@ -161,7 +161,7 @@ function SplitSection({ id, microLabel, title, body, cta, ctaLink = '#', image, 
           <a href={ctaLink} className={`inline-block px-6 py-3 font-medium rounded-button transition-all btn-hover ${isPrimaryCTA ? 'bg-primary text-primary-foreground shadow-primary-glow hover:shadow-primary-glow/75' : 'border border-border text-foreground hover:bg-muted'}`}>{cta}</a>
         </div>
       </div>
-      {imagePosition === 'right' && <div className="w-full lg:w-[50vw] h-[40vh] lg:h-auto"><img src={image} alt={title} className="w-full h-full object-cover img-graded" /></div>}
+      {imagePosition === 'right' && <div className="w-full lg:w-[50vw] h-[40vh] lg:h-auto"><img src={image} alt={title} loading="lazy" width="800" height="600" className="w-full h-full object-cover img-graded" /></div>}
     </section>
   );
 }

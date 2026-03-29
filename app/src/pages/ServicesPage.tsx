@@ -97,6 +97,9 @@ export default function ServicesPage() {
             <img 
               src={service.img}
               alt={service.title}
+              loading="lazy"
+              width="800"
+              height="400"
               className="w-full h-64 md:h-72 object-cover rounded-3xl mb-8 group-hover:scale-105 transition-transform duration-500 shadow-2xl"
             />
             <h2 className="text-3xl lg:text-4xl font-display font-bold mb-6 group-hover:text-indigo-600 transition-colors">{service.title}</h2>

@@ -98,7 +98,10 @@ export default function CareersPage() {
         <div className="absolute inset-0">
           <img 
             src="/images/web-design-header.jpg" 
-            alt="Careers at JoeKym Labs™" 
+            alt="Careers at JoeKym Labs™"
+            loading="eager"
+            width="1920"
+            height="1080"
             className="w-full h-full object-cover object-[30%_20%] img-graded animate-in zoom-in duration-1000" 
           />
           <div className="absolute inset-0 bg-gradient-to-b from-card/50 via-card/20 to-card/90" />
@@ -164,7 +167,10 @@ export default function CareersPage() {
                   <div className="w-full md:w-1/2 h-64 md:h-80 bg-gradient-to-br from-muted/20 to-border rounded-2xl overflow-hidden">
                     <img 
                       src={jobImages[idx % jobImages.length]} 
-                      alt={job.title} 
+                      alt={job.title}
+                      loading="lazy"
+                      width="400"
+                      height="300"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 img-graded" 
                     />
                   </div>
