@@ -97,7 +97,7 @@ export default function ProfilePage() {
     navigate('/');
   };
 
-  if (loading) return <div className="min-h-screen bg-slate-50 flex items-center justify-center"><p className="text-slate-500 font-mono text-sm">Loading profile...</p></div>;
+  if (loading) return <div className="min-h-screen bg-background flex items-center justify-center"><p className="text-muted-foreground font-mono text-sm">Loading profile...</p></div>;
 
   const tabs = [
     { id: 'general', label: 'General', icon: User },
@@ -126,18 +126,18 @@ export default function ProfilePage() {
           {/* Sidebar */}
           <aside className="w-full md:w-64 shrink-0">
             {/* User Mini Card */}
-            <div className="bg-white shadow-sm border border-slate-200 rounded-3xl p-6 mb-6 text-center relative overflow-hidden group">
+            <div className="bg-card shadow-sm border border-border rounded-3xl p-6 mb-6 text-center relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="relative w-20 h-20 mx-auto mb-4">
                 <div className="w-full h-full bg-gradient-to-br from-indigo-600 to-[#8B84D7] rounded-full flex items-center justify-center text-2xl font-bold text-white">
                   {profile?.full_name?.charAt(0) || profile?.username?.charAt(0).toUpperCase()}
                 </div>
-                <button className="absolute bottom-0 right-0 p-1.5 bg-slate-50 border border-slate-200 rounded-full text-slate-900 hover:text-indigo-600 transition-colors">
+                <button className="absolute bottom-0 right-0 p-1.5 bg-muted border border-border rounded-full text-foreground hover:text-primary transition-colors">
                   <Camera size={14} />
                 </button>
               </div>
               <h2 className="font-display font-bold text-lg mb-1 truncate">{profile?.full_name}</h2>
-              <p className="text-slate-600 text-sm font-mono truncate">@{profile?.username}</p>
+              <p className="text-muted-foreground text-sm font-mono truncate">@{profile?.username}</p>
             </div>
 
             {/* Navigation */}
@@ -151,7 +151,7 @@ export default function ProfilePage() {
                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
                       activeTab === tab.id 
                         ? 'bg-indigo-600/10 text-indigo-600' 
-                        : 'text-slate-600 hover:bg-white shadow-sm border border-slate-200 hover:text-slate-900'
+                        : 'text-muted-foreground hover:bg-card shadow-sm border border-border hover:text-foreground'
                     }`}
                   >
                     <Icon size={18} />
@@ -160,7 +160,7 @@ export default function ProfilePage() {
                 );
               })}
               
-              <div className="pt-4 mt-4 border-t border-slate-200">
+              <div className="pt-4 mt-4 border-t border-border">
                 <button 
                   onClick={handleSignOut}
                   className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-red-400 hover:bg-red-500/10 transition-colors"
@@ -178,7 +178,7 @@ export default function ProfilePage() {
               <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
                 <header>
                   <h1 className="font-display font-bold text-3xl mb-2">Basic Identity</h1>
-                  <p className="text-slate-600">Manage your personal information and public profile.</p>
+                  <p className="text-muted-foreground">Manage your personal information and public profile.</p>
                 </header>
 
                 {/* Public Link Card */}
@@ -188,20 +188,20 @@ export default function ProfilePage() {
                       <Globe size={16} className="text-indigo-600" />
                       Public Profile
                     </h3>
-                    <p className="text-sm text-slate-600">Your portfolio is live and shareable.</p>
+                    <p className="text-sm text-muted-foreground">Your portfolio is live and shareable.</p>
                   </div>
                   <Link 
                     to={`/user/${profile?.username}`}
-                    className="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-900 text-sm font-medium rounded-xl transition-colors whitespace-nowrap"
+                    className="px-5 py-2.5 bg-muted hover:bg-border text-foreground text-sm font-medium rounded-xl transition-colors whitespace-nowrap"
                   >
                     View Public Page
                   </Link>
                 </div>
 
-                <form onSubmit={handleUpdate} className="bg-white shadow-sm border border-slate-200 rounded-3xl p-8 space-y-6">
-                  <div className="flex items-center justify-between pb-6 border-b border-slate-200">
+                <form onSubmit={handleUpdate} className="bg-card shadow-sm border border-border rounded-3xl p-8 space-y-6">
+                  <div className="flex items-center justify-between pb-6 border-b border-border">
                     <h3 className="font-display font-semibold text-lg">Personal Details</h3>
-                    <div className="flex items-center gap-2 text-xs text-slate-600 font-mono bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg">
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground font-mono bg-muted border border-border px-3 py-1.5 rounded-lg">
                       <Calendar size={12} />
                       Joined {formatDate(profile?.created_at)}
                     </div>
@@ -209,23 +209,23 @@ export default function ProfilePage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block font-mono text-[10px] tracking-widest uppercase text-slate-600 mb-2">Full Name</label>
+                      <label className="block font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2">Full Name</label>
                       <input 
                         type="text" 
                         value={profile?.full_name || ''}
                         onChange={(e) => setProfile(p => p ? { ...p, full_name: e.target.value } : null)}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:border-indigo-600 focus:ring-1 focus:ring-[#B8B2F7]/50 outline-none transition-all"
+                        className="w-full bg-muted border border-border rounded-xl px-4 py-3 text-foreground focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all"
                       />
                     </div>
                     <div>
-                      <label className="block font-mono text-[10px] tracking-widest uppercase text-slate-600 mb-2">Username</label>
+                      <label className="block font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2">Username</label>
                       <div className="relative">
-                        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm">@</span>
+                        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">@</span>
                         <input 
                           type="text" 
                           value={profile?.username || ''}
                           onChange={(e) => setProfile(p => p ? { ...p, username: e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, '') } : null)}
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-8 pr-4 py-3 text-slate-900 focus:border-indigo-600 focus:ring-1 focus:ring-[#B8B2F7]/50 outline-none transition-all"
+                          className="w-full bg-muted border border-border rounded-xl pl-8 pr-4 py-3 text-foreground focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all"
                         />
                       </div>
                     </div>
@@ -233,24 +233,24 @@ export default function ProfilePage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block font-mono text-[10px] tracking-widest uppercase text-slate-600 mb-2">Email Address</label>
+                      <label className="block font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2">Email Address</label>
                       <input 
                         type="email" 
                         disabled 
                         value={profile?.email || ''}
-                        className="w-full bg-white border border-slate-300 shadow-inner border border-slate-200 rounded-xl px-4 py-3 text-slate-400 cursor-not-allowed"
+                        className="w-full bg-card border border-border shadow-inner rounded-xl px-4 py-3 text-muted-foreground cursor-not-allowed"
                       />
                     </div>
                     <div>
                       <label className="block font-mono text-[10px] tracking-widest uppercase text-slate-600 mb-2">Phone (Optional)</label>
                       <div className="relative">
-                        <Phone size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                        <Phone size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                         <input 
                           type="text" 
                           value={profile?.phone || ''}
                           onChange={(e) => setProfile(p => p ? { ...p, phone: e.target.value } : null)}
                           placeholder="+1 (555) 000-0000"
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-3 text-slate-900 focus:border-indigo-600 focus:ring-1 focus:ring-[#B8B2F7]/50 outline-none transition-all placeholder:text-slate-300"
+                          className="w-full bg-muted border border-border rounded-xl pl-10 pr-4 py-3 text-foreground focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all placeholder:text-muted-foreground/50"
                         />
                       </div>
                     </div>
@@ -258,38 +258,38 @@ export default function ProfilePage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block font-mono text-[10px] tracking-widest uppercase text-slate-600 mb-2">Location</label>
+                      <label className="block font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2">Location</label>
                       <input 
                         type="text" 
                         value={profile?.location || ''}
                         onChange={(e) => setProfile(p => p ? { ...p, location: e.target.value } : null)}
                         placeholder="San Francisco, CA"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:border-indigo-600 focus:ring-1 focus:ring-[#B8B2F7]/50 outline-none transition-all placeholder:text-slate-300"
+                        className="w-full bg-muted border border-border rounded-xl px-4 py-3 text-foreground focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all placeholder:text-muted-foreground/50"
                       />
                     </div>
                     <div>
                       <label className="block font-mono text-[10px] tracking-widest uppercase text-slate-600 mb-2">Website</label>
                       <div className="relative">
-                        <Globe size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                        <Globe size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                         <input 
                           type="text" 
                           value={profile?.website || ''}
                           onChange={(e) => setProfile(p => p ? { ...p, website: e.target.value } : null)}
                           placeholder="https://yourwebsite.com"
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-3 text-slate-900 focus:border-indigo-600 focus:ring-1 focus:ring-[#B8B2F7]/50 outline-none transition-all placeholder:text-slate-300"
+                          className="w-full bg-muted border border-border rounded-xl pl-10 pr-4 py-3 text-foreground focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all placeholder:text-muted-foreground/50"
                         />
                       </div>
                     </div>
                   </div>
 
                   <div>
-                    <label className="block font-mono text-[10px] tracking-widest uppercase text-slate-600 mb-2">Bio / About</label>
+                    <label className="block font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2">Bio / About</label>
                     <textarea 
                       rows={4}
                       value={profile?.bio || ''}
                       onChange={(e) => setProfile(p => p ? { ...p, bio: e.target.value } : null)}
                       placeholder="Tell us a little about yourself..."
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:border-indigo-600 focus:ring-1 focus:ring-[#B8B2F7]/50 outline-none transition-all resize-none placeholder:text-slate-300"
+                      className="w-full bg-muted border border-border rounded-xl px-4 py-3 text-foreground focus:border-primary focus:ring-1 focus:ring-primary/50 outline-none transition-all resize-none placeholder:text-muted-foreground/50"
                     />
                   </div>
 

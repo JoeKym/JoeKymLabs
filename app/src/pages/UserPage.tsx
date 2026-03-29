@@ -100,8 +100,8 @@ export default function UserPage() {
     }
   };
 
-  if (loading) return <div className="min-h-screen bg-slate-50 flex items-center justify-center font-mono text-sm text-slate-400">Searching for @{username}...</div>;
-  if (error) return <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center px-6"><h1 className="text-4xl font-display font-bold mb-4 italic text-slate-300">404</h1><p className="text-slate-600">User @{username} not found.</p><a href="/" className="mt-8 text-indigo-600 hover:underline">Return home</a></div>;
+  if (loading) return <div className="min-h-screen bg-background flex items-center justify-center font-mono text-sm text-muted-foreground">Searching for @{username}...</div>;
+  if (error) return <div className="min-h-screen bg-background flex flex-col items-center justify-center px-6"><h1 className="text-4xl font-display font-bold mb-4 italic text-muted-foreground/50">404</h1><p className="text-muted-foreground">User @{username} not found.</p><a href="/" className="mt-8 text-primary hover:underline">Return home</a></div>;
 
   const totalLikes = projects.reduce((acc, p) => acc + (p.likes_count || 0), 0);
 
@@ -139,7 +139,7 @@ export default function UserPage() {
               <button className="px-6 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:scale-105 transition-transform">
                 Follow
               </button>
-              <button className="p-2.5 bg-white shadow-sm border border-slate-200 rounded-xl hover:bg-slate-100 transition-colors">
+              <button className="p-2.5 bg-card shadow-sm border border-border rounded-xl hover:bg-muted transition-colors">
                 <MessageSquare size={20} />
               </button>
             </div>
@@ -153,11 +153,11 @@ export default function UserPage() {
             
             {/* Bio & Tagline */}
             <div>
-              <p className="text-slate-900 leading-relaxed mb-4">
+              <p className="text-foreground leading-relaxed mb-4">
                 {userProfile?.bio || "No bio provided."}
               </p>
               
-              <div className="space-y-3 text-sm text-slate-600">
+              <div className="space-y-3 text-sm text-muted-foreground">
                 {userProfile?.location && (
                   <div className="flex items-center gap-3">
                     <MapPin size={16} className="shrink-0" />
@@ -180,22 +180,22 @@ export default function UserPage() {
             </div>
 
             {/* Social Connections (Followers/Following) */}
-            <div className="flex items-center gap-6 pb-6 border-b border-slate-200">
+            <div className="flex items-center gap-6 pb-6 border-b border-border">
               <div className="flex flex-col">
-                <span className="font-bold text-lg text-slate-900">{userProfile?.followers_count || 0}</span>
-                <span className="text-xs text-slate-600 font-mono uppercase tracking-wider">Followers</span>
+                <span className="font-bold text-lg text-foreground">{userProfile?.followers_count || 0}</span>
+                <span className="text-xs text-muted-foreground font-mono uppercase tracking-wider">Followers</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-lg text-slate-900">{userProfile?.following_count || 0}</span>
-                <span className="text-xs text-slate-600 font-mono uppercase tracking-wider">Following</span>
+                <span className="font-bold text-lg text-foreground">{userProfile?.following_count || 0}</span>
+                <span className="text-xs text-muted-foreground font-mono uppercase tracking-wider">Following</span>
               </div>
             </div>
 
             {/* Badges / Roles */}
             <div>
-              <h3 className="text-sm font-semibold mb-3 text-slate-600 uppercase tracking-wider">Roles & Badges</h3>
+              <h3 className="text-sm font-semibold mb-3 text-muted-foreground uppercase tracking-wider">Roles & Badges</h3>
               <div className="flex flex-wrap gap-2">
-                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white shadow-sm border border-slate-200 text-slate-600 rounded-lg text-xs font-medium border border-slate-200">
+                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-card shadow-sm border border-border text-muted-foreground rounded-lg text-xs font-medium">
                   <Users size={14} />
                   Community Member
                 </div>
@@ -208,12 +208,12 @@ export default function UserPage() {
                 <h3 className="text-sm font-semibold mb-3 text-slate-600 uppercase tracking-wider">Links</h3>
                 <div className="flex gap-3">
                   {userProfile.github && (
-                    <a href={`https://github.com/${userProfile.github}`} target="_blank" rel="noreferrer" className="p-3 bg-white shadow-sm border border-slate-200 rounded-xl hover:bg-slate-100 transition-colors text-slate-600 hover:text-slate-900">
+                    <a href={`https://github.com/${userProfile.github}`} target="_blank" rel="noreferrer" className="p-3 bg-card shadow-sm border border-border rounded-xl hover:bg-muted transition-colors text-muted-foreground hover:text-foreground">
                       <Github size={20} />
                     </a>
                   )}
                   {userProfile.twitter && (
-                    <a href={`https://twitter.com/${userProfile.twitter}`} target="_blank" rel="noreferrer" className="p-3 bg-white shadow-sm border border-slate-200 rounded-xl hover:bg-slate-100 transition-colors text-slate-600 hover:text-[#1DA1F2]">
+                    <a href={`https://twitter.com/${userProfile.twitter}`} target="_blank" rel="noreferrer" className="p-3 bg-card shadow-sm border border-border rounded-xl hover:bg-muted transition-colors text-muted-foreground hover:text-[#1DA1F2]">
                       <Twitter size={20} />
                     </a>
                   )}
@@ -228,41 +228,41 @@ export default function UserPage() {
             
             {/* Engagement Metrics Stats Row */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-              <div className="bg-white shadow-sm border border-slate-200 rounded-2xl p-4 text-center">
-                <div className="text-2xl font-display font-bold text-slate-900 mb-1">{projects.length}</div>
-                <div className="text-[10px] text-slate-600 font-mono uppercase tracking-wider">Projects</div>
+              <div className="bg-card shadow-sm border border-border rounded-2xl p-4 text-center">
+                <div className="text-2xl font-display font-bold text-foreground mb-1">{projects.length}</div>
+                <div className="text-[10px] text-muted-foreground font-mono uppercase tracking-wider">Projects</div>
               </div>
-              <div className="bg-white shadow-sm border border-slate-200 rounded-2xl p-4 text-center">
-                <div className="text-2xl font-display font-bold text-slate-900 mb-1">{activities.length}</div>
-                <div className="text-[10px] text-slate-600 font-mono uppercase tracking-wider">Contributions</div>
+              <div className="bg-card shadow-sm border border-border rounded-2xl p-4 text-center">
+                <div className="text-2xl font-display font-bold text-foreground mb-1">{activities.length}</div>
+                <div className="text-[10px] text-muted-foreground font-mono uppercase tracking-wider">Contributions</div>
               </div>
-              <div className="bg-white shadow-sm border border-slate-200 rounded-2xl p-4 text-center">
-                <div className="text-2xl font-display font-bold text-indigo-600 mb-1">{totalLikes}</div>
-                <div className="text-[10px] text-slate-600 font-mono uppercase tracking-wider">Likes Received</div>
+              <div className="bg-card shadow-sm border border-border rounded-2xl p-4 text-center">
+                <div className="text-2xl font-display font-bold text-primary mb-1">{totalLikes}</div>
+                <div className="text-[10px] text-muted-foreground font-mono uppercase tracking-wider">Likes Received</div>
               </div>
-              <div className="bg-white shadow-sm border border-slate-200 rounded-2xl p-4 text-center">
-                <div className="text-2xl font-display font-bold text-slate-900 mb-1">{userProfile?.reputation_points || 0}</div>
-                <div className="text-[10px] text-slate-600 font-mono uppercase tracking-wider">Rep Points</div>
+              <div className="bg-card shadow-sm border border-border rounded-2xl p-4 text-center">
+                <div className="text-2xl font-display font-bold text-foreground mb-1">{userProfile?.reputation_points || 0}</div>
+                <div className="text-[10px] text-muted-foreground font-mono uppercase tracking-wider">Rep Points</div>
               </div>
             </div>
 
             {/* Tabs */}
-            <div className="flex items-center gap-6 border-b border-slate-200">
+            <div className="flex items-center gap-6 border-b border-border">
               <button 
                 onClick={() => setActiveTab('projects')}
-                className={`pb-4 text-sm font-medium flex items-center gap-2 transition-colors relative ${activeTab === 'projects' ? 'text-slate-900' : 'text-slate-600 hover:text-slate-900'}`}
+                className={`pb-4 text-sm font-medium flex items-center gap-2 transition-colors relative ${activeTab === 'projects' ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
               >
                 <Grid size={16} />
                 Highlights
-                {activeTab === 'projects' && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600" />}
+                {activeTab === 'projects' && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary" />}
               </button>
               <button 
                 onClick={() => setActiveTab('activity')}
-                className={`pb-4 text-sm font-medium flex items-center gap-2 transition-colors relative ${activeTab === 'activity' ? 'text-slate-900' : 'text-slate-600 hover:text-slate-900'}`}
+                className={`pb-4 text-sm font-medium flex items-center gap-2 transition-colors relative ${activeTab === 'activity' ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
               >
                 <Activity size={16} />
                 Recent Activity
-                {activeTab === 'activity' && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600" />}
+                {activeTab === 'activity' && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary" />}
               </button>
             </div>
 
@@ -272,8 +272,8 @@ export default function UserPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
                   {projects.length > 0 ? (
                     projects.map((project) => (
-                      <div key={project.id} className="group bg-white shadow-sm border border-slate-200 rounded-2xl overflow-hidden hover:border-slate-300 transition-all">
-                        <div className="h-32 bg-white border border-slate-300 shadow-inner w-full relative overflow-hidden">
+                      <div key={project.id} className="group bg-card shadow-sm border border-border rounded-2xl overflow-hidden hover:border-border/80 transition-all">
+                        <div className="h-32 bg-card border border-border shadow-inner w-full relative overflow-hidden">
                           {project.image_url ? (
                             <img src={project.image_url} alt={project.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
                           ) : (
@@ -282,14 +282,14 @@ export default function UserPage() {
                           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
                           <div className="absolute bottom-3 left-3 flex gap-2 flex-wrap">
                             {(project.tags || []).map(tag => (
-                              <span key={tag} className="px-2 py-1 bg-slate-100 backdrop-blur-md rounded text-[10px] font-mono uppercase text-slate-900">{tag}</span>
+                              <span key={tag} className="px-2 py-1 bg-muted backdrop-blur-md rounded text-[10px] font-mono uppercase text-foreground">{tag}</span>
                             ))}
                           </div>
                         </div>
                         <div className="p-4">
-                          <h3 className="font-semibold text-lg mb-1 group-hover:text-indigo-600 transition-colors">{project.title}</h3>
-                          <p className="text-sm text-slate-600 line-clamp-2 mb-4">{project.description}</p>
-                          <div className="flex items-center justify-between text-xs text-slate-600">
+                          <h3 className="font-semibold text-lg mb-1 group-hover:text-primary transition-colors">{project.title}</h3>
+                          <p className="text-sm text-muted-foreground line-clamp-2 mb-4">{project.description}</p>
+                          <div className="flex items-center justify-between text-xs text-muted-foreground">
                             <span className="flex items-center gap-1"><Heart size={14} className="hover:text-red-400 cursor-pointer transition-colors" /> {project.likes_count}</span>
                             <span>{new Date(project.created_at).toLocaleDateString()}</span>
                           </div>
@@ -297,7 +297,7 @@ export default function UserPage() {
                       </div>
                     ))
                   ) : (
-                    <div className="sm:col-span-2 p-8 border border-dashed border-slate-200 rounded-2xl text-center text-slate-600">
+                    <div className="sm:col-span-2 p-8 border border-dashed border-border rounded-2xl text-center text-muted-foreground">
                       <Grid size={24} className="mx-auto mb-2 opacity-50" />
                       <p className="text-sm">No projects yet.</p>
                     </div>
@@ -309,29 +309,29 @@ export default function UserPage() {
                 <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
                   {activities.length > 0 ? (
                     activities.map((activity) => (
-                      <div key={activity.id} className="flex gap-4 p-4 bg-white shadow-sm border border-slate-200 rounded-2xl">
+                      <div key={activity.id} className="flex gap-4 p-4 bg-card shadow-sm border border-border rounded-2xl">
                         <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${
-                          activity.activity_type === 'like' ? 'bg-red-500/10 text-red-400' : 'bg-indigo-600/10 text-indigo-600'
+                          activity.activity_type === 'like' ? 'bg-red-500/10 text-red-400' : 'bg-primary/10 text-primary'
                         }`}>
                           {activity.activity_type === 'like' ? <Heart size={16} /> : <MessageSquare size={16} />}
                         </div>
                         <div>
-                          <p className="text-sm text-slate-900">
+                          <p className="text-sm text-foreground">
                             <span className="font-semibold">@{userProfile?.username}</span>{' '}
                             {activity.activity_type === 'like' ? 'liked' : 'commented on'}{' '}
-                            <span className="text-indigo-600 cursor-pointer">{activity.target_name}</span>
+                            <span className="text-primary cursor-pointer">{activity.target_name}</span>
                           </p>
                           {activity.content && (
-                            <p className="text-sm text-slate-600 mt-1 p-3 bg-slate-50 border border-slate-200 rounded-xl italic">"{activity.content}"</p>
+                            <p className="text-sm text-muted-foreground mt-1 p-3 bg-muted border border-border rounded-xl italic">"{activity.content}"</p>
                           )}
-                          <p className="text-xs text-slate-600 mt-2 font-mono">
+                          <p className="text-xs text-muted-foreground mt-2 font-mono">
                             {new Date(activity.created_at).toLocaleDateString()}
                           </p>
                         </div>
                       </div>
                     ))
                   ) : (
-                    <div className="p-8 border border-dashed border-slate-200 rounded-2xl text-center text-slate-600">
+                    <div className="p-8 border border-dashed border-border rounded-2xl text-center text-muted-foreground">
                       <Activity size={24} className="mx-auto mb-2 opacity-50" />
                       <p className="text-sm">No recent activity.</p>
                     </div>

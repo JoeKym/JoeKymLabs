@@ -67,14 +67,14 @@ export default function SupportPage() {
           <h1 className="font-display font-bold text-5xl md:text-7xl mb-6 bg-gradient-to-r from-indigo-600 to-primary bg-clip-text text-transparent">
             Support Center
           </h1>
-          <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
             Quick answers, direct contact, and resources to get you moving.
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Quick Help / FAQs */}
-          <Card className="bg-white shadow-sm border border-slate-200 rounded-3xl overflow-hidden animate-in fade-in slide-in-from-left-8 duration-1000">
+          <Card className="bg-card shadow-sm border border-border rounded-3xl overflow-hidden animate-in fade-in slide-in-from-left-8 duration-1000">
             <CardHeader className="pb-4">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-indigo-600/10 text-indigo-600 rounded-2xl flex items-center justify-center border border-indigo-600/30">
@@ -93,7 +93,7 @@ export default function SupportPage() {
                     <AccordionTrigger className="px-8 py-6 hover:no-underline -mb-px border-b border-slate-100 last:border-b-0">
                       {faq.q}
                     </AccordionTrigger>
-                    <AccordionContent className="px-8 pb-8 text-slate-600 text-sm leading-relaxed">
+                    <AccordionContent className="px-8 pb-8 text-muted-foreground text-sm leading-relaxed">
                       {faq.a}
                     </AccordionContent>
                   </AccordionItem>
@@ -104,7 +104,7 @@ export default function SupportPage() {
 
           {/* Contact Support */}
           <div className="space-y-6 animate-in fade-in slide-in-from-right-8 duration-1000">
-            <Card className="bg-white shadow-sm border border-slate-200 rounded-3xl p-8">
+            <Card className="bg-card shadow-sm border border-border rounded-3xl p-8">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 bg-green-600/10 text-green-600 rounded-2xl flex items-center justify-center border border-green-600/30">
@@ -134,7 +134,7 @@ export default function SupportPage() {
         {/* Other Sections */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Documentation */}
-          <Card className="bg-white shadow-sm border border-slate-200 rounded-3xl col-span-1 md:col-span-2 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+          <Card className="bg-card shadow-sm border border-border rounded-3xl col-span-1 md:col-span-2 animate-in fade-in slide-in-from-bottom-8 duration-1000">
             <CardHeader>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-blue-600/10 text-blue-600 rounded-xl flex items-center justify-center border border-blue-600/30">
@@ -144,7 +144,7 @@ export default function SupportPage() {
               </div>
             </CardHeader>
             <CardContent className="space-y-3 text-sm">
-              <p className="text-slate-600">Setup guides and API references.</p>
+              <p className="text-muted-foreground">Setup guides and API references.</p>
               <div className="space-y-2">
                 <a href="https://github.com/JoeKym" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-indigo-600 hover:underline font-medium">
                   GitHub Repos <ArrowUpRight className="w-4 h-4" />
@@ -160,7 +160,7 @@ export default function SupportPage() {
           </Card>
 
           {/* Status */}
-          <Card className="bg-white shadow-sm border border-slate-200 rounded-3xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+          <Card className="bg-card shadow-sm border border-border rounded-3xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
             <CardHeader>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-emerald-600/10 text-emerald-600 rounded-xl flex items-center justify-center border border-emerald-600/30">
@@ -173,12 +173,12 @@ export default function SupportPage() {
               <span className="inline-flex items-center gap-2 bg-emerald-600/10 px-3 py-1 rounded-full text-xs font-mono uppercase">
                 All systems operational
               </span>
-              <p className="text-slate-600 mt-3 text-xs">No known issues. Uptime: 99.9%</p>
+              <p className="text-muted-foreground mt-3 text-xs">No known issues. Uptime: 99.9%</p>
             </CardContent>
           </Card>
 
           {/* Community */}
-          <Card className="bg-white shadow-sm border border-slate-200 rounded-3xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-400">
+          <Card className="bg-card shadow-sm border border-border rounded-3xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-400">
             <CardHeader>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-purple-600/10 text-purple-600 rounded-xl flex items-center justify-center border border-purple-600/30">
@@ -205,7 +205,7 @@ export default function SupportPage() {
                 <a href="mailto:mail.jkyme@gmail.com?subject=Priority%20Support" className="flex-1 bg-amber-600/90 hover:bg-amber-600 text-white font-bold py-4 px-6 rounded-2xl text-center shadow-lg hover:shadow-xl transition-all">
                   Request Priority Access
                 </a>
-                <Link to="/pricing" className="flex-1 bg-white border border-amber-600 text-amber-700 font-bold py-4 px-6 rounded-2xl text-center hover:bg-amber-50 transition-all">
+                <Link to="/pricing" className="flex-1 bg-card border border-amber-600 text-amber-700 font-bold py-4 px-6 rounded-2xl text-center hover:bg-amber-500/10 transition-all">
                   View Plans
                 </Link>
               </div>

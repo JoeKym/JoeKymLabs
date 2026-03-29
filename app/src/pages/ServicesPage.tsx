@@ -67,7 +67,7 @@ export default function ServicesPage() {
         <h1 className="font-display font-bold text-5xl md:text-7xl mb-6 leading-tight">
           Our Services
         </h1>
-        <p className="text-slate-600 text-xl max-w-3xl mx-auto md:mx-0 leading-relaxed">
+        <p className="text-muted-foreground text-xl max-w-3xl mx-auto md:mx-0 leading-relaxed">
           We build digital experiences that drive measurable outcomes.{' '}
           <br className="hidden md:block" />
           Clarity, performance, and scalability at every stage.
@@ -78,7 +78,7 @@ export default function ServicesPage() {
         {services.map((service, idx) => (
           <div
             key={service.title}
-            className="group bg-white/80 backdrop-blur-sm shadow-xl border border-slate-200/50 rounded-3xl p-8 lg:p-12 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 animate-in fade-in slide-in-from-bottom-4"
+            className="group bg-card/80 backdrop-blur-sm shadow-xl border border-border/50 rounded-3xl p-8 lg:p-12 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 animate-in fade-in slide-in-from-bottom-4"
             style={{ animationDelay: `${idx * 200}ms` }}
           >
             <img 
@@ -87,12 +87,12 @@ export default function ServicesPage() {
               className="w-full h-64 md:h-72 object-cover rounded-3xl mb-8 group-hover:scale-105 transition-transform duration-500 shadow-2xl"
             />
             <h2 className="text-3xl lg:text-4xl font-display font-bold mb-6 group-hover:text-indigo-600 transition-colors">{service.title}</h2>
-            <p className="text-slate-600 text-lg mb-8 leading-relaxed">{service.desc}</p>
+            <p className="text-muted-foreground text-lg mb-8 leading-relaxed">{service.desc}</p>
             <ul className="space-y-4">
               {service.items.map((item, i) => (
-                <li key={i} className="flex items-start gap-4 p-4 bg-gradient-to-r from-indigo-50 to-slate-50 rounded-2xl border border-indigo-100/50 group-hover:border-indigo-200 transition-all hover:bg-indigo-100">
+                <li key={i} className="flex items-start gap-4 p-4 bg-gradient-to-r from-primary/10 to-muted rounded-2xl border border-primary/20 group-hover:border-primary/30 transition-all hover:bg-primary/20">
                   <div className="w-3 h-3 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mt-2 flex-shrink-0 shadow-md" />
-                  <span className="font-medium text-slate-900 leading-relaxed">{item}</span>
+                  <span className="font-medium text-foreground leading-relaxed">{item}</span>
                 </li>
               ))}
             </ul>
@@ -111,7 +111,7 @@ export default function ServicesPage() {
           </Link>
           <Link
             to="/work"
-            className="px-10 py-6 border-2 border-slate-300 text-slate-900 font-bold text-xl rounded-3xl hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all duration-500 flex-1 text-center"
+            className="px-10 py-6 border-2 border-border text-foreground font-bold text-xl rounded-3xl hover:border-primary hover:text-primary hover:bg-primary/10 transition-all duration-500 flex-1 text-center"
           >
             View Selected Work
           </Link>

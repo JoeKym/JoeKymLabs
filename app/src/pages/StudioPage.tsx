@@ -32,14 +32,14 @@ export default function StudioPage() {
         {/* About Us */}
         <section className="text-center mb-32 animate-fade-in">
           <div className="max-w-4xl mx-auto">
-            <Card className="backdrop-blur-xl bg-white/80 border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+            <Card className="backdrop-blur-xl bg-card/80 border-border shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
               <CardHeader className="pb-6">
-                <CardTitle className="font-display text-4xl md:text-5xl font-black text-slate-900 mb-4">
+                <CardTitle className="font-display text-4xl md:text-5xl font-black text-foreground mb-4">
                   About Us
                 </CardTitle>
               </CardHeader>
               <CardContent className="pt-0">
-                <CardDescription className="text-xl md:text-2xl leading-relaxed text-slate-700 max-w-3xl mx-auto">
+                <CardDescription className="text-xl md:text-2xl leading-relaxed text-muted-foreground max-w-3xl mx-auto">
                   JoeKym Labs™ is a precise web studio.  
                   We craft clean, editorial interfaces and build them with performant code — for brands that value clarity over noise.
                 </CardDescription>
@@ -50,7 +50,7 @@ export default function StudioPage() {
 
         {/* Principles */}
         <section className="mb-32 animate-fade-in delay-100">
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-slate-900 text-center mb-20 bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-foreground text-center mb-20 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
             Principles
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -62,11 +62,11 @@ export default function StudioPage() {
                 <div className="w-16 h-16 bg-indigo-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
 <Scale className="w-8 h-8 text-white" />
                 </div>
-                <CardTitle className="font-display text-2xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
+                <CardTitle className="font-display text-2xl font-bold text-foreground group-hover:text-indigo-600 transition-colors">
                   Purpose
                 </CardTitle>
               </CardHeader>
-              <CardContent className="relative pt-0 text-slate-700 leading-relaxed">
+              <CardContent className="relative pt-0 text-muted-foreground leading-relaxed">
                 Building scalable digital experiences.
               </CardContent>
             </Card>
@@ -79,11 +79,11 @@ export default function StudioPage() {
                 <div className="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
                   <Lightbulb className="w-8 h-8 text-white" />
                 </div>
-                <CardTitle className="font-display text-2xl font-bold text-slate-900 group-hover:text-purple-600 transition-colors">
+                <CardTitle className="font-display text-2xl font-bold text-foreground group-hover:text-purple-600 transition-colors">
                   Principles
                 </CardTitle>
               </CardHeader>
-              <CardContent className="relative pt-0 text-slate-700 leading-relaxed">
+              <CardContent className="relative pt-0 text-muted-foreground leading-relaxed">
                 Transparency, iteration, clarity.
               </CardContent>
             </Card>
@@ -96,11 +96,11 @@ export default function StudioPage() {
                 <div className="w-16 h-16 bg-emerald-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
 <Users className="w-8 h-8 text-white" />
                 </div>
-                <CardTitle className="font-display text-2xl font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">
+                <CardTitle className="font-display text-2xl font-bold text-foreground group-hover:text-emerald-600 transition-colors">
                   Partnership
                 </CardTitle>
               </CardHeader>
-              <CardContent className="relative pt-0 text-slate-700 leading-relaxed">
+              <CardContent className="relative pt-0 text-muted-foreground leading-relaxed">
                 We work with you, not for you.
               </CardContent>
             </Card>
@@ -113,11 +113,11 @@ export default function StudioPage() {
                 <div className="w-16 h-16 bg-amber-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
                   <Zap className="w-8 h-8 text-white" />
                 </div>
-                <CardTitle className="font-display text-2xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors">
+                <CardTitle className="font-display text-2xl font-bold text-foreground group-hover:text-amber-600 transition-colors">
                   Impact
                 </CardTitle>
               </CardHeader>
-              <CardContent className="relative pt-0 text-slate-700 leading-relaxed">
+              <CardContent className="relative pt-0 text-muted-foreground leading-relaxed">
                 Results that scale with your vision.
               </CardContent>
             </Card>
@@ -126,13 +126,13 @@ export default function StudioPage() {
 
         {/* Culture */}
         <section className="mb-32 animate-fade-in delay-200">
-          <Card className="backdrop-blur-xl bg-white/80 border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 max-w-4xl mx-auto">
+          <Card className="backdrop-blur-xl bg-card/80 border-border shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 max-w-4xl mx-auto">
             <CardHeader className="text-center">
-              <CardTitle className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+              <CardTitle className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
                 Culture
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-xl md:text-2xl leading-relaxed text-slate-700 text-center">
+            <CardContent className="text-xl md:text-2xl leading-relaxed text-muted-foreground text-center">
               We are a remote-first team, blending design precision with engineering performance.  
               Collaboration, creativity, and adaptability define our studio.
             </CardContent>
@@ -142,7 +142,7 @@ export default function StudioPage() {
         {/* CTA Section */}
         <section className="text-center animate-fade-in delay-300">
           <div className="max-w-md mx-auto space-y-6">
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-slate-900 mb-6">
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground mb-6">
               Ready to build something remarkable?
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -160,7 +160,7 @@ export default function StudioPage() {
                 variant="outline" 
                 size="lg" 
                 asChild
-                className="border-2 border-slate-200 bg-white/50 hover:bg-white hover:border-indigo-300 px-8 py-8 text-lg font-bold rounded-2xl h-auto min-h-[60px] transform hover:scale-105 transition-all duration-300"
+                className="border-2 border-border bg-card/50 hover:bg-card hover:border-primary px-8 py-8 text-lg font-bold rounded-2xl h-auto min-h-[60px] transform hover:scale-105 transition-all duration-300"
               >
                 <a href="/work">
                   View Our Work
