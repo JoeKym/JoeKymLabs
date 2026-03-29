@@ -16,6 +16,8 @@ import ContactPage from './pages/ContactPage';
 import LegalPage from './pages/LegalPage';
 import SupportPage from './pages/SupportPage';
 import PhilosophyPage from './pages/PhilosophyPage';
+import HelpPage from './pages/HelpPage';
+import FeedbackPage from './pages/FeedbackPage';
 import './App.css';
 
 // Scroll to top on route change
@@ -64,6 +66,8 @@ function App() {
             <Route path="/contact" element={<Layout><ContactPage /></Layout>} />
             <Route path="/support" element={<Layout><SupportPage /></Layout>} />
             <Route path="/philosophy" element={<Layout><PhilosophyPage /></Layout>} />
+            <Route path="/help" element={<Layout><HelpPage /></Layout>} />
+            <Route path="/feedback" element={<Layout><FeedbackPage /></Layout>} />
             <Route path="/legal" element={<Layout><LegalPage /></Layout>} />
             <Route path="/auth" element={<Layout><AuthPage /></Layout>} />
             <Route path="/profile" element={<Layout><ProfilePage /></Layout>} />

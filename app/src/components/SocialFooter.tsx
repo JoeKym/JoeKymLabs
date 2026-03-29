@@ -46,6 +46,8 @@ const aboutLinks = [
 
 const contactLinks = [
   { name: 'Support', path: '/support' },
+  { name: 'Help', path: '/help' },
+  { name: 'Feedback', path: '/feedback' },
   { name: 'Contact', path: '/contact' },
   { name: 'Legal', path: '/legal' },
 ];
