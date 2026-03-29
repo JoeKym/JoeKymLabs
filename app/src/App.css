@@ -21,7 +21,7 @@ body {
 
 .work-card:hover, .cap-card:hover, .proc-card:hover {
   transform: scale(1.02);
-  box-shadow: theme('boxShadow.green-glow');
+  box-shadow: theme('boxShadow.primary-glow');
 }
 
 /* Responsive */
