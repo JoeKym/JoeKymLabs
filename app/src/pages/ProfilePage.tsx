@@ -315,32 +315,32 @@ export default function ProfilePage() {
               <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
                 <header>
                   <h1 className="font-display font-bold text-3xl mb-2">Security</h1>
-                  <p className="text-slate-600">Manage your password and secure your account.</p>
+                  <p className="text-muted-foreground">Manage your password and secure your account.</p>
                 </header>
 
-                <div className="bg-white shadow-sm border border-slate-200 rounded-3xl p-8 space-y-6">
+                <div className="bg-card shadow-sm border border-border rounded-3xl p-8 space-y-6">
                   <div>
                     <h3 className="font-display font-semibold text-lg mb-1">Change Password</h3>
-                    <p className="text-sm text-slate-600 mb-4">Ensure your account is using a long, random password to stay secure.</p>
+                    <p className="text-sm text-muted-foreground mb-4">Ensure your account is using a long, random password to stay secure.</p>
                     <div className="space-y-4 max-w-md">
-                      <input type="password" placeholder="Current Password" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 outline-none" />
-                      <input type="password" placeholder="New Password" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 outline-none" />
-                      <input type="password" placeholder="Confirm New Password" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 outline-none" />
-                      <button className="px-6 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-900 font-medium rounded-xl transition-colors">Update Password</button>
+                      <input type="password" placeholder="Current Password" className="w-full bg-muted border border-border rounded-xl px-4 py-3 text-foreground outline-none focus:border-primary transition-colors" />
+                      <input type="password" placeholder="New Password" className="w-full bg-muted border border-border rounded-xl px-4 py-3 text-foreground outline-none focus:border-primary transition-colors" />
+                      <input type="password" placeholder="Confirm New Password" className="w-full bg-muted border border-border rounded-xl px-4 py-3 text-foreground outline-none focus:border-primary transition-colors" />
+                      <button className="px-6 py-2.5 bg-muted hover:bg-border text-foreground font-medium rounded-xl transition-colors">Update Password</button>
                     </div>
                   </div>
 
-                  <hr className="border-slate-200" />
+                  <hr className="border-border" />
 
                   <div>
                     <div className="flex items-center justify-between mb-4">
                       <div>
                         <h3 className="font-display font-semibold text-lg mb-1">Two-Factor Authentication</h3>
-                        <p className="text-sm text-slate-600">Add an extra layer of security to your account.</p>
+                        <p className="text-sm text-muted-foreground">Add an extra layer of security to your account.</p>
                       </div>
-                      <div className="px-3 py-1 bg-white shadow-sm border border-slate-200 text-slate-600 text-xs font-mono rounded-lg border border-slate-200">Disabled</div>
+                      <div className="px-3 py-1 bg-card shadow-sm border border-border text-muted-foreground text-xs font-mono rounded-lg">Disabled</div>
                     </div>
-                    <button className="px-6 py-2.5 bg-indigo-600/10 text-indigo-600 hover:bg-indigo-600/20 font-medium rounded-xl transition-colors">Enable 2FA</button>
+                    <button className="px-6 py-2.5 bg-primary/10 text-primary hover:bg-primary/20 font-medium rounded-xl transition-colors">Enable 2FA</button>
                   </div>
                 </div>
               </div>
@@ -350,28 +350,28 @@ export default function ProfilePage() {
               <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
                 <header>
                   <h1 className="font-display font-bold text-3xl mb-2">Activity Overview</h1>
-                  <p className="text-slate-600">Your recent interactions and platform statistics.</p>
+                  <p className="text-muted-foreground">Your recent interactions and platform statistics.</p>
                 </header>
 
                 <div className="grid grid-cols-3 gap-4">
-                  <div className="bg-white shadow-sm border border-slate-200 rounded-2xl p-6 text-center">
-                    <div className="text-3xl font-display font-bold text-indigo-600 mb-1">0</div>
-                    <div className="text-xs text-slate-600 font-mono uppercase tracking-wider">Projects</div>
+                  <div className="bg-card shadow-sm border border-border rounded-2xl p-6 text-center">
+                    <div className="text-3xl font-display font-bold text-primary mb-1">0</div>
+                    <div className="text-xs text-muted-foreground font-mono uppercase tracking-wider">Projects</div>
                   </div>
-                  <div className="bg-white shadow-sm border border-slate-200 rounded-2xl p-6 text-center">
-                    <div className="text-3xl font-display font-bold text-indigo-600 mb-1">0</div>
-                    <div className="text-xs text-slate-600 font-mono uppercase tracking-wider">Comments</div>
+                  <div className="bg-card shadow-sm border border-border rounded-2xl p-6 text-center">
+                    <div className="text-3xl font-display font-bold text-primary mb-1">0</div>
+                    <div className="text-xs text-muted-foreground font-mono uppercase tracking-wider">Comments</div>
                   </div>
-                  <div className="bg-white shadow-sm border border-slate-200 rounded-2xl p-6 text-center">
-                    <div className="text-3xl font-display font-bold text-indigo-600 mb-1">0</div>
-                    <div className="text-xs text-slate-600 font-mono uppercase tracking-wider">Saved</div>
+                  <div className="bg-card shadow-sm border border-border rounded-2xl p-6 text-center">
+                    <div className="text-3xl font-display font-bold text-primary mb-1">0</div>
+                    <div className="text-xs text-muted-foreground font-mono uppercase tracking-wider">Saved</div>
                   </div>
                 </div>
 
-                <div className="bg-white shadow-sm border border-slate-200 rounded-3xl p-8 text-center py-16">
-                  <Activity size={48} className="mx-auto text-slate-200 mb-4" />
-                  <h3 className="text-lg font-medium mb-2">No recent activity</h3>
-                  <p className="text-slate-600">When you interact with the platform, your activity will show up here.</p>
+                <div className="bg-card shadow-sm border border-border rounded-3xl p-8 text-center py-16">
+                  <Activity size={48} className="mx-auto text-muted-foreground/30 mb-4" />
+                  <h3 className="text-lg font-medium mb-2 text-foreground">No recent activity</h3>
+                  <p className="text-muted-foreground">When you interact with the platform, your activity will show up here.</p>
                 </div>
               </div>
             )}
@@ -380,36 +380,36 @@ export default function ProfilePage() {
               <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
                 <header>
                   <h1 className="font-display font-bold text-3xl mb-2">Preferences</h1>
-                  <p className="text-slate-600">Customize your experience and notifications.</p>
+                  <p className="text-muted-foreground">Customize your experience and notifications.</p>
                 </header>
 
-                <div className="bg-white shadow-sm border border-slate-200 rounded-3xl p-8 space-y-8">
+                <div className="bg-card shadow-sm border border-border rounded-3xl p-8 space-y-8">
                   <div>
                     <h3 className="font-display font-semibold text-lg mb-4 flex items-center gap-2"><Bell size={18} /> Notifications</h3>
                     <div className="space-y-4">
                       {['Email updates about product features', 'Project status notifications', 'Marketing and promotional emails'].map((item, i) => (
                         <label key={i} className="flex items-center justify-between cursor-pointer group">
-                          <span className="text-slate-600 group-hover:text-slate-900 transition-colors">{item}</span>
-                          <div className={`w-12 h-6 rounded-full p-1 transition-colors ${i === 1 ? 'bg-indigo-600' : 'bg-slate-100'}`}>
-                            <div className={`w-4 h-4 rounded-full bg-white transition-transform ${i === 1 ? 'translate-x-6' : 'translate-x-0'}`} />
+                          <span className="text-muted-foreground group-hover:text-foreground transition-colors">{item}</span>
+                          <div className={`w-12 h-6 rounded-full p-1 transition-colors ${i === 1 ? 'bg-primary' : 'bg-muted'}`}>
+                            <div className={`w-4 h-4 rounded-full bg-card transition-transform ${i === 1 ? 'translate-x-6' : 'translate-x-0'}`} />
                           </div>
                         </label>
                       ))}
                     </div>
                   </div>
 
-                  <hr className="border-slate-200" />
+                  <hr className="border-border" />
 
                   <div>
                     <h3 className="font-display font-semibold text-lg mb-4 flex items-center gap-2"><Lock size={18} /> Privacy</h3>
                     <div className="space-y-4">
                       <label className="flex items-center justify-between cursor-pointer group">
                         <div>
-                          <span className="block text-slate-900 mb-1">Public Profile</span>
-                          <span className="text-sm text-slate-600">Allow anyone to view your profile page</span>
+                          <span className="block text-foreground mb-1">Public Profile</span>
+                          <span className="text-sm text-muted-foreground">Allow anyone to view your profile page</span>
                         </div>
-                        <div className="w-12 h-6 rounded-full p-1 transition-colors bg-indigo-600">
-                          <div className="w-4 h-4 rounded-full bg-white transition-transform translate-x-6" />
+                        <div className="w-12 h-6 rounded-full p-1 transition-colors bg-primary">
+                          <div className="w-4 h-4 rounded-full bg-card transition-transform translate-x-6" />
                         </div>
                       </label>
                     </div>
@@ -422,20 +422,20 @@ export default function ProfilePage() {
               <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
                 <header>
                   <h1 className="font-display font-bold text-3xl mb-2">Connections</h1>
-                  <p className="text-slate-600">Link your social accounts and manage third-party access.</p>
+                  <p className="text-muted-foreground">Link your social accounts and manage third-party access.</p>
                 </header>
 
-                <div className="bg-white shadow-sm border border-slate-200 rounded-3xl p-8 space-y-4">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-slate-50 border border-slate-200 rounded-2xl border border-slate-200 gap-4">
+                <div className="bg-card shadow-sm border border-border rounded-3xl p-8 space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-muted border border-border rounded-2xl gap-4">
                     <div className="flex items-center gap-4">
                       <Github size={24} />
                       <div>
-                        <div className="font-medium">GitHub</div>
-                        <div className="text-xs text-slate-600">Add your username</div>
+                        <div className="font-medium text-foreground">GitHub</div>
+                        <div className="text-xs text-muted-foreground">Add your username</div>
                       </div>
                     </div>
                     <div className="relative">
-                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm">@</span>
+                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">@</span>
                       <input 
                         type="text" 
                         value={profile?.github || ''}
@@ -444,21 +444,21 @@ export default function ProfilePage() {
                         }}
                         onBlur={handleUpdate}
                         placeholder="username"
-                        className="w-full sm:w-48 bg-white border border-slate-300 shadow-inner border border-slate-200 rounded-xl pl-8 pr-4 py-2 text-sm text-slate-900 focus:border-indigo-600 outline-none transition-all"
+                        className="w-full sm:w-48 bg-card border border-border rounded-xl pl-8 pr-4 py-2 text-sm text-foreground focus:border-primary outline-none transition-all"
                       />
                     </div>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-slate-50 border border-slate-200 rounded-2xl border border-slate-200 gap-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-muted border border-border rounded-2xl gap-4">
                     <div className="flex items-center gap-4">
                       <Twitter size={24} className="text-sky-400" />
                       <div>
-                        <div className="font-medium">Twitter / X</div>
-                        <div className="text-xs text-slate-600">Add your username</div>
+                        <div className="font-medium text-foreground">Twitter / X</div>
+                        <div className="text-xs text-muted-foreground">Add your username</div>
                       </div>
                     </div>
                     <div className="relative">
-                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm">@</span>
+                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">@</span>
                       <input 
                         type="text" 
                         value={profile?.twitter || ''}
@@ -467,7 +467,7 @@ export default function ProfilePage() {
                         }}
                         onBlur={handleUpdate}
                         placeholder="username"
-                        className="w-full sm:w-48 bg-white border border-slate-300 shadow-inner border border-slate-200 rounded-xl pl-8 pr-4 py-2 text-sm text-slate-900 focus:border-indigo-600 outline-none transition-all"
+                        className="w-full sm:w-48 bg-card border border-border rounded-xl pl-8 pr-4 py-2 text-sm text-foreground focus:border-primary outline-none transition-all"
                       />
                     </div>
                   </div>
@@ -479,33 +479,33 @@ export default function ProfilePage() {
               <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
                 <header>
                   <h1 className="font-display font-bold text-3xl mb-2">Support & Account</h1>
-                  <p className="text-slate-600">Manage your membership and get help.</p>
+                  <p className="text-muted-foreground">Manage your membership and get help.</p>
                 </header>
 
-                <div className="bg-gradient-to-br from-indigo-600/20 to-transparent border border-indigo-600/30 rounded-3xl p-8 relative overflow-hidden">
+                <div className="bg-gradient-to-br from-primary/20 to-transparent border border-primary/30 rounded-3xl p-8 relative overflow-hidden">
                   <div className="relative z-10">
-                    <div className="inline-block px-3 py-1 bg-indigo-600 text-white text-xs font-bold uppercase tracking-wider rounded-lg mb-4">Current Plan</div>
-                    <h3 className="font-display font-bold text-2xl mb-2">Community Member</h3>
-                    <p className="text-slate-600 mb-6 max-w-md">You are currently on the free community tier. Upgrade to access premium design assets and private project boards.</p>
-                    <button className="px-6 py-3 bg-white text-slate-900 font-bold rounded-xl hover:scale-105 transition-transform">View Plans</button>
+                    <div className="inline-block px-3 py-1 bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider rounded-lg mb-4">Current Plan</div>
+                    <h3 className="font-display font-bold text-2xl mb-2 text-foreground">Community Member</h3>
+                    <p className="text-muted-foreground mb-6 max-w-md">You are currently on the free community tier. Upgrade to access premium design assets and private project boards.</p>
+                    <Link to="/pricing" className="inline-block px-6 py-3 bg-card text-foreground font-bold rounded-xl hover:scale-105 transition-transform">View Plans</Link>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <a href="#" className="flex items-center gap-4 p-6 bg-white shadow-sm border border-slate-200 rounded-2xl hover:bg-slate-100 transition-colors">
-                    <div className="p-3 bg-slate-100 rounded-xl text-indigo-600"><HelpCircle size={24} /></div>
+                  <Link to="/support" className="flex items-center gap-4 p-6 bg-card shadow-sm border border-border rounded-2xl hover:bg-muted transition-colors">
+                    <div className="p-3 bg-muted rounded-xl text-primary"><HelpCircle size={24} /></div>
                     <div>
-                      <div className="font-medium mb-1">Help Center</div>
-                      <div className="text-xs text-slate-600">Read guides and FAQs</div>
+                      <div className="font-medium text-foreground mb-1">Help Center</div>
+                      <div className="text-xs text-muted-foreground">Read guides and FAQs</div>
                     </div>
-                  </a>
-                  <a href="#" className="flex items-center gap-4 p-6 bg-white shadow-sm border border-slate-200 rounded-2xl hover:bg-slate-100 transition-colors">
-                    <div className="p-3 bg-slate-100 rounded-xl text-indigo-600"><Mail size={24} /></div>
+                  </Link>
+                  <Link to="/contact" className="flex items-center gap-4 p-6 bg-card shadow-sm border border-border rounded-2xl hover:bg-muted transition-colors">
+                    <div className="p-3 bg-muted rounded-xl text-primary"><Mail size={24} /></div>
                     <div>
-                      <div className="font-medium mb-1">Contact Support</div>
-                      <div className="text-xs text-slate-600">Get 1-on-1 assistance</div>
+                      <div className="font-medium text-foreground mb-1">Contact Support</div>
+                      <div className="text-xs text-muted-foreground">Get 1-on-1 assistance</div>
                     </div>
-                  </a>
+                  </Link>
                 </div>
               </div>
             )}

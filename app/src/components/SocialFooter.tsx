@@ -41,6 +41,7 @@ const aboutLinks = [
   { name: 'Work', path: '/work' },
   { name: 'Careers', path: '/careers' },
   { name: 'Studio', path: '/studio' },
+  { name: 'Philosophy', path: '/philosophy' },
 ];
 
 const contactLinks = [
@@ -129,7 +130,7 @@ export default function SocialFooter() {
         {/* Copyright */}
         <div className="pt-8 border-t border-border text-center">
           <p className="text-sm text-muted-foreground">
-            © JoeKym Labs (TM) | A Web Development Studio and Company
+            © JoeKym Labs™ | A Web Development Studio and Company
           </p>
         </div>
       </div>
