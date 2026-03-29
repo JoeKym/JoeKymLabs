@@ -19,6 +19,7 @@ import PhilosophyPage from './pages/PhilosophyPage';
 import HelpPage from './pages/HelpPage';
 import FeedbackPage from './pages/FeedbackPage';
 import FaqPage from './pages/FaqPage';
+import NotFoundPage from './pages/NotFoundPage';
 import './App.css';
 
 // Scroll to top on route change
@@ -77,7 +78,7 @@ function App() {
             <Route path="/notes" element={<Layout><NotesPage /></Layout>} />
             <Route path="/app" element={<Layout><MainApp /></Layout>} />
             <Route path="/blank" element={<Layout><div>Blank successful build - no console errors</div></Layout>} />
-            <Route path="*" element={<Layout><LandingPage /></Layout>} />
+            <Route path="*" element={<Layout><NotFoundPage /></Layout>} />
           </Routes>
         </Router>
       </HelmetProvider>
