@@ -18,6 +18,7 @@ import SupportPage from './pages/SupportPage';
 import PhilosophyPage from './pages/PhilosophyPage';
 import HelpPage from './pages/HelpPage';
 import FeedbackPage from './pages/FeedbackPage';
+import FaqPage from './pages/FaqPage';
 import './App.css';
 
 // Scroll to top on route change
@@ -68,6 +69,7 @@ function App() {
             <Route path="/philosophy" element={<Layout><PhilosophyPage /></Layout>} />
             <Route path="/help" element={<Layout><HelpPage /></Layout>} />
             <Route path="/feedback" element={<Layout><FeedbackPage /></Layout>} />
+            <Route path="/faq" element={<Layout><FaqPage /></Layout>} />
             <Route path="/legal" element={<Layout><LegalPage /></Layout>} />
             <Route path="/auth" element={<Layout><AuthPage /></Layout>} />
             <Route path="/profile" element={<Layout><ProfilePage /></Layout>} />

@@ -13,7 +13,7 @@ const helpTopics = [
     icon: MessageSquare,
     title: 'FAQs',
     description: 'Find answers to commonly asked questions about our services and process.',
-    link: '/support',
+    link: '/faq',
   },
   {
     icon: Mail,
