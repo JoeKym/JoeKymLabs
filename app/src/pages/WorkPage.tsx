@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ExternalLink, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -111,7 +112,17 @@ export default function WorkPage() {
   const filteredProjects = projects.filter(p => activeTab === "all" || p.category === activeTab);
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans">
+    <>
+      <Helmet>
+        <title>Work | JoeKym Labs - Selected Projects</title>
+        <meta name="description" content="Explore our portfolio of scalable web applications, from startups to enterprises. React, Next.js, and modern web development projects." />
+        <meta property="og:title" content="Work | JoeKym Labs - Selected Projects" />
+        <meta property="og:description" content="Explore our portfolio of scalable web applications and modern web development projects." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://joekymlabs.com/work" />
+        <meta name="twitter:card" content="summary" />
+      </Helmet>
+      <div className="min-h-screen bg-background text-foreground font-sans">
       
       <main className="max-w-6xl mx-auto px-6 pt-32 pb-20">
         <header className="mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700">
@@ -167,5 +178,6 @@ export default function WorkPage() {
         </div>
       </main>
     </div>
+    </>
   );
 }

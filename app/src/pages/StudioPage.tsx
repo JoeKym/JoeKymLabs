@@ -1,10 +1,22 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Button } from '../components/ui/button';
+import { Helmet } from 'react-helmet-async';
 import { ArrowRight, Users, Scale, Zap, Lightbulb } from 'lucide-react';
 
 export default function StudioPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
+    <>
+      <Helmet>
+        <title>Studio | JoeKym Labs - About Our Web Development Studio</title>
+        <meta name="description" content="JoeKym Labs is a precise web studio crafting clean, editorial interfaces and performant code for brands that value clarity over noise." />
+        <meta property="og:title" content="Studio | JoeKym Labs - About Our Web Development Studio" />
+        <meta property="og:description" content="A precise web studio crafting clean, editorial interfaces and performant code." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://joekymlabs.com/studio" />
+        <meta property="og:image" content="https://joekymlabs.com/images/web-design-header.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+      <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
@@ -156,12 +168,7 @@ export default function StudioPage() {
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                asChild
-                className="border-2 border-border bg-card/50 hover:bg-card hover:border-primary px-8 py-8 text-lg font-bold rounded-2xl h-auto min-h-[60px] transform hover:scale-105 transition-all duration-300"
-              >
+              <Button asChild className="group text-lg px-8 py-6">
                 <a href="/work">
                   View Our Work
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -171,6 +178,6 @@ export default function StudioPage() {
           </div>
         </section>
       </div>
-    </div>
+    </>
   );
 }

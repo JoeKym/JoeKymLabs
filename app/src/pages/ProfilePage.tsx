@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { supabase } from '../lib/supabaseClient';
 import { 
   User, Shield, Activity, Settings, Link as LinkIcon, 
@@ -92,9 +93,73 @@ export default function ProfilePage() {
     }
   };
 
+  const [uploadingAvatar, setUploadingAvatar] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     navigate('/');
+  };
+
+  const handleAvatarUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    // Validate file type and size
+    if (!file.type.startsWith('image/')) {
+      setMessage({ text: 'Please upload an image file', type: 'error' });
+      return;
+    }
+    if (file.size > 2 * 1024 * 1024) {
+      setMessage({ text: 'Image must be less than 2MB', type: 'error' });
+      return;
+    }
+
+    setUploadingAvatar(true);
+    setMessage(null);
+
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) throw new Error('Not authenticated');
+
+      // Create unique filename
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${user.id}-${Date.now()}.${fileExt}`;
+      const filePath = `avatars/${fileName}`;
+
+      // Upload to Supabase Storage
+      const { error: uploadError } = await supabase.storage
+        .from('profiles')
+        .upload(filePath, file);
+
+      if (uploadError) throw uploadError;
+
+      // Get public URL
+      const { data: { publicUrl } } = supabase.storage
+        .from('profiles')
+        .getPublicUrl(filePath);
+
+      // Update profile with new avatar URL
+      const { error: updateError } = await supabase
+        .from('profiles')
+        .update({ avatar_url: publicUrl })
+        .eq('id', user.id);
+
+      if (updateError) throw updateError;
+
+      // Update local state
+      setProfile(p => p ? { ...p, avatar_url: publicUrl } : null);
+      setMessage({ text: 'Avatar updated successfully!', type: 'success' });
+    } catch (err: any) {
+      setMessage({ text: err.message, type: 'error' });
+    } finally {
+      setUploadingAvatar(false);
+      setTimeout(() => setMessage(null), 3000);
+    }
+  };
+
+  const triggerFileInput = () => {
+    fileInputRef.current?.click();
   };
 
   if (loading) return <div className="min-h-screen bg-background flex items-center justify-center"><p className="text-muted-foreground font-mono text-sm">Loading profile...</p></div>;
@@ -118,7 +183,17 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground pt-32 px-6 pb-20">
+    <>
+      <Helmet>
+        <title>Profile | JoeKym Labs</title>
+        <meta name="description" content={`Manage your JoeKym Labs profile settings, security, and preferences. ${profile?.bio || 'Digital designer and creative developer.'}`} />
+        <meta property="og:title" content={`${profile?.full_name || profile?.username} | JoeKym Labs`} />
+        <meta property="og:description" content={profile?.bio || 'Digital designer and creative developer.'} />
+        <meta property="og:type" content="profile" />
+        <meta property="og:url" content={`https://joekymlabs.com/user/${profile?.username}`} />
+        {profile?.avatar_url && <meta property="og:image" content={profile.avatar_url} />}
+      </Helmet>
+      <div className="min-h-screen bg-background text-foreground pt-32 px-6 pb-20">
       
       <main className="max-w-6xl mx-auto px-6 pt-32 pb-20">
         <div className="flex flex-col md:flex-row gap-8 lg:gap-12">
@@ -129,11 +204,30 @@ export default function ProfilePage() {
             <div className="bg-card shadow-sm border border-border rounded-3xl p-6 mb-6 text-center relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="relative w-20 h-20 mx-auto mb-4">
-                <div className="w-full h-full bg-gradient-to-br from-indigo-600 to-[#8B84D7] rounded-full flex items-center justify-center text-2xl font-bold text-white">
-                  {profile?.full_name?.charAt(0) || profile?.username?.charAt(0).toUpperCase()}
-                </div>
-                <button className="absolute bottom-0 right-0 p-1.5 bg-muted border border-border rounded-full text-foreground hover:text-primary transition-colors">
-                  <Camera size={14} />
+                {profile?.avatar_url ? (
+                  <img 
+                    src={profile.avatar_url} 
+                    alt={profile.full_name || profile.username}
+                    className="w-full h-full rounded-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-indigo-600 to-[#8B84D7] rounded-full flex items-center justify-center text-2xl font-bold text-white">
+                    {profile?.full_name?.charAt(0) || profile?.username?.charAt(0).toUpperCase()}
+                  </div>
+                )}
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  onChange={handleAvatarUpload}
+                  accept="image/*"
+                  className="hidden"
+                />
+                <button 
+                  onClick={triggerFileInput}
+                  disabled={uploadingAvatar}
+                  className="absolute bottom-0 right-0 p-1.5 bg-muted border border-border rounded-full text-foreground hover:text-primary transition-colors disabled:opacity-50"
+                >
+                  {uploadingAvatar ? <span className="animate-spin">⌛</span> : <Camera size={14} />}
                 </button>
               </div>
               <h2 className="font-display font-bold text-lg mb-1 truncate">{profile?.full_name}</h2>
@@ -337,10 +431,10 @@ export default function ProfilePage() {
                     <h3 className="font-display font-semibold text-lg mb-1">Change Password</h3>
                     <p className="text-sm text-muted-foreground mb-4">Ensure your account is using a long, random password to stay secure.</p>
                     <div className="space-y-4 max-w-md">
-                      <input id="currentPassword" name="currentPassword" type="password" placeholder="Current Password" className="w-full bg-muted border border-border rounded-xl px-4 py-3 text-foreground outline-none focus:border-primary transition-colors" />
-                      <input id="newPassword" name="newPassword" type="password" placeholder="New Password" className="w-full bg-muted border border-border rounded-xl px-4 py-3 text-foreground outline-none focus:border-primary transition-colors" />
-                      <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm New Password" className="w-full bg-muted border border-border rounded-xl px-4 py-3 text-foreground outline-none focus:border-primary transition-colors" />
-                      <button className="px-6 py-2.5 bg-muted hover:bg-border text-foreground font-medium rounded-xl transition-colors">Update Password</button>
+                      <input id="currentPassword" name="currentPassword" type="password" placeholder="Current Password" disabled className="w-full bg-muted border border-border rounded-xl px-4 py-3 text-foreground outline-none focus:border-primary transition-colors disabled:opacity-50" />
+                      <input id="newPassword" name="newPassword" type="password" placeholder="New Password" disabled className="w-full bg-muted border border-border rounded-xl px-4 py-3 text-foreground outline-none focus:border-primary transition-colors disabled:opacity-50" />
+                      <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm New Password" disabled className="w-full bg-muted border border-border rounded-xl px-4 py-3 text-foreground outline-none focus:border-primary transition-colors disabled:opacity-50" />
+                      <button disabled className="px-6 py-2.5 bg-muted text-muted-foreground font-medium rounded-xl transition-colors cursor-not-allowed">Coming Soon</button>
                     </div>
                   </div>
 
@@ -354,7 +448,7 @@ export default function ProfilePage() {
                       </div>
                       <div className="px-3 py-1 bg-card shadow-sm border border-border text-muted-foreground text-xs font-mono rounded-lg">Disabled</div>
                     </div>
-                    <button className="px-6 py-2.5 bg-primary/10 text-primary hover:bg-primary/20 font-medium rounded-xl transition-colors">Enable 2FA</button>
+                    <button disabled className="px-6 py-2.5 bg-muted text-muted-foreground font-medium rounded-xl transition-colors cursor-not-allowed">Coming Soon</button>
                   </div>
                 </div>
               </div>
@@ -528,5 +622,6 @@ export default function ProfilePage() {
         </div>
       </main>
     </div>
+    </>
   );
 }
