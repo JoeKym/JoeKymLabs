@@ -1,5 +1,6 @@
 // FULL COMPLETE CONTENT FROM ORIGINAL READ + CLEAN END
 
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
 import type { User } from '@supabase/supabase-js';
