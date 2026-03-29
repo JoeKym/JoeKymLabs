@@ -27,7 +27,7 @@ import {
 export default function SupportPage() {
   const faqs = [
     {
-      q: 'How do I start a project with JoeKym Labs?',
+      q: 'How do I start a project with JoeKym Labs™?',
       a: 'Visit /contact to submit an inquiry form. Include project details, budget, and timeline. We reply within 24hrs to schedule discovery call.'
     },
     {

@@ -12,9 +12,9 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden z-10 flex flex-col justify-center">
       <Helmet>
-        <title>JoeKym Labs | Award-Winning Web Development Studio</title>
+        <title>Home | JoeKym Labs™ - Award-Winning Web Development Studio</title>
         <meta name="description" content="Building scalable, high-performance web applications with React, Next.js, Tailwind CSS, and modern best practices. From startups to enterprises." />
-        <meta property="og:title" content="JoeKym Labs | Award-Winning Web Development Studio" />
+        <meta property="og:title" content="Home | JoeKym Labs™ - Award-Winning Web Development Studio" />
         <meta property="og:description" content="Building scalable, high-performance web applications with React, Next.js, and modern best practices." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://joekymlabs.com/" />
@@ -22,7 +22,7 @@ function HeroSection() {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       <div className="absolute inset-0">
-        <img src="/images/wedev-hero.jpg" alt="JoeKym Labs Hero - Modern Web Development" className="w-full h-full object-cover object-[70%_30%] img-graded animate-in zoom-in duration-1000 ease-out" />
+        <img src="/images/wedev-hero.jpg" alt="JoeKym Labs™ Hero - Modern Web Development" className="w-full h-full object-cover object-[70%_30%] img-graded animate-in zoom-in duration-1000 ease-out" />
 
 
         <div className="absolute inset-0 bg-gradient-to-b from-card/40 via-card/10 to-card/85" />
@@ -32,7 +32,7 @@ function HeroSection() {
 <span className="font-mono text-xs tracking-[0.2em] text-primary mb-4">Award-winning web development studio</span>
           <h1 className="font-headings font-bold text-5xl md:text-6xl lg:text-7xl text-foreground leading-[0.95] mb-6">JoeKym Labs™</h1>
           <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-md">
-            Building scalable, high-performance web applications with React, Next.js, Tailwind CSS, and modern best practices. From startups to enterprises, we deliver pixel-perfect digital experiences.
+            Building scalable, high-performance web applications with React, Next.js, Tailwind CSS, and modern best practices. From startups to enterprises, JoeKym Labs™ delivers pixel-perfect digital experiences.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link to="/work" className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-[12px] btn-hover shadow-primary-glow hover:shadow-primary-glow/75">View selected work</Link>

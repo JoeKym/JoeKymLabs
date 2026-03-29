@@ -7,10 +7,10 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 const projects = [
   {
-    title: "JoeKym Labs Main",
+    title: "JoeKym Labs™ Main",
     url: "https://joekymlabs.onrender.com",
     category: "Render Hosted",
-    description: "Primary portfolio and services showcase for JoeKym Labs, featuring interactive demos, case studies, and contact forms. Live production site with optimized performance.",
+    description: "Primary portfolio and services showcase for JoeKym Labs™, featuring interactive demos, case studies, and contact forms. Live production site with optimized performance.",
     tech: "React, Tailwind, Vite, Render"
   },
   {
@@ -77,10 +77,10 @@ const projects = [
     tech: "Lovable, React"
   },
   {
-    title: "JoeKym Labs (Lovable)",
+    title: "JoeKym Labs™ (Lovable)",
     url: "https://joekymlabs.lovable.app",
     category: "Lovable Built",
-    description: "Lovable-powered version of JoeKym Labs site, highlighting AI code generation.",
+    description: "Lovable-powered version of JoeKym Labs™ site, highlighting AI code generation.",
     tech: "Lovable, Tailwind"
   },
   {
@@ -114,9 +114,9 @@ export default function WorkPage() {
   return (
     <>
       <Helmet>
-        <title>Work | JoeKym Labs - Selected Projects</title>
+        <title>Work | JoeKym Labs™ - Selected Projects</title>
         <meta name="description" content="Explore our portfolio of scalable web applications, from startups to enterprises. React, Next.js, and modern web development projects." />
-        <meta property="og:title" content="Work | JoeKym Labs - Selected Projects" />
+        <meta property="og:title" content="Work | JoeKym Labs™ - Selected Projects" />
         <meta property="og:description" content="Explore our portfolio of scalable web applications and modern web development projects." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://joekymlabs.com/work" />

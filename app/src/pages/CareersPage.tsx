@@ -98,7 +98,7 @@ export default function CareersPage() {
         <div className="absolute inset-0">
           <img 
             src="/images/web-design-header.jpg" 
-            alt="Careers at JoeKym Labs" 
+            alt="Careers at JoeKym Labs™" 
             className="w-full h-full object-cover object-[30%_20%] img-graded animate-in zoom-in duration-1000" 
           />
           <div className="absolute inset-0 bg-gradient-to-b from-card/50 via-card/20 to-card/90" />
@@ -233,13 +233,13 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* Life at JoeKym Labs */}
+      {/* Life at JoeKym Labs™ */}
       <section className="py-24 lg:py-32 bg-gradient-to-br from-primary/5 to-accent/5">
         <div className="max-w-3xl mx-auto px-6 lg:px-[6vw] text-center animate-in fade-in slide-in-from-bottom-8 duration-1000">
           <blockquote className="font-headings font-semibold text-3xl md:text-4xl italic leading-relaxed mb-8">
             “We sweat the small stuff so users don’t have to.”
           </blockquote>
-          <p className="text-muted-foreground text-xl">— Life at JoeKym Labs. Collaborative, creative, performance-driven.</p>
+          <p className="text-muted-foreground text-xl">— Life at JoeKym Labs™. Collaborative, creative, performance-driven.</p>
         </div>
       </section>
 

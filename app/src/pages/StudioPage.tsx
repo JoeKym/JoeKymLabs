@@ -12,7 +12,7 @@ export default function StudioPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/10 via-purple-900/5 to-pink-900/10" />
           <img 
             src="/images/web-design-header.jpg" 
-            alt="JoeKym Labs Studio" 
+            alt="JoeKym Labs™ Studio" 
             className="w-full h-[60vh] lg:h-[70vh] object-cover opacity-70 hover:opacity-100 transition-opacity duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />

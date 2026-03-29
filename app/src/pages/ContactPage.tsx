@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Check } from 'lucide-react';
 import { supabase } from '../lib/supabaseClient';
 import { Mail, MapPin, Phone, MessageCircle } from 'lucide-react';
@@ -30,17 +31,27 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans">
-      <main className="max-w-6xl mx-auto px-6 pt-32 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          
-          <div className="animate-in fade-in slide-in-from-left-8 duration-700">
-            <header className="mb-12">
-              <h1 className="font-display font-bold text-5xl md:text-7xl mb-6">Let's Talk</h1>
-              <p className="text-muted-foreground text-lg leading-relaxed max-w-md">
-                Have a project in mind? We'd love to hear about it. Reach out via the secure form or use our direct contact links below.
-              </p>
-            </header>
+    <>
+      <Helmet>
+        <title>Contact | JoeKym Labs™ - Get in Touch</title>
+        <meta name="description" content="Contact JoeKym Labs™ for your next web development project. We create scalable, high-performance web applications." />
+        <meta property="og:title" content="Contact | JoeKym Labs™ - Get in Touch" />
+        <meta property="og:description" content="Get in touch with JoeKym Labs™ for professional web development services." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://joekymlabs.com/contact" />
+        <meta name="twitter:card" content="summary" />
+      </Helmet>
+      <div className="min-h-screen bg-background text-foreground pt-32 px-6 pb-20">
+        <main className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            
+            <div className="animate-in fade-in slide-in-from-left-8 duration-700">
+              <header className="mb-12">
+                <h1 className="font-display font-bold text-5xl md:text-7xl mb-6">Let's Talk</h1>
+                <p className="text-muted-foreground text-lg leading-relaxed max-w-md">
+                  Have a project in mind? We'd love to hear about it. Reach out via the secure form or use our direct contact links below.
+                </p>
+              </header>
 
             <div className="space-y-8">
               <div className="flex items-start gap-4">

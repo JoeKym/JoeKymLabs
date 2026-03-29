@@ -1,3 +1,5 @@
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
 interface Service {
@@ -62,17 +64,27 @@ const services: Service[] = [
 
 export default function ServicesPage() {
   return (
-    <main className="max-w-6xl mx-auto px-6 pt-32 pb-20 bg-background min-h-[70vh] text-foreground font-sans">
-      <header className="mb-20 animate-in fade-in slide-in-from-bottom-8 duration-700 text-center md:text-left">
-        <h1 className="font-display font-bold text-5xl md:text-7xl mb-6 leading-tight">
-          Our Services
-        </h1>
-        <p className="text-muted-foreground text-xl max-w-3xl mx-auto md:mx-0 leading-relaxed">
-          We build digital experiences that drive measurable outcomes.{' '}
-          <br className="hidden md:block" />
-          Clarity, performance, and scalability at every stage.
-        </p>
-      </header>
+    <>
+      <Helmet>
+        <title>Services | JoeKym Labs™ - Web Development Services</title>
+        <meta name="description" content="UI/UX Design, Frontend Engineering, and Full-Stack Development services from JoeKym Labs™. Expert React, Next.js, and modern web solutions." />
+        <meta property="og:title" content="Services | JoeKym Labs™ - Web Development Services" />
+        <meta property="og:description" content="Professional web development services including UI/UX design, frontend engineering, and full-stack development." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://joekymlabs.com/services" />
+        <meta name="twitter:card" content="summary" />
+      </Helmet>
+      <main className="max-w-6xl mx-auto px-6 pt-32 pb-20 bg-background min-h-[70vh] text-foreground font-sans">
+        <header className="mb-20 animate-in fade-in slide-in-from-bottom-8 duration-700 text-center md:text-left">
+          <h1 className="font-display font-bold text-5xl md:text-7xl mb-6 leading-tight">
+            Our Services
+          </h1>
+          <p className="text-muted-foreground text-xl max-w-3xl mx-auto md:mx-0 leading-relaxed">
+            We build digital experiences that drive measurable outcomes.{' '}
+            <br className="hidden md:block" />
+            Clarity, performance, and scalability at every stage.
+          </p>
+        </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
         {services.map((service, idx) => (
@@ -118,6 +130,7 @@ export default function ServicesPage() {
         </div>
       </div>
     </main>
+    </>
   );
 }
 

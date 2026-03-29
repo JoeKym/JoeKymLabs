@@ -185,9 +185,9 @@ export default function ProfilePage() {
   return (
     <>
       <Helmet>
-        <title>Profile | JoeKym Labs</title>
-        <meta name="description" content={`Manage your JoeKym Labs profile settings, security, and preferences. ${profile?.bio || 'Digital designer and creative developer.'}`} />
-        <meta property="og:title" content={`${profile?.full_name || profile?.username} | JoeKym Labs`} />
+        <title>Profile | JoeKym Labs™</title>
+        <meta name="description" content={`Manage your JoeKym Labs™ profile settings, security, and preferences. ${profile?.bio || 'Digital designer and creative developer.'}`} />
+        <meta property="og:title" content={`${profile?.full_name || profile?.username} | JoeKym Labs™`} />
         <meta property="og:description" content={profile?.bio || 'Digital designer and creative developer.'} />
         <meta property="og:type" content="profile" />
         <meta property="og:url" content={`https://joekymlabs.com/user/${profile?.username}`} />
