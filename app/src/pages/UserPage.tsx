@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
-import Navigation from '../components/Navigation';
 import { 
   MapPin, Link as LinkIcon, Calendar, Github, Twitter, 
   ShieldCheck, Award, Users, Heart, Grid, Activity, MessageSquare
@@ -107,11 +106,10 @@ export default function UserPage() {
   const totalLikes = projects.reduce((acc, p) => acc + (p.likes_count || 0), 0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 text-slate-900 font-sans pb-20">
-      <Navigation />
+    <div className="min-h-screen bg-background text-foreground font-sans pb-20">
       
       {/* Cover Photo Area */}
-      <div className="h-48 md:h-64 lg:h-80 w-full bg-gradient-to-br from-indigo-600/20 via-[#8B84D7]/10 to-slate-50 relative overflow-hidden mt-[88px]">
+      <div className="h-48 md:h-64 lg:h-80 w-full bg-gradient-to-br from-primary/20 via-accent/10 to-background relative overflow-hidden mt-[88px]">
         <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay"></div>
       </div>
 

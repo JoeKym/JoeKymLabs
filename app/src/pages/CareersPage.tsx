@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Navigation from '../components/Navigation';
 import { supabase } from '../lib/supabaseClient';
 import { ArrowRight, MapPin, Briefcase, Clock, BookOpen, Zap, Gift, Users } from 'lucide-react';
 
@@ -93,7 +92,6 @@ export default function CareersPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Navigation />
       
       {/* Hero: Join Us */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -322,11 +320,9 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* Footer (shared style) */}
-      <footer className="px-6 lg:px-12 py-24 border-t border-border text-center bg-card">
-        <div className="max-w-4xl mx-auto">
-          <p className="font-mono text-muted-foreground text-sm mb-12">© 2026 JoeKym Labs™ | Building with precision</p>
-        </div>
+      {/* Footer */}
+      <footer className="px-6 lg:px-12 py-12 border-t border-border text-center bg-card">
+        <p className="font-mono text-muted-foreground text-sm">© 2026 JoeKym Labs™ | Building with precision</p>
       </footer>
     </div>
   );

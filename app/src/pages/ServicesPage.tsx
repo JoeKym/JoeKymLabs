@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import Navigation from '../components/Navigation';
 
 interface Service {
   title: string;
@@ -63,7 +62,7 @@ const services: Service[] = [
 
 export default function ServicesPage() {
   return (
-    <main className="max-w-6xl mx-auto px-6 pt-32 pb-20 bg-slate-50 min-h-[70vh] text-slate-900 font-sans">
+    <main className="max-w-6xl mx-auto px-6 pt-32 pb-20 bg-background min-h-[70vh] text-foreground font-sans">
       <header className="mb-20 animate-in fade-in slide-in-from-bottom-8 duration-700 text-center md:text-left">
         <h1 className="font-display font-bold text-5xl md:text-7xl mb-6 leading-tight">
           Our Services

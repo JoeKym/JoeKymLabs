@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { supabase } from '../lib/supabaseClient';
 import { useNavigate } from 'react-router-dom';
-import Navigation from '../components/Navigation';
 
 export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
@@ -51,8 +50,7 @@ export default function AuthPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
-      <Navigation />
+    <div className="min-h-screen bg-background text-foreground flex items-center justify-center p-6">
       <main className="flex items-center justify-center px-6 pt-32 pb-20">
         <div className="w-full max-w-md bg-white shadow-sm border border-slate-200 rounded-3xl p-8 lg:p-10 backdrop-blur-md">
           <h1 className="font-display font-bold text-3xl mb-2">{isLogin ? 'Welcome Back' : 'Join JoeKym Labs'}</h1>

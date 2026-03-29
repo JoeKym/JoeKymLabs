@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
-import Navigation from '../components/Navigation';
 import { 
   User, Shield, Activity, Settings, Link as LinkIcon, 
   CreditCard, LogOut, Camera, Bell, Lock, HelpCircle, 
@@ -119,8 +118,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 text-slate-900 font-sans">
-      <Navigation />
+    <div className="min-h-screen bg-background text-foreground pt-32 px-6 pb-20">
       
       <main className="max-w-6xl mx-auto px-6 pt-32 pb-20">
         <div className="flex flex-col md:flex-row gap-8 lg:gap-12">

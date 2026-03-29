@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import Navigation from '../components/Navigation';
 import { Check, MapPin, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -131,8 +130,7 @@ export default function PricingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      <Navigation />
+    <div className="min-h-screen bg-background text-foreground pt-32 px-6 pb-20">
       <main className="max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-24">
         {/* Hero */}
         <div className="text-center mb-24 animate-in fade-in slide-in-from-top-10 duration-1000">

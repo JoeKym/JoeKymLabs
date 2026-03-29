@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Navigation from '../components/Navigation';
 import { supabase } from '../lib/supabaseClient';
 
 interface Note {
@@ -23,8 +22,7 @@ export default function NotesPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-indigo-600 selection:text-indigo-900">
-      <Navigation />
+    <div className="min-h-screen bg-background text-foreground pt-32 px-6 pb-20">
       <div className="pt-32 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
         <header className="mb-20 max-w-2xl animate-in fade-in slide-in-from-bottom-8 duration-700">
           <p className="font-mono text-xs tracking-[0.2em] uppercase text-indigo-600 mb-4">Insights</p>

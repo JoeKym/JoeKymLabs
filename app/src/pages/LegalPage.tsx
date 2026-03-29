@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Navigation from '../components/Navigation';
 
 export default function LegalPage() {
   const [activeTab, setActiveTab] = useState<'privacy' | 'terms' | 'cookies'>('privacy');
@@ -105,8 +104,7 @@ export default function LegalPage() {
   );
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans">
-      <Navigation />
+    <div className="min-h-screen bg-background text-foreground pt-32 px-6 pb-20">
       <main className="max-w-4xl mx-auto px-6 pt-32 pb-20">
         <header className="mb-12 animate-in fade-in slide-in-from-bottom-8 duration-700">
           <h1 className="font-display font-bold text-4xl md:text-5xl mb-4 bg-gradient-to-r from-indigo-600 via-slate-900 to-slate-900 bg-clip-text text-transparent">
