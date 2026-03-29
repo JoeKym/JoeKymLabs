@@ -15,6 +15,7 @@ import PricingPage from './pages/PricingPage';
 import ContactPage from './pages/ContactPage';
 import LegalPage from './pages/LegalPage';
 import SupportPage from './pages/SupportPage';
+import PhilosophyPage from './pages/PhilosophyPage';
 import './App.css';
 
 // Scroll to top on route change
@@ -62,6 +63,7 @@ function App() {
             <Route path="/pricing" element={<Layout><PricingPage /></Layout>} />
             <Route path="/contact" element={<Layout><ContactPage /></Layout>} />
             <Route path="/support" element={<Layout><SupportPage /></Layout>} />
+            <Route path="/philosophy" element={<Layout><PhilosophyPage /></Layout>} />
             <Route path="/legal" element={<Layout><LegalPage /></Layout>} />
             <Route path="/auth" element={<Layout><AuthPage /></Layout>} />
             <Route path="/profile" element={<Layout><ProfilePage /></Layout>} />

@@ -5,6 +5,12 @@ import { Shield, FileText, Cookie, Scale, ChevronRight, Mail, ExternalLink } fro
 export default function LegalPage() {
   const [activeTab, setActiveTab] = useState<'privacy' | 'terms' | 'cookies'>('privacy');
 
+  const tabs = [
+    { id: 'privacy', label: 'Privacy Policy', icon: Shield, color: 'indigo' },
+    { id: 'terms', label: 'Terms of Service', icon: FileText, color: 'emerald' },
+    { id: 'cookies', label: 'Cookie Policy', icon: Cookie, color: 'amber' },
+  ];
+
   const PrivacyPolicy = () => (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <section className="bg-gradient-to-br from-indigo-600/5 to-transparent border border-indigo-600/10 rounded-2xl p-6">

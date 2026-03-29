@@ -209,8 +209,10 @@ export default function ProfilePage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2">Full Name</label>
+                      <label htmlFor="fullName" className="block font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2">Full Name</label>
                       <input 
+                        id="fullName"
+                        name="fullName"
                         type="text" 
                         value={profile?.full_name || ''}
                         onChange={(e) => setProfile(p => p ? { ...p, full_name: e.target.value } : null)}
@@ -218,10 +220,12 @@ export default function ProfilePage() {
                       />
                     </div>
                     <div>
-                      <label className="block font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2">Username</label>
+                      <label htmlFor="username" className="block font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2">Username</label>
                       <div className="relative">
                         <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">@</span>
                         <input 
+                          id="username"
+                          name="username"
                           type="text" 
                           value={profile?.username || ''}
                           onChange={(e) => setProfile(p => p ? { ...p, username: e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, '') } : null)}
@@ -233,8 +237,10 @@ export default function ProfilePage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2">Email Address</label>
+                      <label htmlFor="email" className="block font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2">Email Address</label>
                       <input 
+                        id="email"
+                        name="email"
                         type="email" 
                         disabled 
                         value={profile?.email || ''}
@@ -242,10 +248,12 @@ export default function ProfilePage() {
                       />
                     </div>
                     <div>
-                      <label className="block font-mono text-[10px] tracking-widest uppercase text-slate-600 mb-2">Phone (Optional)</label>
+                      <label htmlFor="phone" className="block font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2">Phone (Optional)</label>
                       <div className="relative">
                         <Phone size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                         <input 
+                          id="phone"
+                          name="phone"
                           type="text" 
                           value={profile?.phone || ''}
                           onChange={(e) => setProfile(p => p ? { ...p, phone: e.target.value } : null)}
@@ -258,8 +266,10 @@ export default function ProfilePage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2">Location</label>
+                      <label htmlFor="location" className="block font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2">Location</label>
                       <input 
+                        id="location"
+                        name="location"
                         type="text" 
                         value={profile?.location || ''}
                         onChange={(e) => setProfile(p => p ? { ...p, location: e.target.value } : null)}
@@ -268,10 +278,12 @@ export default function ProfilePage() {
                       />
                     </div>
                     <div>
-                      <label className="block font-mono text-[10px] tracking-widest uppercase text-slate-600 mb-2">Website</label>
+                      <label htmlFor="website" className="block font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2">Website</label>
                       <div className="relative">
                         <Globe size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                         <input 
+                          id="website"
+                          name="website"
                           type="text" 
                           value={profile?.website || ''}
                           onChange={(e) => setProfile(p => p ? { ...p, website: e.target.value } : null)}
@@ -283,8 +295,10 @@ export default function ProfilePage() {
                   </div>
 
                   <div>
-                    <label className="block font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2">Bio / About</label>
+                    <label htmlFor="bio" className="block font-mono text-[10px] tracking-widest uppercase text-muted-foreground mb-2">Bio / About</label>
                     <textarea 
+                      id="bio"
+                      name="bio"
                       rows={4}
                       value={profile?.bio || ''}
                       onChange={(e) => setProfile(p => p ? { ...p, bio: e.target.value } : null)}
@@ -323,9 +337,9 @@ export default function ProfilePage() {
                     <h3 className="font-display font-semibold text-lg mb-1">Change Password</h3>
                     <p className="text-sm text-muted-foreground mb-4">Ensure your account is using a long, random password to stay secure.</p>
                     <div className="space-y-4 max-w-md">
-                      <input type="password" placeholder="Current Password" className="w-full bg-muted border border-border rounded-xl px-4 py-3 text-foreground outline-none focus:border-primary transition-colors" />
-                      <input type="password" placeholder="New Password" className="w-full bg-muted border border-border rounded-xl px-4 py-3 text-foreground outline-none focus:border-primary transition-colors" />
-                      <input type="password" placeholder="Confirm New Password" className="w-full bg-muted border border-border rounded-xl px-4 py-3 text-foreground outline-none focus:border-primary transition-colors" />
+                      <input id="currentPassword" name="currentPassword" type="password" placeholder="Current Password" className="w-full bg-muted border border-border rounded-xl px-4 py-3 text-foreground outline-none focus:border-primary transition-colors" />
+                      <input id="newPassword" name="newPassword" type="password" placeholder="New Password" className="w-full bg-muted border border-border rounded-xl px-4 py-3 text-foreground outline-none focus:border-primary transition-colors" />
+                      <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm New Password" className="w-full bg-muted border border-border rounded-xl px-4 py-3 text-foreground outline-none focus:border-primary transition-colors" />
                       <button className="px-6 py-2.5 bg-muted hover:bg-border text-foreground font-medium rounded-xl transition-colors">Update Password</button>
                     </div>
                   </div>
